@@ -129,8 +129,12 @@ exists; the deck at a phone viewport is the one thing here nothing checks.
 
 ## Deliberately not here
 
-- No visual rules. The brief does not ask for a restyle, and the artefact
-  criterion asks whether the site works.
+- No site-wide visual rules. The platform's theme stays on every page. The one
+  exception is the home page: its hero is the title split into its two
+  suspects, and its picture is the course's own 306 runs drawn one dot per run.
+  Anson asked for this after looking at classmates' sites, where the strong ones
+  keep the theme and put one thing of their own on the front page. It is drawn
+  in CSS with no images and no web font, and `pnpm check:payload` still holds.
 - No architecture section. The platform is fixed and `README.md` documents it.
 ## Things this platform has actually bitten me with
 
