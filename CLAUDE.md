@@ -1,4 +1,6 @@
-# SLOP2875 — Measuring Game Balance Without Players
+# SLOP2875 — Is It Me or Is It the Game?
+
+Subtitle, used on the social card: Measuring game balance without players.
 
 ## What this course argues
 
