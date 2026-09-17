@@ -1,0 +1,29 @@
+---
+title: Wei Lindqvist
+description:
+  Tutor. Runs the Thursday studios, and wrote the course's reference simulated
+  player, so knows every way in which it is wrong.
+affiliation: Slop University School of Invented Disciplines
+role: tutor
+email: wei.lindqvist@slop.university
+contact: Ask in the studio first. Email when it cannot wait until Thursday, and include the seed.
+---
+
+Wei wrote the simulated player that the lectures quote numbers from. It reacts
+about every 150 ms, aims up to nine degrees off, and walks into things a person
+would not. Wei will tell you which of your results it should not be trusted
+with.
+
+He runs every Thursday studio and marks the lab books.
+
+## Reaching him
+
+- **In the studio.** That is what it is for.
+- **Email** if something blocks you before Thursday. Include the seed, the run
+  count and the command you ran. "It gives a different number" cannot be
+  answered; "seed 97 ends at 71.2 s for me and 69.333 s in the lecture" can.
+
+## What he will not do
+
+Tell you whether your constant is the right one. He will tell you whether your
+instrument could have told you.

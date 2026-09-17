@@ -7,7 +7,7 @@ week: 5
 date: 2027-03-23
 block: Players and distributions
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 related:
   - week-04
   - sessions/05-step-one-number

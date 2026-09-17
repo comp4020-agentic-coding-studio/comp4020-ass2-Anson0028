@@ -7,7 +7,7 @@ week: 4
 date: 2027-03-18
 measures: the smallest run count at which the median moves by less than 1 s
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - median survival of your delayed player at 1, 5, 15, 51, 101 and 501 runs
   - the shortest and longest run among the 501

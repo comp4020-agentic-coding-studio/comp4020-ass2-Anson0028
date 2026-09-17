@@ -7,7 +7,7 @@ week: 11
 date: 2027-05-20
 measures: the share of 51 runs that gets past each boss, for three players of different skill
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 spec:
   - three simulated players that differ in at least reaction time, each described in a sentence
   - for each, how many of 51 runs get past the first boss, the second boss, and win

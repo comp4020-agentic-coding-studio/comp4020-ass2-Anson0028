@@ -7,7 +7,7 @@ week: 3
 date: 2027-03-09
 block: Players and distributions
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 reading:
   authors: Aaron Isaksen, Dan Gopstein and Andy Nealen
   title: Exploring Game Space Using Survival Analysis

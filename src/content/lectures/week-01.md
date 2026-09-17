@@ -7,7 +7,7 @@ week: 1
 date: 2027-02-23
 block: The instrument
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 slides: /decks/week-01/
 reading:
   authors: Mark J. Nelson

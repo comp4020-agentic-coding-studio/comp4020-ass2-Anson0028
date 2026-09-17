@@ -7,7 +7,7 @@ week: 2
 date: 2027-03-02
 block: The instrument
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 related:
   - week-01
   - sessions/02-one-headless-run

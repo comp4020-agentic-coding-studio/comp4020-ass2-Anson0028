@@ -7,7 +7,7 @@ week: 9
 date: 2027-05-04
 block: The edges of measurement
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 reading:
   authors: Stefan Freyr Gudmundsson, Philipp Eisen, Erik Poromaa, Alex Nodet, Sami Purmonen, Bartlomiej Kozakowski, Richard Meurling and Lele Cao
   title: Human-Like Playtesting with Deep Learning

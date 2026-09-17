@@ -7,7 +7,7 @@ week: 4
 date: 2027-03-16
 block: Players and distributions
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 related:
   - week-03
   - sessions/04-how-many-runs

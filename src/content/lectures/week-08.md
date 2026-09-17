@@ -7,7 +7,7 @@ week: 8
 date: 2027-04-27
 block: Options and gates
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 related:
   - week-07
   - sessions/08-break-the-game

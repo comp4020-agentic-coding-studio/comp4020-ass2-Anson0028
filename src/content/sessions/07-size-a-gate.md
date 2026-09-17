@@ -7,7 +7,7 @@ week: 7
 date: 2027-04-22
 measures: the health in hp of a boss that stops players holding fewer than ten upgrades
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 spec:
   - damage per second of a player holding ten upgrades, measured and not assumed
   - the boss health that follows from it for a 26 s window, with the multiplication shown

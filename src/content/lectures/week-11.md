@@ -7,7 +7,7 @@ week: 11
 date: 2027-05-18
 block: Different players
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 reading:
   authors: Shaghayegh Roohi, Asko Relas, Jari Takatalo, Henri Heiskanen and Perttu Hämäläinen
   title: Predicting Game Difficulty and Churn Without Players

@@ -8,7 +8,7 @@ week: 6
 date: 2027-03-30
 block: Options and gates
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 reading:
   authors: Alexander Jaffe, Alex Miller, Erik Andersen, Yun-En Liu, Anna Karlin and Zoran Popović
   title: Evaluating Competitive Game Balance with Restricted Play

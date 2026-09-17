@@ -7,7 +7,7 @@ week: 9
 date: 2027-05-06
 measures: spread of your metric between best and worst build, against its spread between two seed sets
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 spec:
   - your main metric for the best and the worst build you have found, 51 runs each
   - the same metric for one build on two different sets of 51 seeds

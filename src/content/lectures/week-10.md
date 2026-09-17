@@ -7,7 +7,7 @@ week: 10
 date: 2027-05-11
 block: The edges of measurement
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 related:
   - week-09
   - sessions/10-play-it

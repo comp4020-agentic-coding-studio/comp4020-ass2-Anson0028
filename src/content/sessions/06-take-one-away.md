@@ -7,7 +7,7 @@ week: 6
 date: 2027-04-01
 measures: wins lost out of 51 when each of seven cards is banned
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - a baseline of wins out of 51 with ordinary card choices
   - seven more rows, one per card, with that card never taken

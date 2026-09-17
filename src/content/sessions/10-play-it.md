@@ -7,7 +7,7 @@ week: 10
 date: 2027-05-13
 measures: the number of findings from ten minutes of play that no simulation of yours could have produced
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - a dated list of what you noticed in ten minutes of play, written while playing
   - each item marked as something your instrument could or could not have shown

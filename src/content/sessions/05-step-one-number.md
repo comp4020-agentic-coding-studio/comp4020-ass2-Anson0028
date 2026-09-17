@@ -7,7 +7,7 @@ week: 5
 date: 2027-03-25
 measures: wins out of 51 and median survival at six evenly spaced values of one constant
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 spec:
   - one constant from the rules, stepped evenly across six values in your own fork
   - wins out of 51 and median survival at each value, from the same seeds

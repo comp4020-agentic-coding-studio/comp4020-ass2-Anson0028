@@ -7,7 +7,7 @@ week: 7
 date: 2027-04-20
 block: Options and gates
 teachers:
-  - marisol-quaye
+  - tamsin-okoro
 related:
   - week-06
   - sessions/07-size-a-gate

@@ -7,7 +7,7 @@ week: 2
 date: 2027-03-04
 measures: wall time of one simulated run, in ms
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - one seeded run of Close Quarters completed with no browser open
   - its wall time in ms, how it ended, and the second it ended on

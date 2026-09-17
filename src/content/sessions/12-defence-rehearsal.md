@@ -7,7 +7,7 @@ week: 12
 date: 2027-05-27
 measures: one constant, its old and new value, and wins out of 51 before and after
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - one constant, its old value and its new value
   - wins out of 51 and median survival before and after, for at least two kinds of player

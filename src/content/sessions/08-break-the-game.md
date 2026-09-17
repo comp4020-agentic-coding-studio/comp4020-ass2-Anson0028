@@ -7,7 +7,7 @@ week: 8
 date: 2027-04-29
 measures: median survival and wins out of 51 for three degenerate strategies
 teachers:
-  - idris-fenn
+  - wei-lindqvist
 spec:
   - three strategies nobody would call playing properly, each as a policy function
   - median survival and wins out of 51 for each, beside the intended strategy
