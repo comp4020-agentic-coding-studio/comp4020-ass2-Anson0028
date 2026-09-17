@@ -11,3 +11,20 @@
  * slide class you reach for (`_class: quote`), a code-heavy layout, a
  * background. */
 @import url("astro-theme-university/styles/deck.css");
+
+@media (max-width: 600px) and (orientation: portrait) {
+  :root {
+    --r-main-font-size: 4rem;
+    --r-heading1-size: 6.5rem;
+    --r-heading2-size: 4.75rem;
+    --at-slide-padding: 3rem 3.5rem;
+  }
+
+  .reveal,
+  .reveal .slides section,
+  .reveal .slides section p,
+  .reveal .slides section li {
+    font-size: 4rem;
+    line-height: 1.25;
+  }
+}
