@@ -114,6 +114,16 @@ describe("few readings, all of them traceable", () => {
 });
 
 describe("assessment", () => {
+  it("is a chain: each piece that consumes another names one that is due earlier", () => {
+    const links = assessments.filter((a) => a.meta?.consumes);
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const later of links) {
+      const earlier = assessments.find((a) => a.id === `assessments/${String(later.meta?.consumes)}`);
+      expect(earlier, `${later.id} consumes something that does not exist`).toBeDefined();
+      expect(String(earlier?.meta?.due) < String(later.meta?.due), `${later.id} is due before what it consumes`).toBe(true);
+    }
+  });
+
   it("adds up to 100", () => {
     const total = assessments.reduce((sum, a) => sum + Number(a.meta?.weight ?? 0), 0);
     expect(total).toBe(100);

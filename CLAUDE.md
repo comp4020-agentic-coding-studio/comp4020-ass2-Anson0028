@@ -28,7 +28,10 @@ measured?"
    links are declared in `related:` so the build can see them.
 3. Every studio ends with a number the student produced. This course is about
    measurement; a studio that ends in a discussion has taught taste again.
-4. Assessments reward a defended number, not a finished game.
+4. Assessments reward a defended number, not a finished game, and each one is
+   built from the one before: a curve, then a point on it and what else moved,
+   then the defence. The idea of chaining them came from a classmate's course
+   (Dunkelflaute); what gets chained is mine.
 5. The scope is narrow on purpose. Single-player games only, simulation only.
    Multiplayer balance and human playtesting are other courses; "game balance"
    without those limits is a course a real curriculum committee would wave
@@ -49,6 +52,7 @@ measured?"
 | No two lecture titles share a content word | `spec/course.test.ts` › titles |
 | Every lecture names a quantity with a unit | `spec/course.test.ts` › measurable |
 | Assessment weights total 100 | `spec/course.test.ts` › weights |
+| Assessments are a chain: a piece that `consumes:` another names one due earlier | `spec/course.test.ts` › is a chain |
 | Every studio says what it measures (`measures:`) | `spec/course.test.ts` › studios end in a number |
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
