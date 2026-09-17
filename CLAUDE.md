@@ -5,7 +5,8 @@
 I'm building a persuasive, hands-on course that teaches balance in
 single-player games as a measurement problem solved by simulation, aimed at
 people who make or mod games and believe balance is a matter of taste: tweak
-the numbers until it feels right. Nobody plays anything until week ten, and
+the numbers until it feels right. The whole semester measures one specimen,
+Close Quarters, a two-minute survival game. Nobody plays it until week ten, and
 week ten is where the course admits what simulation cannot see. The course argues
 through what a course website affords: the order of the twelve weeks, what each
 studio asks students to measure, what the assessments reward, and the one deck.
@@ -48,7 +49,8 @@ measured?"
 | No two lecture titles share a content word | `spec/course.test.ts` › titles |
 | Every lecture names a quantity with a unit | `spec/course.test.ts` › measurable |
 | Assessment weights total 100 | `spec/course.test.ts` › weights |
-| At most six readings, each with a title and a URL | `spec/course.test.ts` › readings (to write) |
+| Every studio says what it measures (`measures:`) | `spec/course.test.ts` › studios end in a number |
+| At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
 
 A rule with no check is not in this table. It goes in the next section, and
@@ -124,4 +126,11 @@ exists; the deck at a phone viewport is the one thing here nothing checks.
 - No visual rules. The brief does not ask for a restyle, and the artefact
   criterion asks whether the site works.
 - No architecture section. The platform is fixed and `README.md` documents it.
-- No list of platform gotchas yet. One gets added when it has actually bitten.
+## Things this platform has actually bitten me with
+
+- A week links back to the week before it, never forward. `related:` renders on
+  both pages either way, but the build fails on a ref to a page that does not
+  exist yet, and weeks get written one or two at a time.
+- Every number about Close Quarters on the site was measured from its
+  `rules.ts` on the day it was written. Re-measure before quoting one; the game
+  has changed since the numbers in my head were true.
