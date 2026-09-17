@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { readFileSync, readdirSync } from "node:fs";
+import { join, relative, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 interface ApiNode {
@@ -109,6 +109,36 @@ describe("few readings, all of them traceable", () => {
       expect(reading?.authors, `${id} reading authors`).toBeTruthy();
       expect(reading?.title, `${id} reading title`).toBeTruthy();
       expect(reading?.url, `${id} reading url`).toMatch(/^https?:\/\//);
+    }
+  });
+});
+
+describe("nothing left over from the starter", () => {
+  const STARTER_PHRASES = [
+    "Replace this",
+    "replace me",
+    "site-config.ts",
+    "collection and URL stay",
+    "the course claims to run",
+    "Course Title Goes Here",
+    "placeholder",
+  ];
+
+  const htmlFiles = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) return entry.name === "pagefind" || entry.name === "api" ? [] : htmlFiles(path);
+      return entry.name.endsWith(".html") ? [path] : [];
+    });
+
+  it("finds no starter prose on any built page outside the deck", () => {
+    const pages = htmlFiles(resolve("dist")).filter((path) => !relative(resolve("dist"), path).startsWith("decks"));
+    expect(pages.length).toBeGreaterThan(20);
+    for (const page of pages) {
+      const text = readFileSync(page, "utf8").replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ");
+      for (const phrase of STARTER_PHRASES) {
+        expect(text.includes(phrase), `${relative(resolve("dist"), page)} still says "${phrase}"`).toBe(false);
+      }
     }
   });
 });
