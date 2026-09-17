@@ -1,30 +1,63 @@
 ---
-title: Opening lecture
+title: Balance claims as predictions
 description:
-  The first lecture — what the course is, why it is shaped this way, and what
-  happens in week 1
+  A complaint about balance is a prediction nobody has written down. This week
+  you write three down, with numbers, about a game you are not allowed to play.
 week: 1
-date: 2027-02-22
+date: 2027-02-23
+block: The instrument
 teachers:
   - marisol-quaye
 slides: /decks/week-01/
+reading:
+  authors: Mark J. Nelson
+  title: "Game Metrics Without Players: Strategies for Understanding Game Artifacts"
+  venue: AIIDE workshop, 2011
+  url: https://ojs.aaai.org/index.php/AIIDE/article/view/12479
 related:
-  - sessions/01-getting-started
+  - sessions/01-three-predictions
 ---
 
-<!-- STARTER_CONTENT: replace this lecture, then remove this comment. -->
+"The boss is too hard" is not an opinion. It is a prediction that nobody has
+written down yet.
 
-Replace this page. A lecture entry says what was covered and links to the pages
-that own the detail, so the lecture stays short and nothing is explained twice.
+## The claim
 
-The `related:` ref above is a graph edge: it renders on this page and on the
-session's, so declare a connection once, on whichever side is convenient.
+Every balance argument hides a number. "Too hard" means fewer players get past
+this point than the designer meant to let through. Until someone says how many,
+and out of how many, the argument cannot be lost, and an argument nobody can
+lose is not worth having.
 
-The page renders its `slides:` link automatically. Decks are markdown too,
-under `src/decks/`; the path is part of the lecture's API metadata.
+Written down, it can be wrong. That is the whole point of writing it down.
 
-## Outline
+## The specimen
 
-- what the course is for
-- how the weeks are shaped
-- what to do before the first session
+This course has one game in it for twelve weeks:
+[Close Quarters](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts),
+a survival game where a run lasts 120 s, the first boss arrives at 40 s, and it
+has to be dead 26 s later or the run ends. That link goes to its rules, not to
+the game. You will not play it until week ten.
+
+Here is an opinion about it: _you can skip the upgrades and still get through
+the first boss._
+
+Here is the same thing as a prediction: _a player who takes no upgrades is
+still alive after 66 s in at least 1 run out of 15._
+
+Measured: 0 out of 15. The fifteen runs took 63 ms between them. The opinion
+was wrong, and finding out cost less time than reading this sentence.
+
+## Reading for weeks 1 and 2
+
+Mark J. Nelson,
+[Game Metrics Without Players: Strategies for Understanding Game Artifacts](https://ojs.aaai.org/index.php/AIIDE/article/view/12479)
+(AIIDE workshop, 2011).
+
+Nelson argues that a game does not have to be treated as a black box that only
+players can open. Read it across these two weeks; it is the reason this course
+is allowed to exist.
+
+## What you leave with
+
+Three predictions about Close Quarters, each with a number, a unit and a run
+count. Week two builds the thing that tests them.
