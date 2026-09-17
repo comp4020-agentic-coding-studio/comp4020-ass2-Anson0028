@@ -1,22 +1,79 @@
 ---
 import { getPublishedCollection } from "astro-course-university/content";
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import { formatCourseDate } from "../lib/dates";
 
 const sessions = await getPublishedCollection("sessions");
 const visible = sessions.sort((a, b) => a.data.week - b.data.week);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<CardGrid columns={2}>
-  {
-    visible.map((session) => (
-      <Card headingLevel="h2" title={session.data.title} href={`/sessions/${session.id}/`}>
-        {session.data.description && <p>{session.data.description}</p>}
-        <p>
-          <small>Week {session.data.week} · {formatCourseDate(session.data.date)}</small>
-        </p>
-      </Card>
-    ))
+<table class="studios">
+  <thead>
+    <tr>
+      <th scope="col">Week</th>
+      <th scope="col">Studio</th>
+      <th scope="col">You leave with</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      visible.map((session) => (
+        <tr>
+          <td>
+            {session.data.week}
+            <small>{formatCourseDate(session.data.date)}</small>
+          </td>
+          <th scope="row">
+            <a href={`${base}/sessions/${session.id}/`}>{session.data.title}</a>
+          </th>
+          <td>{(session.data as { measures?: string }).measures}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  .studios {
+    width: 100%;
+    border-collapse: collapse;
   }
-</CardGrid>
+
+  .studios th,
+  .studios td {
+    padding: 0.6rem 0.75rem 0.6rem 0;
+    text-align: start;
+    vertical-align: top;
+    border-bottom: 1px solid var(--at-divider);
+  }
+
+  .studios thead th {
+    color: var(--at-text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .studios small {
+    display: block;
+    color: var(--at-text-secondary);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 36rem) {
+    .studios thead {
+      display: none;
+    }
+
+    .studios tr {
+      display: grid;
+      padding-block: 0.6rem;
+      border-bottom: 1px solid var(--at-divider);
+    }
+
+    .studios th,
+    .studios td {
+      padding: 0.1rem 0;
+      border: 0;
+    }
+  }
+</style>
