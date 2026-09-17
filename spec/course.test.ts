@@ -85,6 +85,34 @@ describe("a course about measurement", () => {
   });
 });
 
+describe("studios end in a number", () => {
+  it("says what each studio measures", () => {
+    expect(studios.length).toBeGreaterThan(0);
+    for (const studio of studios) {
+      expect(String(studio.meta?.measures ?? "").trim(), `${studio.id} measures nothing`).not.toBe("");
+    }
+  });
+});
+
+describe("few readings, all of them traceable", () => {
+  const readings = lectures
+    .map((lecture) => ({ id: lecture.id, reading: lecture.meta?.reading as Record<string, string> | undefined }))
+    .filter((entry) => entry.reading);
+
+  it("has at least one and at most six", () => {
+    expect(readings.length).toBeGreaterThanOrEqual(1);
+    expect(readings.length).toBeLessThanOrEqual(6);
+  });
+
+  it("gives every reading authors, a title and a URL", () => {
+    for (const { id, reading } of readings) {
+      expect(reading?.authors, `${id} reading authors`).toBeTruthy();
+      expect(reading?.title, `${id} reading title`).toBeTruthy();
+      expect(reading?.url, `${id} reading url`).toMatch(/^https?:\/\//);
+    }
+  });
+});
+
 describe("assessment", () => {
   it("adds up to 100", () => {
     const total = assessments.reduce((sum, a) => sum + Number(a.meta?.weight ?? 0), 0);
