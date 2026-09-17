@@ -30,5 +30,5 @@ export const siteConfig = defineSiteConfig({
 
   licence: "CC-BY-NC-SA-4.0",
   socialImage: "/src/assets/images/card.png",
-  socialImageAlt: `A preview card for ${courseMeta.code}: ${courseMeta.title}`,
+  socialImageAlt: `${courseMeta.code}: ${courseMeta.title}. A bar chart of wins out of 51 runs at six reaction times: 38, 12, 2, 0, 0, 0.`,
 });

@@ -2,45 +2,123 @@
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
-import heroImage from "../assets/images/hero-home.avif";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
 
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
+const curve = [
+  { ms: 50, wins: 38 },
+  { ms: 100, wins: 12 },
+  { ms: 150, wins: 2 },
+  { ms: 200, wins: 0 },
+  { ms: 250, wins: 0 },
+  { ms: 300, wins: 0 },
+];
+const RUNS = 51;
+const BAR_W = 56;
+const GAP = 24;
+const CHART_H = 160;
+const chartWidth = curve.length * (BAR_W + GAP) - GAP;
+
+const blocks = [
+  { weeks: "1–2", name: "The instrument", href: "/lectures/week-01/", line: "Turn an opinion into a prediction, and make the game run with no screen." },
+  { weeks: "3–5", name: "Players and distributions", href: "/lectures/week-03/", line: "A player with a reaction time, 51 runs at a time, and dials that do not respond evenly." },
+  { weeks: "6–8", name: "Options and gates", href: "/lectures/week-06/", line: "What each choice is worth, how big a wall has to be, and who wins by not playing properly." },
+  { weeks: "9–10", name: "The edges of measurement", href: "/lectures/week-09/", line: "How the instrument lies without going red. Then you finally play the game." },
+  { weeks: "11–12", name: "Different players", href: "/lectures/week-11/", line: "The same boss stops 1 player in 51 or 41 in 51. Pick a number and defend it." },
+];
 ---
 
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
   description={courseMeta.description}
-  heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
   {...siteConfig}
 >
   <ul class="course-tags" aria-label="Course tags">
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
+  <p class="lede">
+    “The boss is too hard” is not an opinion. It is a prediction nobody has
+    written down yet.
+  </p>
+
+  <figure class="curve">
+    <svg
+      viewBox={`0 0 ${chartWidth} ${CHART_H + 44}`}
+      role="img"
+      aria-label={`Wins out of ${RUNS} runs for a simulated player at six reaction times: ${curve.map((p) => `${p.ms} milliseconds, ${p.wins} wins`).join("; ")}.`}
+    >
+      {curve.map((point, i) => {
+        const h = Math.max(2, (point.wins / RUNS) * CHART_H);
+        const x = i * (BAR_W + GAP);
+        return (
+          <g>
+            <rect x={x} y={CHART_H - h} width={BAR_W} height={h} rx="3" />
+            <text class="value" x={x + BAR_W / 2} y={CHART_H - h - 8} text-anchor="middle">{point.wins}</text>
+            <text class="label" x={x + BAR_W / 2} y={CHART_H + 24} text-anchor="middle">{point.ms} ms</text>
+          </g>
+        );
+      })}
+    </svg>
+    <figcaption>
+      One game, one dial, six even steps of 50 ms in a simulated player's
+      reaction time. Wins out of {RUNS}. The first step costs 26 wins. The
+      fourth costs none. <a href={`${import.meta.env.BASE_URL}lectures/week-05/`.replace(/\/\//g, "/")}>Week 5</a> is about why.
+    </figcaption>
+  </figure>
+
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    Spend twelve weeks measuring one small game, <em>Close Quarters</em>, a
+    two-minute survival run with seven upgrades and two bosses. You will pull
+    its rules away from its screen, write players that stand in for people, run
+    it 51 times in a sixth of a second, and learn to read what comes back as a
+    distribution instead of an anecdote.
+  </p>
+  <p>
+    You will not play it until week ten. By then you will have nine weeks of
+    predictions on paper, and the game gets to surprise you in a way you can
+    write down.
+  </p>
+  <p>
+    You leave with one number: a change to one constant in that game, and a
+    ten-minute case for it that three sceptical classmates could check.
   </p>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    People who make or mod games and are tired of balance arguments that nobody
+    can lose. You need to be able to read and edit a few hundred lines of
+    TypeScript. You do not need statistics beyond a median, and you do not need
+    to be good at the game.
   </p>
+  <p>
+    It is a narrow course on purpose: single-player games only, simulation
+    only. Multiplayer balance and playtesting with real people are different
+    subjects, and week ten is honest about what that leaves out.
+  </p>
+
+  <h2>The semester in five blocks</h2>
+  <ol class="blocks">
+    {blocks.map((block) => (
+      <li>
+        <span class="weeks">Weeks {block.weeks}</span>
+        <a href={`${import.meta.env.BASE_URL}${block.href}`.replace(/\/\//g, "/")}>{block.name}</a>
+        <span class="line">{block.line}</span>
+      </li>
+    ))}
+  </ol>
 
   <h2>Where to go next</h2>
   <CardGrid columns={2}>
+    <Card title="Lectures" href="/lectures/">
+      <p>Twelve weeks, one claim a week, every one of them about the same game.</p>
+    </Card>
     <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
+      <p>What you measure each Thursday, and the number you leave with.</p>
     </Card>
     <Card title="Assessment" href="/assessments/">
-      <p>What is marked, what it is worth, and when it is due.</p>
+      <p>Four pieces that feed each other: a curve, a point on it, a lab book, a defence.</p>
     </Card>
     <Card title="People" href="/people/">
       <p>Who teaches the course and how to reach them.</p>
@@ -64,5 +142,82 @@ import { sessionLabels, siteConfig } from "../site-config";
     color: var(--at-text-secondary);
     background: var(--at-bg-alt);
     font-size: 0.9rem;
+  }
+
+  .lede {
+    font-size: 1.35rem;
+    line-height: 1.45;
+    max-width: 34ch;
+  }
+
+  .curve {
+    margin: 2rem 0 2.5rem;
+  }
+
+  .curve svg {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    overflow: visible;
+  }
+
+  .curve rect {
+    fill: var(--at-primary);
+  }
+
+  .curve .value {
+    fill: var(--at-text);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .curve .label {
+    fill: var(--at-text-secondary);
+    font-size: 13px;
+  }
+
+  .curve figcaption {
+    margin-top: 0.75rem;
+    max-width: 34rem;
+    color: var(--at-text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .blocks {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .blocks li {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    column-gap: 1rem;
+  }
+
+  .blocks .weeks {
+    grid-row: span 2;
+    color: var(--at-text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .blocks a {
+    font-weight: 600;
+  }
+
+  .blocks .line {
+    color: var(--at-text-secondary);
+  }
+
+  @media (max-width: 30rem) {
+    .blocks li {
+      grid-template-columns: 1fr;
+    }
+
+    .blocks .weeks {
+      grid-row: auto;
+    }
   }
 </style>
