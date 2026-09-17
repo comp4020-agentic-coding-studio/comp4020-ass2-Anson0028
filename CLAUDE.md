@@ -67,10 +67,53 @@ says why it is held by hand.
 - The deck at both marking viewports. The build compiles decks but nothing
   checks that a slide fits.
 
+## Carried forward from earlier weeks
+
+These are rules about how I work, learned in Assignment 1, crit 4 and crit 5.
+They are short here because this file is read on every turn; the long forms,
+with the incidents behind them, are in
+[crit 5's CLAUDE.md](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/CLAUDE.md).
+
+This section was added late. The A2 harness was first written from scratch, and
+the omission was caught by Anson asking, not by any check. The earlier repos
+were set up through the course's `start` skill, which merges the old harness
+as one of its steps; this repo was cloned by hand, the session had changed
+model and been summarised since crit 5, and nothing failed when the step was
+skipped. See the first rule.
+
+- **A rule is not a rule until something fails when it is broken.** A1's
+  CLAUDE.md described touch input that was never built, and 47 passing tests
+  never noticed. This is why the rules above sit in a table beside their checks.
+- **An assertion goes green most easily when its subject is absent.** I don't
+  trust a check I haven't watched fail. Here: the weights check passed on day
+  one only because the starter's placeholders happen to sum to 100.
+- **Measure the baseline before changing anything,** and write down what was
+  already true, so a later green is known to mean something changed.
+- **Name what only a person can judge, then go and judge it.** Crit 4: four
+  instruments passed every check and sounded like one note. Here it is the
+  "held by hand" section.
+- **PROCESS.md uses my facts, not a plausible reconstruction.** If a beat is
+  missing, ask Anson or leave it out. He defends every claim out loud at the
+  retro.
+- **Harness changes get their own commit,** straight after the commit that
+  taught the lesson, with a message that names the lesson.
+- **pnpm brings its own Node.** `pnpm dev` here picked up the system's Node 20
+  and Astro refused to start; run through `mise exec`.
+
+Not carried: the key-event ownership rule (an interaction rule; this is a
+content site), and everything about harps and survival arenas.
+
+Sensors: `check-payload` comes across, retargeted from "the whole of dist" to
+"what one page makes a visitor download", because this site has twenty pages
+and a visitor loads one. `check-a11y` stays behind, since this platform's build
+already runs axe on every page. `check-viewports` stays behind until the deck
+exists; the deck at a phone viewport is the one thing here nothing checks.
+
 ## How to work here
 
 - One or two weeks of content per change. Never generate all twelve at once:
   the weeks come back repeating each other, and the history becomes one commit.
+- A new deliverable starts by carrying the harness forward, before any content.
 - Run `pnpm check` before accepting anything.
 - A change to this file or to `spec/` gets its own commit, straight after the
   commit that taught the lesson.
