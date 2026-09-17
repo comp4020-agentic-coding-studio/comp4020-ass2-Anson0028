@@ -48,16 +48,16 @@ export const slopCourseMetaSchema = z
 // digit to your course's level (and `level` to match); keep the other three.
 export const courseMeta = slopCourseMetaSchema.parse({
   code: "SLOP2875",
-  title: "Measuring Game Balance Without Players",
+  title: "Is It Me or Is It the Game?",
   session: "Semester 1",
   year: 2027,
   level: 2,
   startDate: "2027-02-22",
   endDate: "2027-05-28",
   description:
-    "Most balance arguments are arguments about taste. This course treats every " +
-    "balance decision in a single-player game as a hypothesis you can test by " +
-    "simulation: build the instrument, simulate the players, read the distribution, " +
-    "defend one number. Nobody plays anything until week ten.",
+    "You died to the boss again. Either you are too slow or the boss is too big, " +
+    "and arguing will not settle it. This course finds out by simulation, in " +
+    "one single-player game: build the instrument, simulate the players, read the " +
+    "distribution, defend one number. Nobody plays anything until week ten.",
   tags: ["game design", "measurement", "simulation"],
 }) satisfies CourseMetaInput;
