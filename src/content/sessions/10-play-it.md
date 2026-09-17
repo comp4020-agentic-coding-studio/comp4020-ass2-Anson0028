@@ -26,6 +26,10 @@ Play for ten minutes with a notebook open. Write as you go and do not tidy it
 up. "I didn't know what the bar was." "I keep walking past the orbs." "I stood
 still and nothing died." That register.
 
+If ten minutes of fast play is a barrier, do the observer's version set out in
+the [policies](/policies/): sit beside someone who is playing and write the
+list from what you see. It is marked the same way.
+
 Then go down the list with a neighbour and mark each line: could my
 simulation have produced this? Most of the interesting ones are a no.
 
