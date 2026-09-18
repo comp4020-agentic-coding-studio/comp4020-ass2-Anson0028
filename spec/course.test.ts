@@ -82,6 +82,14 @@ describe("a course about measurement", () => {
     expect(new Set(sentences).size).toBe(sentences.length);
   });
 
+  it("lets every deck lead back to the week it belongs to", () => {
+    for (const lecture of lectures) {
+      const slug = String(lecture.meta?.slides ?? "").replace(/^\/decks\/|\/$/g, "");
+      const deck = readFileSync(resolve("dist", "decks", slug, "index.html"), "utf8");
+      expect(deck.includes(`lectures/${slug}/`), `the ${slug} deck has no link back to its lecture page`).toBe(true);
+    }
+  });
+
   it("gives every week a deck of its own", () => {
     for (const lecture of lectures) {
       expect(String(lecture.meta?.slides ?? ""), `week ${lecture.meta?.week} has no slides`).toMatch(/^\/decks\/week-\d\d\/$/);
