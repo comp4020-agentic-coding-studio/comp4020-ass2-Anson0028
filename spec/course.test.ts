@@ -145,6 +145,8 @@ describe("nothing left over from the starter", () => {
     "the course claims to run",
     "Course Title Goes Here",
     "placeholder",
+    "leaves room for a response",
+    "Written so a reader can tell",
   ];
 
   const htmlFiles = (dir: string): string[] =>
