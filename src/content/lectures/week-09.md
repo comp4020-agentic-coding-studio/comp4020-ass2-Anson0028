@@ -33,9 +33,9 @@ told two things apart.
 
 ## Three ways the specimen's instrument saturated
 
-**A ceiling.** The first simulated player had no reaction time and won 15 runs
-out of 15 with every build it was given, including builds that were doing
-nothing ([`c34ed0b`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/commit/c34ed0b)).
+**A ceiling.** The first simulated player had no reaction time and, on the
+game as it was then, won 15 runs out of 15 with every build it was given,
+including builds that were doing nothing ([`c34ed0b`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/commit/c34ed0b)).
 Every card looked equally good because nothing could look bad.
 
 **A floor.** Give the player extra damage and refuse every other card: median

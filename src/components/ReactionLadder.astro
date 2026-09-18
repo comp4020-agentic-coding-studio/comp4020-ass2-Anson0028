@@ -74,7 +74,7 @@ const RUNS = 51;
       status.textContent = `${rows.length * 51} runs in ${seconds} s. ${
         same
           ? "The same six numbers the page printed."
-          : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row.`
+          : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row, which was measured in Node and not in a browser.`
       } Now try new seeds.`;
     } else {
       const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i]}–${high[i]}`).join(", ");

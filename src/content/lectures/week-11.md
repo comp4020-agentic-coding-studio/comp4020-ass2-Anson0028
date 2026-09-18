@@ -1,14 +1,14 @@
 ---
 title: Every boss is easy for somebody
 description:
-  Difficulty is not one number. The same first boss stops 1 player in 51 or 41
-  in 51, depending on who is holding the controls.
+  Difficulty is not one number. The same first boss lets 50 players in 51 past,
+  or 10 in 51, depending on who is holding the controls.
 week: 11
 date: 2027-05-18
 slides: /decks/week-11/
 block: Different players
 suspect: me
-bearing: "It is always both. The same boss stops 1 player in 51 or 41 in 51, and the design decides which players it is willing to lose."
+bearing: "It is always both. The same boss lets 50 players in 51 past, or 10 in 51, and the design decides which players it is willing to lose."
 teachers:
   - tamsin-okoro
 reading:
@@ -42,7 +42,7 @@ Ordinary card choices, 51 runs each. Only the reaction time changes.
 | 250 ms | 45 | 11 | 0 | 0 |
 | 300 ms | 41 | 10 | 1 | 0 |
 
-Read across a row and you get one player's semester. Read down a column and
+Read across a row and you get one player's way through the game. Read down a column and
 you get what a gate does to a crowd. The first boss lets through 50 of the
 fastest players and 10 of the slowest. For the 200 ms player, 33 runs out of
 51 end at or before it: two thirds of that audience never sees the second
@@ -59,7 +59,7 @@ Shaghayegh Roohi and colleagues,
 
 They predict which levels of a shipped mobile game lose players, using
 simulated players and a model of a population with different skill and
-patience. It is this week's table at the scale of a real tutorial.
+patience. It is this week's table at the scale of a real studio's game.
 
 ## What you leave with
 
