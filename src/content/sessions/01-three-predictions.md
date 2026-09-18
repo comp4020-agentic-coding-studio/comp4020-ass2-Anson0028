@@ -7,7 +7,7 @@ week: 1
 date: 2027-02-25
 measures: three predictions, each with a number, a unit and a run count
 teachers:
-  - tamsin-okoro
+  - wei-lindqvist
 spec:
   - three balance claims about Close Quarters, each rewritten with a number and a unit
   - each one says how many runs it is about and what result would prove it wrong

@@ -7,7 +7,7 @@ week: 3
 date: 2027-03-11
 measures: wins out of 15 for a perfect player and for a delayed one
 teachers:
-  - tamsin-okoro
+  - wei-lindqvist
 spec:
   - two policies for Close Quarters, each a function from the run's state to a direction
   - one of them re-decides no more often than every 150 ms
