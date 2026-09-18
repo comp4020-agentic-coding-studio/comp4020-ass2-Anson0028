@@ -64,6 +64,11 @@ measured?"
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
 | Every week has a deck of its own | `spec/course.test.ts` › a deck of its own |
+| Every week says which side of the title's question it measures, three weeks each for "me" and "the game" | `spec/course.test.ts` › which suspect |
+| Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
+| No starter prose on any built page | `spec/course.test.ts` › no starter prose |
+| Every built page has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
+| No page costs a visitor more than 3 s at 400 kbit/s | `pnpm check:payload` |
 | Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
@@ -79,6 +84,15 @@ says why it is held by hand.
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
   that was verified to exist, and gets opened by Anson before it goes on a page.
+
+- Whether a first-time reader can tell what a thing is. Three times in one
+  evening every check was green and Anson, reading as a stranger, was stopped:
+  a hero with no subtitle, a chart shown before it was explained, and a tag
+  that said "the instrument" and was read as a musical one. Read each page
+  cold before it ships.
+- Whether pages agree with each other. The tutorials alternated between two
+  teachers while one staff page said he runs all of them. Two names in twelve
+  slots is a pattern an agent fills in without being asked.
 
 ## Carried forward from earlier weeks
 
@@ -134,6 +148,10 @@ it on its first run.
 - A change to this file or to `spec/` gets its own commit, straight after the
   commit that taught the lesson.
 - Do not commit. Anson commits after reading the diff.
+- The dev server is not the site. It served stale frontmatter for hours (old
+  titles, eleven missing slides links), has no search index, and shows a
+  toolbar the build does not. Anything a marker will see gets looked at on
+  `pnpm build` and `astro preview`, not on `pnpm dev`.
 
 ## Deliberately not here
 
