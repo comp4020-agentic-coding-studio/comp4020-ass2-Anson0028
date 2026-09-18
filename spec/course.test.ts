@@ -74,6 +74,15 @@ describe("twelve weeks that do not repeat one another", () => {
 });
 
 describe("a course about measurement", () => {
+  it("says which suspect each week measures", () => {
+    const allowed = ["instrument", "me", "game", "verdict"];
+    for (const lecture of lectures) {
+      expect(allowed, `week ${lecture.meta?.week} has suspect ${lecture.meta?.suspect}`).toContain(lecture.meta?.suspect);
+    }
+    expect(lectures.filter((l) => l.meta?.suspect === "me").length).toBe(3);
+    expect(lectures.filter((l) => l.meta?.suspect === "game").length).toBe(3);
+  });
+
   it("names a quantity with a unit in every lecture", () => {
     expect(lectures.length).toBeGreaterThan(0);
     for (const lecture of lectures) {
