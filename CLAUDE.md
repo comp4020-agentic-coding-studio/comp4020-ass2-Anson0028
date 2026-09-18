@@ -64,6 +64,7 @@ measured?"
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
 | Every week has a deck of its own | `spec/course.test.ts` › a deck of its own |
+| Every deck leads back to the week it belongs to | `spec/course.test.ts` › lead back to the week |
 | Every week says which side of the title's question it measures, three weeks each for "me" and "the game" | `spec/course.test.ts` › which suspect |
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
 | No starter prose on any built page | `spec/course.test.ts` › no starter prose |
@@ -71,6 +72,7 @@ measured?"
 | No page costs a visitor more than 3 s at 400 kbit/s | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
 | Every run button works twice in a row from the keyboard, and focus never leaves it | `pnpm check:browser` (a real browser, so outside `pnpm check`) |
 | Nothing I styled fails colour contrast, in light or dark. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
+| No table hides a column off screen at 390 px | `pnpm check:browser` |
 | Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
@@ -95,6 +97,13 @@ says why it is held by hand.
 - Whether pages agree with each other. The tutorials alternated between two
   teachers while one staff page said he runs all of them. Two names in twelve
   slots is a pattern an agent fills in without being asked.
+
+- What a stranger would try. After seven or eight passes of my own found
+  nothing more, a fresh session with no context pressed Enter twice, ran axe in
+  a real browser, searched the build for one template sentence and scrolled a
+  table on a phone. Each found something, and each is now a check. My passes
+  kept looking the way they had looked before. Get a cold reader before
+  shipping, and turn what they find into sensors, not just fixes.
 
 ## Carried forward from earlier weeks
 
