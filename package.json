@@ -12,7 +12,8 @@
     "check:evidence": "node scripts/check-evidence.ts",
     "test": "pnpm build && vitest run spec",
     "test:template": "vitest run scripts",
-    "check:payload": "pnpm build && node scripts/check-payload.ts"
+    "check:payload": "pnpm build && node scripts/check-payload.ts",
+    "check:decks": "pnpm build && node scripts/check-decks.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
@@ -29,6 +30,7 @@
     "@types/node": "^24.0.0",
     "lightningcss": "^1.32.0",
     "pagefind": "^1.5.2",
+    "playwright": "1.62.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   },
