@@ -48,7 +48,8 @@ const printed = [
   const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
   let batch = 0;
   button.addEventListener("click", async () => {
-    button.disabled = true;
+    if (button.getAttribute("aria-disabled") === "true") return;
+    button.setAttribute("aria-disabled", "true");
     status.textContent = "Running…";
     const { survivalTimes } = await import("../scripts/run-51");
     const started = performance.now();
@@ -64,7 +65,7 @@ const printed = [
     status.textContent = `${most} runs in ${seconds} s${batch === 0 ? "" : `, batch ${batch + 1} on new seeds`}. The median moved by ${spread} s as the runs were added. It was the same player and the same game the whole time.`;
     batch++;
     button.textContent = "Run 501 on new seeds";
-    button.disabled = false;
+    button.removeAttribute("aria-disabled");
   });
 </script>
 

@@ -45,7 +45,8 @@ const RUNS = 51;
   const high = [...printed];
   let batch = 0;
   button.addEventListener("click", async () => {
-    button.disabled = true;
+    if (button.getAttribute("aria-disabled") === "true") return;
+    button.setAttribute("aria-disabled", "true");
     status.textContent = batch === 0 ? "Loading the rules…" : "New seeds…";
     const { runRow } = await import("../scripts/run-51");
     const started = performance.now();
@@ -79,9 +80,12 @@ const RUNS = 51;
       const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i]}–${high[i]}`).join(", ");
       status.textContent = `Batch ${batch + 1}, fresh seeds: ${results.join(", ")}. Across ${batch + 1} batches each row has landed at: ${spread}. The numbers move; the cliff does not. Week 4 is about how many runs a claim needs.`;
     }
+    document
+      .querySelector(".matrix")
+      ?.setAttribute("aria-label", `Wins out of 51 runs at six reaction times, as just run in this browser: ${rows.map((row, i) => `${row.dataset.ms} milliseconds, ${results[i]} wins`).join("; ")}.`);
     batch++;
     button.textContent = "Run 306 with new seeds";
-    button.disabled = false;
+    button.removeAttribute("aria-disabled");
   });
 </script>
 
@@ -180,7 +184,7 @@ const RUNS = 51;
     cursor: pointer;
   }
 
-  .run-it button:disabled {
+  .run-it button[aria-disabled="true"] {
     opacity: 0.6;
     cursor: wait;
   }
