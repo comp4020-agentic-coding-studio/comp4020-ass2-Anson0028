@@ -5,6 +5,7 @@ description:
   learned to say about why it is the right one.
 week: 12
 date: 2027-05-25
+slides: /decks/week-12/
 block: Different players
 suspect: verdict
 teachers:

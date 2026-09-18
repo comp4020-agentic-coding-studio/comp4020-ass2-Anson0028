@@ -5,6 +5,7 @@ description:
   things that 51 runs a second for nine weeks did not.
 week: 10
 date: 2027-05-11
+slides: /decks/week-10/
 block: The edges of measurement
 suspect: instrument
 teachers:

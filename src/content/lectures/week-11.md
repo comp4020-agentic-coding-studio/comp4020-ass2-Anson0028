@@ -5,6 +5,7 @@ description:
   in 51, depending on who is holding the controls.
 week: 11
 date: 2027-05-18
+slides: /decks/week-11/
 block: Different players
 suspect: me
 teachers:

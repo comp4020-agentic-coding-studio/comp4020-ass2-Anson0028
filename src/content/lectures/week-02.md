@@ -5,6 +5,7 @@ description:
   measured. This week the specimen runs with no window open, in 6 ms.
 week: 2
 date: 2027-03-02
+slides: /decks/week-02/
 block: The instrument
 suspect: instrument
 teachers:

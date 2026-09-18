@@ -5,6 +5,7 @@ description:
   same score is not measuring them, and it will not tell you so.
 week: 9
 date: 2027-05-04
+slides: /decks/week-09/
 block: The edges of measurement
 suspect: instrument
 teachers:

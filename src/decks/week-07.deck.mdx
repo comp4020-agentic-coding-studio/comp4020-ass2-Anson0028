@@ -1,0 +1,99 @@
+---
+title: Gates
+description: Week 7 of SLOP2875. A gate only asks its question if a player who did nothing fails it.
+---
+
+# Gates
+
+SLOP2875 · Week 7
+
+---
+
+## Twice a run, a boss with a clock on it
+
+Kill it inside 26 s or the run ends.
+
+The boss exists to ask one question: did you pick up enough on the way here?
+
+---
+
+## The claim
+
+A gate only asks its question if a player who did nothing fails it.
+
+Whether they fail is arithmetic.
+
+You can do the arithmetic before anyone fights the boss.
+
+---
+
+## The multiplication
+
+The opening weapon: 17 damage every 0.85 s.
+
+That is 20 damage a second.
+
+Over a 26 s window, 520 hp.
+
+---
+
+{/* _class: impact */}
+
+# Any boss under 520 hp is no gate
+
+---
+
+## The first boss shipped with 200 hp
+
+Players who declined every card walked through it.
+
+11 runs out of 15.
+
+It looked like a gate and asked nothing.
+
+---
+
+## What it asks now
+
+Boss health depends on upgrades held when it arrives, the starting weapon counting as one.
+
+| Upgrades held | Boss health |
+| --- | --- |
+| one or two | 884 hp |
+| three | 680 hp |
+| four | 510 hp |
+| six | 340 hp |
+
+The line crosses 520 hp at four.
+
+---
+
+{/* _class: quote */}
+
+## The gate's question, in plain words
+
+“Have you picked up at least three cards in the first 40 s?”
+
+---
+
+## Measured over 51 runs
+
+Ordinary players arrive holding a median of 7 cards. 47 are alive after the window closes.
+
+Players who decline every card: 0 out of 51.
+
+---
+
+## Upgrades banked, not level reached
+
+A player who refuses every card still levels up.
+
+The first version handed that player a weaker boss for it.
+
+---
+
+## Thursday
+
+The health a third boss would need at 100 s to stop a player holding fewer than ten upgrades.
+
+With the multiplication shown.

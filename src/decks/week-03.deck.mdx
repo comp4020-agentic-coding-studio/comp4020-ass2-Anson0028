@@ -1,0 +1,91 @@
+---
+title: Simulated players
+description: Week 3 of SLOP2875. A player that reacts instantly is measuring a game nobody will ever play.
+---
+
+# Simulated players
+
+SLOP2875 · Week 3
+
+---
+
+## Last week the player became a function
+
+This week is about how good that function is allowed to be.
+
+---
+
+{/* _class: impact */}
+
+# A perfect player measures a game nobody will play
+
+---
+
+## The first simulated player
+
+Re-decided its direction every frame. Every 16 ms.
+
+Fifteen runs, ordinary upgrade choices.
+
+It won 12.
+
+---
+
+## On those numbers
+
+The game was too easy.
+
+It wanted harder bosses.
+
+---
+
+## Then the player was made to wait
+
+Re-decides about every 150 ms, not every 16.
+
+Holds its last direction in between.
+
+Aims up to nine degrees off.
+
+---
+
+## Same fifteen seeds
+
+| Reaction time | Wins out of 15 | Median survival |
+| --- | --- | --- |
+| none | 12 | 120.0 s |
+| 100 ms | 3 | 103.4 s |
+| 150 ms | 1 | 81.5 s |
+| 250 ms | 0 | 60.7 s |
+
+---
+
+{/* _class: impact */}
+
+# Nothing about the game changed between those rows
+
+---
+
+## Every decision made against the first row
+
+would have been made for a player who does not exist.
+
+---
+
+{/* _class: quote */}
+
+## Reading, weeks 3 to 5
+
+Isaksen, Gopstein and Nealen, Exploring Game Space Using Survival Analysis.
+
+Flappy Bird, with a player built from precision, reaction time and actions per second.
+
+The player model this week. The survival analysis next week.
+
+---
+
+## Thursday
+
+Two simulated players. One of them with a reaction time.
+
+The win rate of each over the same fifteen seeds.

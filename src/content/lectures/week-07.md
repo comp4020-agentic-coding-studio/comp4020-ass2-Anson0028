@@ -5,6 +5,7 @@ description:
   design opinion. It is a multiplication, and the first version got it wrong.
 week: 7
 date: 2027-04-20
+slides: /decks/week-07/
 block: Options and gates
 suspect: game
 teachers:

@@ -6,6 +6,7 @@ description:
   away.
 week: 6
 date: 2027-03-30
+slides: /decks/week-06/
 block: Options and gates
 suspect: game
 teachers:

@@ -5,6 +5,7 @@ description:
   The first 50 ms costs 26 wins. A later 50 ms costs 0.4 s.
 week: 5
 date: 2027-03-23
+slides: /decks/week-05/
 block: Players and distributions
 suspect: me
 teachers:

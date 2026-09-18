@@ -1,0 +1,92 @@
+---
+title: Rules without a screen
+description: Week 2 of SLOP2875. A run that needs a window happens once every two minutes. A run that needs none happens twenty thousand times.
+---
+
+# Rules without a screen
+
+SLOP2875 · Week 2
+
+---
+
+{/* _class: impact */}
+
+# 120 s to play one run. 6 ms to run one.
+
+---
+
+## The claim
+
+You cannot measure a game whose rules are tangled up with its drawing code.
+
+A run that needs a window, a frame clock and a person happens once every two minutes.
+
+A run that needs none of them happens about twenty thousand times in the same two minutes.
+
+---
+
+## All of Close Quarters is one function
+
+```ts
+step(run, dt, input, rng)
+```
+
+The state of a run. A slice of time. A direction. A source of random numbers.
+
+No canvas. No clock.
+
+---
+
+## Time is handed in
+
+A run is 7200 steps of 1/60 s.
+
+Nothing waits for a real second to pass.
+
+---
+
+## Randomness is handed in
+
+The same seed gives the same run.
+
+Seed 97 ends at 69.333 s with 58 kills.
+
+Every time. On any machine.
+
+---
+
+## The player is handed in
+
+`input` is a direction.
+
+It does not care whether a hand or a function produced it.
+
+Week three is about that function.
+
+---
+
+{/* _class: quote */}
+
+## Reading, weeks 1 and 2
+
+Mark J. Nelson, Game Metrics Without Players.
+
+Everything you can learn about a game without anyone playing it.
+
+---
+
+## Thursday
+
+One run of the specimen on your own machine, with no window open.
+
+How long it took, in ms. How it ended.
+
+Proof that the same seed ends the same way twice.
+
+---
+
+{/* _class: centered */}
+
+## Everything else in this course is built on that gap
+
+120 s against 6 ms.

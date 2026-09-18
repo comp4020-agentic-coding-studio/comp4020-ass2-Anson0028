@@ -5,6 +5,7 @@ description:
   decoration. For a while the best way to play the specimen was to run away.
 week: 8
 date: 2027-04-27
+slides: /decks/week-08/
 block: Options and gates
 suspect: game
 teachers:

@@ -5,6 +5,7 @@ description:
   week is about how many runs a claim needs before it is worth saying out loud.
 week: 4
 date: 2027-03-16
+slides: /decks/week-04/
 block: Players and distributions
 suspect: instrument
 teachers:

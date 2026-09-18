@@ -5,6 +5,7 @@ description:
   This week the simulated player gets a reaction time, and the wins go away.
 week: 3
 date: 2027-03-09
+slides: /decks/week-03/
 block: Players and distributions
 suspect: me
 teachers:

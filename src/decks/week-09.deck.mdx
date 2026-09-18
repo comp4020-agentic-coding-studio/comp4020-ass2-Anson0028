@@ -1,0 +1,96 @@
+---
+title: When a measurement saturates
+description: Week 9 of SLOP2875. A saturated measurement still prints numbers, still passes its tests, and still looks like evidence.
+---
+
+# When a measurement saturates
+
+SLOP2875 · Week 9
+
+---
+
+## For eight weeks the instrument has been right
+
+This week is about how it goes wrong without going red.
+
+---
+
+## The claim
+
+A measurement saturates when everything you point it at gets the same score.
+
+It still prints numbers. It still passes its tests. It still looks like evidence.
+
+The only way to catch it: has it ever told two things apart?
+
+---
+
+## A ceiling
+
+The first simulated player had no reaction time.
+
+15 wins out of 15, with every build it was given.
+
+Including builds that were doing nothing.
+
+Every card looked equally good because nothing could look bad.
+
+---
+
+## A floor
+
+Extra damage, refuse every other card. Median survival across six levels:
+
+66.0 s, 66.0 s, 67.6 s, 62.7 s, 64.4 s, 65.1 s.
+
+The first boss wall stands at 66 s. Every build dies against it, and the dial is connected to nothing the metric can see.
+
+---
+
+## A cap
+
+Kills in the first 38 s, median of 51 runs. Nine different builds:
+
+34, 34, 34, 34, 34, 34, 34, 34, 34.
+
+The game spawns about that many enemies in 38 s. Every build kills all of them.
+
+The metric is measuring the spawn rate.
+
+---
+
+{/* _class: impact */}
+
+# A test that cannot fail is noise
+
+---
+
+## What was done about it
+
+The test comparing cards by survival time had caught three dead cards, once.
+
+After the boss wall went in, it could not fail any more.
+
+It was deleted, with the reason written down.
+
+---
+
+{/* _class: quote */}
+
+## Reading, weeks 9 and 10
+
+Gudmundsson and colleagues, Human-Like Playtesting with Deep Learning.
+
+Two bots predicting how hard a new Candy Crush level is. The one that played like a person predicted better.
+
+Read it before next week, when you become the person.
+
+---
+
+## Thursday
+
+For the metric you have relied on most: its spread between your best and worst build,
+
+beside its spread between two different sets of 51 seeds.
+
+If the first is not clearly bigger, you have been reading noise.
