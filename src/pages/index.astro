@@ -3,7 +3,7 @@ import ReactionLadder from "../components/ReactionLadder.astro";
 import Schedule from "../components/Schedule.astro";
 import BaseLayout from "astro-theme-university/layouts/BaseLayout.astro";
 import { courseMeta } from "../course-config";
-import { sessionLabels, siteConfig } from "../site-config";
+import { siteConfig } from "../site-config";
 
 const base = import.meta.env.BASE_URL;
 const link = (path: string) => `${base}${path}`.replace(/\/\//g, "/");
@@ -13,18 +13,18 @@ const suspects = [
     id: "me",
     big: "Is it me",
     rows: [
-      { week: 3, href: "/lectures/week-03/", name: "A perfect player describes nobody", number: "12 of 15 → 1" },
-      { week: 5, href: "/lectures/week-05/", name: "Even steps, uneven difficulty", number: "38 · 12 · 2 · 0" },
-      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "1 in 51, or 41" },
+      { week: 3, href: "/lectures/week-03/", name: "A perfect player describes nobody", number: "12 wins of 15, then 1 of 15" },
+      { week: 5, href: "/lectures/week-05/", name: "Even steps, uneven difficulty", number: "38, 12, 2, 0 wins of 51" },
+      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "past the first boss: 50 of 51, or 10" },
     ],
   },
   {
     id: "game",
     big: "or is it the game?",
     rows: [
-      { week: 6, href: "/lectures/week-06/", name: "A dead option looks like a live one", number: "magnet −11, nova −2" },
-      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "520 hp: 47 or 0" },
-      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "101.6 s vs 17.4 s" },
+      { week: 6, href: "/lectures/week-06/", name: "A dead option looks like a live one", number: "ban pickup reach: 11 fewer wins of 51" },
+      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "a 520 hp gate: 47 of 51 pass, or 0" },
+      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "median survival 101.6 s against 17.4 s" },
     ],
   },
 ];
@@ -181,7 +181,7 @@ const suspects = [
 
   .side a {
     display: grid;
-    grid-template-columns: 4.5rem 1fr auto;
+    grid-template-columns: 4.5rem 1fr;
     gap: 0.25rem 1rem;
     align-items: baseline;
     padding-block: 0.85rem;
@@ -217,14 +217,8 @@ const suspects = [
     color: light-dark(#f0b94a, #1b1a17);
   }
 
-  @media (max-width: 80rem) {
-    .side a {
-      grid-template-columns: 4.5rem 1fr;
-    }
-
-    .num {
-      grid-column: 2;
-    }
+  .num {
+    grid-column: 2;
   }
 
   @media (max-width: 56rem) {
