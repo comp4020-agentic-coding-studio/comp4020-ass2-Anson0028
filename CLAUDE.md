@@ -58,6 +58,8 @@ measured?"
 | Every tutorial says what it measures (`measures:`) | `spec/course.test.ts` › tutorials end in a number |
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
+| Every week has a deck of its own | `spec/course.test.ts` › a deck of its own |
+| Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
 says why it is held by hand.
@@ -72,8 +74,6 @@ says why it is held by hand.
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
   that was verified to exist, and gets opened by Anson before it goes on a page.
-- The deck at both marking viewports. The build compiles decks but nothing
-  checks that a slide fits.
 
 ## Carried forward from earlier weeks
 
@@ -114,8 +114,11 @@ content site), and everything about harps and survival arenas.
 Sensors: `check-payload` comes across, retargeted from "the whole of dist" to
 "what one page makes a visitor download", because this site has twenty pages
 and a visitor loads one. `check-a11y` stays behind, since this platform's build
-already runs axe on every page. `check-viewports` stays behind until the deck
-exists; the deck at a phone viewport is the one thing here nothing checks.
+already runs axe on every page. `check-viewports` came across late, as `check-decks`:
+for a day the deck at a phone viewport was held by hand, measured against the
+one deck that had been written to fit the rule. With twelve decks the hand
+measurement missed that table cells were 8.8 px on a phone. The sensor found
+it on its first run.
 
 ## How to work here
 
