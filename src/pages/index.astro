@@ -46,12 +46,13 @@ const suspects = [
 >
   <section slot="hero" class="suspects" aria-labelledby="course-title">
     <h1 id="course-title" class="visually-hidden">{courseMeta.code}: {courseMeta.title}</h1>
-    <div class="band">
-      <p class="sub">Measuring game balance without players</p>
-      <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · 306 runs · nobody plays until week ten</p>
-    </div>
     {suspects.map((side) => (
       <div class={`side ${side.id}`}>
+        {side.id === "me" ? (
+          <p class="sub">Measuring game balance without players</p>
+        ) : (
+          <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · 306 runs · nobody plays until week ten</p>
+        )}
         <p class="big" aria-hidden="true">{side.big}</p>
         <ul>
           {side.rows.map((row) => (
@@ -219,32 +220,21 @@ const suspects = [
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .band {
-    display: flex;
-    flex-wrap: wrap;
-    grid-column: 1 / -1;
-    gap: 0.25rem 2rem;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 1.25rem clamp(1rem, 5vw, 4.5rem);
-    background: var(--at-bg);
-    border-block: 2px solid var(--at-text);
-  }
-
-  .band p {
-    margin: 0;
-  }
-
   .sub {
-    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    margin: 0 0 auto;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
     font-weight: 700;
     letter-spacing: -0.01em;
+  }
+
+  .meta {
+    margin: 0 0 auto;
+    text-align: right;
   }
 
   .side {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     gap: 2rem;
     padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);
   }
@@ -327,6 +317,10 @@ const suspects = [
 
     .num {
       grid-column: 2;
+    }
+
+    .meta {
+      text-align: left;
     }
   }
 
