@@ -11,7 +11,7 @@ the numbers until it feels right. The whole semester measures one specimen,
 Close Quarters, a two-minute survival game. Nobody plays it until week ten, and
 week ten is where the course admits what simulation cannot see. The course argues
 through what a course website affords: the order of the twelve weeks, what each
-tutorial asks students to measure, what the assessments reward, and the one deck.
+tutorial asks students to measure, what the assessments reward, and twelve decks.
 
 Everything on the site serves that sentence. When a page, a paragraph or a
 component does not, the default move is to delete it, not to add an explanation
