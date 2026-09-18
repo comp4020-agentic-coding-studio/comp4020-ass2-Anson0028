@@ -1,6 +1,5 @@
 ---
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
+import Schedule from "../components/Schedule.astro";
 import BaseLayout from "astro-theme-university/layouts/BaseLayout.astro";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
@@ -38,13 +37,6 @@ const suspects = [
   },
 ];
 
-const blocks = [
-  { weeks: "1–2", name: "The instrument", href: "/lectures/week-01/", line: "Turn an opinion into a prediction, and make the game run with no screen." },
-  { weeks: "3–5", name: "Players and distributions", href: "/lectures/week-03/", line: "A player with a reaction time, 51 runs at a time, and dials that do not respond evenly." },
-  { weeks: "6–8", name: "Options and gates", href: "/lectures/week-06/", line: "What each choice is worth, how big a wall has to be, and who wins by not playing properly." },
-  { weeks: "9–10", name: "The edges of measurement", href: "/lectures/week-09/", line: "How the instrument lies without going red. Then you finally play the game." },
-  { weeks: "11–12", name: "Different players", href: "/lectures/week-11/", line: "The same boss stops 1 player in 51 or 41 in 51. Pick a number and defend it." },
-];
 ---
 
 <BaseLayout
@@ -140,32 +132,13 @@ const blocks = [
     subjects, and week ten is honest about what that leaves out.
   </p>
 
-  <h2>The semester in five blocks</h2>
-  <ol class="blocks">
-    {blocks.map((block) => (
-      <li>
-        <span class="weeks">Weeks {block.weeks}</span>
-        <a href={`${import.meta.env.BASE_URL}${block.href}`.replace(/\/\//g, "/")}>{block.name}</a>
-        <span class="line">{block.line}</span>
-      </li>
-    ))}
-  </ol>
-
-  <h2>Where to go next</h2>
-  <CardGrid columns={2}>
-    <Card title="Lectures" href="/lectures/">
-      <p>Twelve weeks, one claim a week, every one of them about the same game.</p>
-    </Card>
-    <Card title={sessionLabels.plural} href="/sessions/">
-      <p>What you measure each Thursday, and the number you leave with.</p>
-    </Card>
-    <Card title="Assessment" href="/assessments/">
-      <p>Four pieces that feed each other: a curve, a point on it, a lab book, a defence.</p>
-    </Card>
-    <Card title="People" href="/people/">
-      <p>Who teaches the course and how to reach them.</p>
-    </Card>
-  </CardGrid>
+  <h2>The semester, week by week</h2>
+  <p>
+    Tuesday is the claim, Thursday is the measurement. Five readings for the
+    whole semester, one per block. Four pieces of assessment, each built from
+    the one before.
+  </p>
+  <Schedule />
 </BaseLayout>
 
 <style is:global>
@@ -372,42 +345,5 @@ const blocks = [
     max-width: 38rem;
     color: var(--at-text-secondary);
     font-size: 0.95rem;
-  }
-
-  .blocks {
-    display: grid;
-    gap: 0.9rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .blocks li {
-    display: grid;
-    grid-template-columns: 6.5rem 1fr;
-    column-gap: 1rem;
-  }
-
-  .blocks .weeks {
-    grid-row: span 2;
-    color: var(--at-text-secondary);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .blocks a {
-    font-weight: 600;
-  }
-
-  .blocks .line {
-    color: var(--at-text-secondary);
-  }
-
-  @media (max-width: 30rem) {
-    .blocks li {
-      grid-template-columns: 1fr;
-    }
-
-    .blocks .weeks {
-      grid-row: auto;
-    }
   }
 </style>

@@ -1,0 +1,143 @@
+---
+import { getPublishedCollection } from "astro-course-university/content";
+import { formatCourseDate } from "../lib/dates";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const lectures = (await getPublishedCollection("lectures")).sort((a, b) => a.data.week - b.data.week);
+const sessions = await getPublishedCollection("sessions");
+const assessments = await getPublishedCollection("assessments");
+const DAY = 86_400_000;
+
+const rows = lectures.map((lecture, i) => {
+  const start = lecture.data.date.getTime() - DAY;
+  const end = start + 7 * DAY;
+  const tutorial = sessions.find((s) => s.data.week === lecture.data.week);
+  const due = assessments.filter((a) => a.data.due.getTime() >= start && a.data.due.getTime() < end);
+  const reading = (lecture.data as { reading?: { authors: string; title: string; url: string } }).reading;
+  const next = lectures[i + 1];
+  const breakAfter = next ? (next.data.date.getTime() - lecture.data.date.getTime()) / DAY > 7 : false;
+  return { lecture, tutorial, due, reading, breakAfter };
+});
+---
+
+<table class="schedule">
+  <thead>
+    <tr>
+      <th scope="col">Week</th>
+      <th scope="col">Lecture, Tuesday</th>
+      <th scope="col">Tutorial, Thursday</th>
+      <th scope="col">Due, and what to read</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map(({ lecture, tutorial, due, reading, breakAfter }) => (
+      <>
+        <tr>
+          <td>
+            {lecture.data.week}
+            <small>{formatCourseDate(lecture.data.date)}</small>
+          </td>
+          <th scope="row">
+            <a href={`${base}/lectures/${lecture.id}/`}>{lecture.data.title}</a>
+            {lecture.data.slides && <small><a href={`${base}${lecture.data.slides}`}>slides</a></small>}
+          </th>
+          <td>{tutorial && <a href={`${base}/sessions/${tutorial.id}/`}>{tutorial.data.title}</a>}</td>
+          <td>
+            {due.map((a) => (
+              <span class="due"><a href={`${base}/assessments/${a.id}/`}>{a.data.title}</a> due {formatCourseDate(a.data.due)}, {a.data.weight}%</span>
+            ))}
+            {reading && <span class="read">Read <a href={reading.url}>{reading.authors.split(",")[0].split(" and ")[0]}</a>, {reading.title}</span>}
+            {lecture.data.week === 10 && <span class="read">You play the game for the first time.</span>}
+          </td>
+        </tr>
+        {breakAfter && (
+          <tr class="break">
+            <td colspan="4">Teaching break</td>
+          </tr>
+        )}
+      </>
+    ))}
+  </tbody>
+</table>
+
+<style is:global>
+  .schedule {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .schedule th,
+  .schedule td {
+    padding: 0.6rem 0.75rem 0.6rem 0;
+    border-bottom: 1px solid var(--at-divider);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .schedule thead th {
+    border-bottom: 2px solid var(--at-text);
+    font-size: 0.85rem;
+  }
+
+  .schedule th[scope="row"] {
+    font-weight: 600;
+  }
+
+  .schedule small {
+    display: block;
+    color: var(--at-text-secondary);
+    font-weight: 400;
+  }
+
+  .schedule .due,
+  .schedule .read {
+    display: block;
+  }
+
+  .schedule .due {
+    font-weight: 600;
+  }
+
+  .schedule .read {
+    color: var(--at-text-secondary);
+  }
+
+  .break td {
+    padding-block: 0.5rem;
+    color: var(--at-text-secondary);
+    text-align: center;
+    background: var(--at-bg-alt);
+  }
+
+  @media (max-width: 40rem) {
+    .schedule thead {
+      display: none;
+    }
+
+    .schedule tr {
+      display: grid;
+      grid-template-columns: 4.25rem 1fr;
+      gap: 0 0.75rem;
+    }
+
+    .schedule td:first-child {
+      grid-row: span 3;
+    }
+
+    .schedule th,
+    .schedule td {
+      padding: 0.3rem 0;
+      border: 0;
+    }
+
+    .schedule tbody tr {
+      padding-block: 0.6rem;
+      border-bottom: 1px solid var(--at-divider);
+    }
+
+    .break td {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
