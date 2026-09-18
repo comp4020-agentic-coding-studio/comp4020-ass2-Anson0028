@@ -30,6 +30,25 @@ Then argue with your neighbour about where you would stop. There is no correct
 answer. There is a cost, which is time, and the specimen makes time nearly
 free: 51 runs take about 166 ms.
 
+## Where it goes wrong
+
+- **An even run count.** With 50 runs the two middle ones were 75.8 s and
+  78.2 s, and the median is a number no run produced. With 51 it is 78.2 s, a
+  run you can replay. Use odd counts.
+- **Reporting the mean.** Over the 501 runs the mean is 74.3 s and the median
+  73.7 s, which looks harmless. It is not: 17 of those runs are wins, stopped
+  at 120 s by the clock and not by dying. A mean treats "stopped at 120 s" as
+  "died at 120 s". A median does not care how long the winners would have
+  lasted.
+- **One set of 51.** The page's 51 seeds give a median of 78.2 s. A different
+  51 gave 71.4 s. If your later claims are about differences smaller than that,
+  51 is not enough for them.
+
+## What a finished answer looks like
+
+> 51 runs. From 51 to 501 my median moved 4.5 s, and I will not claim any
+> difference smaller than 7 s, which is what a second set of 51 seeds moved it.
+
 ## Afterwards
 
 Your chosen run count is this week's quiz answer, and every number you

@@ -33,6 +33,22 @@ finding out why.
 
 Last 20 minutes: test the prediction you brought. Most of them die here.
 
+## Where it goes wrong
+
+- **Different seeds for the two players.** Then you have measured the seeds.
+  Both players get seeds 1 to 15, in the same order.
+- **Giving the delay its own dice.** The wrapped player's aim error has to come
+  from the run's seeded source. Draw it from anywhere else and the run stops
+  being repeatable, which last week was the whole point.
+- **Trusting fifteen.** The course's own two players score 12 and 1 on seeds 1
+  to 15, then 11 and 0 on seeds 16 to 30, and 11 and 0 again on 31 to 45. The
+  gap holds; the digits do not. Next week is about that.
+
+## What a finished answer looks like
+
+> Seeds 1 to 15. No delay: 12 wins out of 15. 150 ms: 1 win out of 15. My
+> week 1 prediction said at least 5 for the delayed player. Wrong.
+
 ## Afterwards
 
 Both win counts go on this week's quiz, with the reaction time you settled on and
