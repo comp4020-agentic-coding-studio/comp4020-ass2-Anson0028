@@ -38,7 +38,12 @@ measured?"
    Multiplayer balance and human playtesting are other courses; "game balance"
    without those limits is a course a real curriculum committee would wave
    through, which the brief calls too broad.
-6. Titles say what the week is. No metaphors in titles; voice lives in the body.
+6. A lecture title is that week's claim, in plain words. No metaphors. Read
+   down the lectures list and you should have the course's argument. Tutorial
+   and assessment titles stay plain names of what you do. This replaced
+   "titles say what the week is" after reading classmates whose week lists
+   argue (Try Again, Later; Back of the Envelope): topic nouns like "Gates"
+   told a visitor nothing the claim does not tell better.
 7. Five readings for the semester, one per block of two or three weeks. A
    reading every week, the way Calling Bullshit does it, would turn the tutorials
    into a reading group; here the week's text is usually the student's own
