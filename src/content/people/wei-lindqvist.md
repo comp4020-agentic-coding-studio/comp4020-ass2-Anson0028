@@ -1,7 +1,7 @@
 ---
 title: Wei Lindqvist
 description:
-  Tutor. Runs the Thursday tutorials, and wrote the course's reference simulated
+  Runs the Thursday tutorials, and wrote the course's reference simulated
   player, so knows every way in which it is wrong.
 affiliation: Slop University School of Invented Disciplines
 role: tutor

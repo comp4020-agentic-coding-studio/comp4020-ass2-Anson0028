@@ -1,7 +1,7 @@
 ---
 title: Tamsin Okoro
 description:
-  Convenor. Nine years as a systems designer on action and survival games, most
+  Nine years as a systems designer on action and survival games, most
   of them spent in meetings about whether a boss was too hard.
 affiliation: Slop University School of Invented Disciplines
 role: convenor
