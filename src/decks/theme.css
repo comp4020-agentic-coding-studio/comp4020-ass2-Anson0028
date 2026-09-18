@@ -14,17 +14,17 @@
 
 @media (max-width: 600px) and (orientation: portrait) {
   :root {
-    --r-main-font-size: 4rem;
-    --r-heading1-size: 6.5rem;
-    --r-heading2-size: 4.75rem;
-    --at-slide-padding: 3rem 3.5rem;
+    --r-main-font-size: 3.4rem;
+    --r-heading1-size: 5.6rem;
+    --r-heading2-size: 4.1rem;
+    --at-slide-padding: 2rem 3rem;
   }
 
   .reveal,
   .reveal .slides section,
   .reveal .slides section p,
   .reveal .slides section li {
-    font-size: 4rem;
-    line-height: 1.25;
+    font-size: 3.4rem;
+    line-height: 1.22;
   }
 }
