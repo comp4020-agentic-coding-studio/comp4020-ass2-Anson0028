@@ -74,6 +74,14 @@ describe("twelve weeks that do not repeat one another", () => {
 });
 
 describe("a course about measurement", () => {
+  it("has every week say, in its own words, what it does to the course's question", () => {
+    const sentences = lectures.map((lecture) => String(lecture.meta?.bearing ?? "").trim());
+    for (const [i, sentence] of sentences.entries()) {
+      expect(sentence.split(/\s+/).length, `week ${lectures[i].meta?.week} has no bearing sentence`).toBeGreaterThanOrEqual(8);
+    }
+    expect(new Set(sentences).size).toBe(sentences.length);
+  });
+
   it("gives every week a deck of its own", () => {
     for (const lecture of lectures) {
       expect(String(lecture.meta?.slides ?? ""), `week ${lecture.meta?.week} has no slides`).toMatch(/^\/decks\/week-\d\d\/$/);
