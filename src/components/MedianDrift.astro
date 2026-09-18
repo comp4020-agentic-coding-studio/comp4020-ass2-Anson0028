@@ -42,31 +42,37 @@ const printed = [
 </figure>
 
 <script>
-  const button = document.getElementById("run-drift") as HTMLButtonElement;
-  const status = document.getElementById("drift-status") as HTMLElement;
-  const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
-  const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
-  let batch = 0;
-  button.addEventListener("click", async () => {
-    if (button.getAttribute("aria-disabled") === "true") return;
-    button.setAttribute("aria-disabled", "true");
-    status.textContent = "Running…";
-    const { survivalTimes } = await import("../scripts/run-51");
-    const started = performance.now();
-    const most = Math.max(...rows.map((row) => Number(row.dataset.runs)));
-    const times = await survivalTimes(150, most, batch);
-    const medians = rows.map((row) => {
-      const m = median(times.slice(0, Number(row.dataset.runs))) / 1000;
-      row.querySelector(".live")!.textContent = `${m.toFixed(1)} s`;
-      return m;
+  function wire() {
+    const probe = document.getElementById("run-drift");
+    if (!probe || probe.dataset.wired) return;
+    probe.dataset.wired = "true";
+    const button = document.getElementById("run-drift") as HTMLButtonElement;
+    const status = document.getElementById("drift-status") as HTMLElement;
+    const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
+    const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+    let batch = 0;
+    button.addEventListener("click", async () => {
+      if (button.getAttribute("aria-disabled") === "true") return;
+      button.setAttribute("aria-disabled", "true");
+      status.textContent = "Running…";
+      const { survivalTimes } = await import("../scripts/run-51");
+      const started = performance.now();
+      const most = Math.max(...rows.map((row) => Number(row.dataset.runs)));
+      const times = await survivalTimes(150, most, batch);
+      const medians = rows.map((row) => {
+        const m = median(times.slice(0, Number(row.dataset.runs))) / 1000;
+        row.querySelector(".live")!.textContent = `${m.toFixed(1)} s`;
+        return m;
+      });
+      const seconds = ((performance.now() - started) / 1000).toFixed(1);
+      const spread = (Math.max(...medians) - Math.min(...medians)).toFixed(1);
+      status.textContent = `${most} runs in ${seconds} s${batch === 0 ? "" : `, batch ${batch + 1} on new seeds`}. The median moved by ${spread} s as the runs were added. It was the same player and the same game the whole time.`;
+      batch++;
+      button.textContent = "Run 501 on new seeds";
+      button.removeAttribute("aria-disabled");
     });
-    const seconds = ((performance.now() - started) / 1000).toFixed(1);
-    const spread = (Math.max(...medians) - Math.min(...medians)).toFixed(1);
-    status.textContent = `${most} runs in ${seconds} s${batch === 0 ? "" : `, batch ${batch + 1} on new seeds`}. The median moved by ${spread} s as the runs were added. It was the same player and the same game the whole time.`;
-    batch++;
-    button.textContent = "Run 501 on new seeds";
-    button.removeAttribute("aria-disabled");
-  });
+  }
+  document.addEventListener("astro:page-load", wire);
 </script>
 
 <style is:global>
