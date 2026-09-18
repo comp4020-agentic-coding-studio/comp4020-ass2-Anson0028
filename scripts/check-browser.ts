@@ -65,6 +65,28 @@ try {
     if (second === first) failures.push(`${path}: a second Enter did nothing; the status still reads "${first.slice(0, 60)}…"`);
   }
 
+  const ROUTES = [
+    { from: "/", link: `.side a[href$="/lectures/week-05/"]`, to: "/lectures/week-05/", button: "#run-51", status: "#run-status", name: "home to week 5 by the hero row" },
+    { from: "/lectures/week-05/", link: `a[href="${base}/"]`, to: "/", button: "#run-51", status: "#run-status", name: "week 5 to home by the logo" },
+    { from: "/lectures/week-05/", link: `a[href$="/lectures/week-04/"]`, to: "/lectures/week-04/", button: "#run-drift", status: "#drift-status", name: "week 5 to week 4 by the related link" },
+  ];
+  for (const route of ROUTES) {
+    await page.goto(`http://localhost:${PORT}${base}${route.from}`, { waitUntil: "networkidle" });
+    await page.click("#run-51");
+    await page.waitForFunction(settled("#run-51"), null, { timeout: 90_000 });
+    await page.locator(route.link).first().click();
+    await page.waitForURL(`http://localhost:${PORT}${base}${route.to}`, { timeout: 15_000 });
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(800);
+    await page.waitForSelector(route.button, { timeout: 15_000 });
+    const before = (await page.textContent(route.status)) ?? "";
+    await page.click(route.button);
+    await page.waitForTimeout(600);
+    await page.waitForFunction(settled(route.button), null, { timeout: 90_000 });
+    const after = (await page.textContent(route.status)) ?? "";
+    if (after === before) failures.push(`arriving ${route.name}: the button does nothing`);
+  }
+
   for (const scheme of ["light", "dark"] as const) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: scheme });
     const contrastPage = await context.newPage();
@@ -119,4 +141,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus and still work when reached by a link; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
