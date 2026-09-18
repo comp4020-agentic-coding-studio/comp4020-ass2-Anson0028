@@ -1,0 +1,22 @@
+import { chaseXpPolicy, runHeadless, withReaction } from "../lib/close-quarters";
+
+const RUNS = 51;
+
+const seeded = (n: number) => {
+  let s = n >>> 0;
+  return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+};
+
+const yieldFrame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+
+export async function runRow(reactionMs: number, batch: number, onRun: (wins: number, done: number) => void): Promise<number> {
+  let wins = 0;
+  for (let i = 0; i < RUNS; i++) {
+    const rng = seeded((i + 1) * 97 + batch * 5003);
+    const { outcome } = runHeadless(withReaction(chaseXpPolicy, rng, reactionMs), rng, "first");
+    if (outcome === "won") wins++;
+    onRun(wins, i + 1);
+    if (i % 3 === 2) await yieldFrame();
+  }
+  return wins;
+}
