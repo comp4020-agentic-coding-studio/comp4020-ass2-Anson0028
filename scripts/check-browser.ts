@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { join, resolve } from "node:path";
 import { preview } from "astro";
 import { chromium } from "playwright";
@@ -14,6 +15,23 @@ if (!existsSync(join(DIST, "index.html"))) {
 
 const base = readFileSync(join(DIST, "index.html"), "utf8").match(/"(\/[^"/]+)\/_astro\//)?.[1] ?? "";
 
+const axeSource = readFileSync(createRequire(import.meta.url).resolve("axe-core/axe.min.js"), "utf8");
+
+const CONTRAST_PAGES = [
+  "/",
+  "/lectures/",
+  "/lectures/week-05/",
+  "/lectures/week-11/",
+  "/sessions/",
+  "/sessions/07-size-a-gate/",
+  "/assessments/",
+  "/assessments/nothing-broke/",
+  "/people/",
+  "/policies/",
+];
+
+const PLATFORM_OWNED = /\bh[1-4]\b|\.at-/;
+
 const INSTRUMENTS = [
   { path: "/", button: "#run-51", status: "#run-status" },
   { path: "/lectures/week-05/", button: "#run-51", status: "#run-status" },
@@ -23,6 +41,7 @@ const INSTRUMENTS = [
 const server = await preview({ root: process.cwd(), server: { port: PORT }, logLevel: "silent" });
 const browser = await chromium.launch();
 const failures: string[] = [];
+const platformOwned: string[] = [];
 
 const settled = (selector: string) =>
   `(() => { const b = document.querySelector(${JSON.stringify(selector)}); return !b.disabled && b.getAttribute("aria-disabled") !== "true"; })()`;
@@ -45,6 +64,32 @@ try {
     const second = (await page.textContent(status)) ?? "";
     if (second === first) failures.push(`${path}: a second Enter did nothing; the status still reads "${first.slice(0, 60)}…"`);
   }
+
+  for (const scheme of ["light", "dark"] as const) {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: scheme });
+    const contrastPage = await context.newPage();
+    for (const path of CONTRAST_PAGES) {
+      await contrastPage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
+      await contrastPage.addScriptTag({ content: axeSource });
+      const nodes = await contrastPage.evaluate(async () => {
+        const result = await (window as any).axe.run(document, { runOnly: ["color-contrast"] });
+        return result.violations.flatMap((v: any) =>
+          v.nodes.map((n: any) => ({
+            target: String(n.target[0]),
+            ratio: n.any[0]?.data?.contrastRatio,
+            need: n.any[0]?.data?.expectedContrastRatio,
+            text: (document.querySelector(n.target[0])?.textContent ?? "").trim().slice(0, 30),
+          })),
+        );
+      });
+      for (const node of nodes) {
+        const line = `${path} (${scheme}): "${node.text}" at ${node.target} is ${node.ratio}:1, needs ${node.need}`;
+        if (PLATFORM_OWNED.test(node.target)) platformOwned.push(line);
+        else failures.push(line);
+      }
+    }
+    await context.close();
+  }
 } finally {
   await browser.close();
   await server.stop();
@@ -55,4 +100,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark (${platformOwned.length} findings on platform-owned elements, not counted)`);
