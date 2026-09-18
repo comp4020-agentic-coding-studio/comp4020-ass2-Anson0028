@@ -13,7 +13,8 @@
     "test": "pnpm build && vitest run spec",
     "test:template": "vitest run scripts",
     "check:payload": "pnpm build && node scripts/check-payload.ts",
-    "check:decks": "pnpm build && node scripts/check-decks.ts"
+    "check:decks": "pnpm build && node scripts/check-decks.ts",
+    "check:browser": "pnpm build && node scripts/check-browser.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
