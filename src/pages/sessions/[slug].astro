@@ -25,8 +25,8 @@ const { Content } = await render(session);
   <p><strong>{formatCourseDate(session.data.date)}</strong></p>
   <Content />
   <SpecList spec={session.data.spec}>
-    What you bring to the tutorial. Written so a reader can tell whether it has
-    been met without asking you.
+    What you walk out with. Every line is something the person sitting next
+    to you could check.
   </SpecList>
   <TeachingTeam teachers={session.data.teachers} />
   <RelatedContent entry={session} collections={graphCollections} />
