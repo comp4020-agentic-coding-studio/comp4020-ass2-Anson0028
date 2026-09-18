@@ -12,7 +12,9 @@ const rows = lectures.map((lecture, i) => {
   const start = lecture.data.date.getTime() - DAY;
   const end = start + 7 * DAY;
   const tutorial = sessions.find((s) => s.data.week === lecture.data.week);
-  const due = assessments.filter((a) => a.data.due.getTime() >= start && a.data.due.getTime() < end);
+  const due = assessments
+    .filter((a) => a.data.due.getTime() >= start && a.data.due.getTime() < end)
+    .sort((a, b) => a.data.due.getTime() - b.data.due.getTime());
   const reading = (lecture.data as { reading?: { authors: string; title: string; url: string } }).reading;
   const next = lectures[i + 1];
   const breakAfter = next ? (next.data.date.getTime() - lecture.data.date.getTime()) / DAY > 7 : false;
