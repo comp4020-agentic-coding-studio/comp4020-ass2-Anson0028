@@ -6,6 +6,7 @@ description:
 week: 11
 date: 2027-05-18
 block: Different players
+suspect: me
 teachers:
   - tamsin-okoro
 reading:

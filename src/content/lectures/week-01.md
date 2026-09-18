@@ -6,6 +6,7 @@ description:
 week: 1
 date: 2027-02-23
 block: The instrument
+suspect: instrument
 teachers:
   - tamsin-okoro
 slides: /decks/week-01/

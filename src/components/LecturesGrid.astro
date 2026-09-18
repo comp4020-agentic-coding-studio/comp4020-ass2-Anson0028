@@ -6,6 +6,7 @@ import { formatCourseDate } from "../lib/dates";
 
 const lectures = await getPublishedCollection("lectures");
 const visible = lectures.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+const tag: Record<string, string> = { instrument: "the instrument", me: "is it me", game: "is it the game", verdict: "the verdict" };
 ---
 
 <CardGrid columns={2}>
@@ -13,7 +14,7 @@ const visible = lectures.sort((a, b) => a.data.date.getTime() - b.data.date.getT
     visible.map((lecture) => (
       <Card headingLevel="h2" title={lecture.data.title} href={`/lectures/${lecture.id}/`}>
         {lecture.data.description && <p>{lecture.data.description}</p>}
-        <p><small>Week {lecture.data.week} · {formatCourseDate(lecture.data.date)}</small></p>
+        <p><small>Week {lecture.data.week} · {formatCourseDate(lecture.data.date)} · {tag[String(lecture.data.suspect)]}</small></p>
       </Card>
     ))
   }

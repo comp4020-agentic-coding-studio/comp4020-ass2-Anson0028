@@ -6,6 +6,7 @@ description:
 week: 2
 date: 2027-03-02
 block: The instrument
+suspect: instrument
 teachers:
   - wei-lindqvist
 related:

@@ -6,6 +6,7 @@ description:
 week: 7
 date: 2027-04-20
 block: Options and gates
+suspect: game
 teachers:
   - tamsin-okoro
 related:

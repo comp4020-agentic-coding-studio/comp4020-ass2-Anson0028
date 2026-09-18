@@ -6,6 +6,7 @@ description:
 week: 9
 date: 2027-05-04
 block: The edges of measurement
+suspect: instrument
 teachers:
   - tamsin-okoro
 reading:

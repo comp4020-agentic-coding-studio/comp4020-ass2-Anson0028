@@ -6,6 +6,7 @@ description:
 week: 3
 date: 2027-03-09
 block: Players and distributions
+suspect: me
 teachers:
   - tamsin-okoro
 reading:

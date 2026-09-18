@@ -7,6 +7,7 @@ description:
 week: 6
 date: 2027-03-30
 block: Options and gates
+suspect: game
 teachers:
   - wei-lindqvist
 reading:

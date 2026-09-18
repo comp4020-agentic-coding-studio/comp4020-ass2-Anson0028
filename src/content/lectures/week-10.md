@@ -6,6 +6,7 @@ description:
 week: 10
 date: 2027-05-11
 block: The edges of measurement
+suspect: instrument
 teachers:
   - wei-lindqvist
 related:

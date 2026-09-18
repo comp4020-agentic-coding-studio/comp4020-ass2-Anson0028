@@ -56,8 +56,8 @@ export const courseMeta = slopCourseMetaSchema.parse({
   endDate: "2027-05-28",
   description:
     "You died to the boss again. Either you are too slow or the boss is too big, " +
-    "and arguing will not settle it. This course finds out by simulation, in " +
-    "one single-player game: build the instrument, simulate the players, read the " +
-    "distribution, defend one number. Nobody plays anything until week ten.",
+    "and arguing will not settle it. This course finds out by simulation, in one " +
+    "two-minute game, Close Quarters: build the instrument, simulate the " +
+    "players, read the distribution, defend one number. Nobody plays until week ten.",
   tags: ["game design", "measurement", "simulation"],
 }) satisfies CourseMetaInput;

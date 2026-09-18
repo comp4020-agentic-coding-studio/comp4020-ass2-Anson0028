@@ -6,6 +6,7 @@ description:
 week: 4
 date: 2027-03-16
 block: Players and distributions
+suspect: instrument
 teachers:
   - wei-lindqvist
 related:

@@ -6,6 +6,7 @@ description:
 week: 12
 date: 2027-05-25
 block: Different players
+suspect: verdict
 teachers:
   - wei-lindqvist
 related:

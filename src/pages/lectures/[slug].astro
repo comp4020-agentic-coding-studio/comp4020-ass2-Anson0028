@@ -16,10 +16,17 @@ export async function getStaticPaths() {
 const { lecture } = Astro.props;
 const { Content } = await render(lecture);
 const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
+const suspectLine: Record<string, string> = {
+  instrument: "Suspect: nobody yet. This week builds the instrument.",
+  me: "Suspect: me. This week measures the player.",
+  game: "Suspect: the game. This week measures the design.",
+  verdict: "The verdict. This week you name one and defend it.",
+};
+const suspect = suspectLine[String(lecture.data.suspect)];
 ---
 
 <ContentLayout title={title} description={lecture.data.description} {...siteConfig}>
-  <p><strong>{formatCourseDate(lecture.data.date)}</strong></p>
+  <p><strong>{formatCourseDate(lecture.data.date)}</strong>{suspect && <> · {suspect}</>}</p>
   {lecture.data.slides && <p><a href={withBase(lecture.data.slides)}>Open the slides</a></p>}
   <Content />
   <TeachingTeam teachers={lecture.data.teachers} />

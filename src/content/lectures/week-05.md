@@ -6,6 +6,7 @@ description:
 week: 5
 date: 2027-03-23
 block: Players and distributions
+suspect: me
 teachers:
   - tamsin-okoro
 related:
