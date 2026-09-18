@@ -68,7 +68,7 @@ measured?"
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
 | No starter prose on any built page | `spec/course.test.ts` › no starter prose |
 | Every built page has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
-| No page costs a visitor more than 3 s at 400 kbit/s | `pnpm check:payload` |
+| No page costs a visitor more than 3 s at 400 kbit/s | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
 | Every run button works twice in a row from the keyboard, and focus never leaves it | `pnpm check:browser` (a real browser, so outside `pnpm check`) |
 | Nothing I styled fails colour contrast, in light or dark. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
 | Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
