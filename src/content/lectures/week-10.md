@@ -1,5 +1,5 @@
 ---
-title: What only playing finds
+title: Playing finds what simulation never asked
 description:
   This is the week you finally play the game. Ten minutes with your hands finds
   things that 51 runs a second for nine weeks did not.
@@ -8,6 +8,7 @@ date: 2027-05-11
 slides: /decks/week-10/
 block: The edges of measurement
 suspect: instrument
+bearing: "Some answers are neither. You could not see what the bar was for, or the thing you needed was three pixels wide."
 teachers:
   - wei-lindqvist
 related:

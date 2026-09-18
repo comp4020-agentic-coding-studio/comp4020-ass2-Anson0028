@@ -1,5 +1,5 @@
 ---
-title: Dominant strategies
+title: The lazy strategy must lose
 description:
   If one way of playing beats every other, the rest of the design is
   decoration. For a while the best way to play the specimen was to run away.
@@ -8,6 +8,7 @@ date: 2027-04-27
 slides: /decks/week-08/
 block: Options and gates
 suspect: game
+bearing: "If running away beats fighting, then losing while you fight is the game's fault."
 teachers:
   - wei-lindqvist
 related:

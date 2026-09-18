@@ -1,5 +1,5 @@
 ---
-title: Defending a number
+title: A change is finished when it can be checked
 description:
   The semester ends with one change to one constant, and everything you have
   learned to say about why it is the right one.
@@ -8,6 +8,7 @@ date: 2027-05-25
 slides: /decks/week-12/
 block: Different players
 suspect: verdict
+bearing: "Your answer, as one number, with enough behind it that someone else could show you are wrong."
 teachers:
   - wei-lindqvist
 related:

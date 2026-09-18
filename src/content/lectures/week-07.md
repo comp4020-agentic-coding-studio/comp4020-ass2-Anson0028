@@ -1,5 +1,5 @@
 ---
-title: Gates
+title: A gate everyone passes asks no question
 description:
   A gate is a point the player must be strong enough to pass. Its size is not a
   design opinion. It is a multiplication, and the first version got it wrong.
@@ -8,6 +8,7 @@ date: 2027-04-20
 slides: /decks/week-07/
 block: Options and gates
 suspect: game
+bearing: "If a player who picked up nothing gets through, the gate never asked, and nobody was to blame for anything."
 teachers:
   - tamsin-okoro
 related:

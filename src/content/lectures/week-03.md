@@ -1,5 +1,5 @@
 ---
-title: Simulated players
+title: A perfect player describes nobody
 description:
   A perfect bot wins 12 runs out of 15 and tells you nothing about a person.
   This week the simulated player gets a reaction time, and the wins go away.
@@ -8,6 +8,7 @@ date: 2027-03-09
 slides: /decks/week-03/
 block: Players and distributions
 suspect: me
+bearing: "This week builds the me: a player slow enough to be somebody."
 teachers:
   - tamsin-okoro
 reading:

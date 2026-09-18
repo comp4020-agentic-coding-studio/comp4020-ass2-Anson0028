@@ -1,5 +1,5 @@
 ---
-title: Balance claims as predictions
+title: A complaint about balance is a prediction
 description:
   A complaint about balance is a prediction nobody has written down. This week
   you write three down, with numbers, about a game you are not allowed to play.
@@ -7,6 +7,7 @@ week: 1
 date: 2027-02-23
 block: The instrument
 suspect: instrument
+bearing: "Neither yet. Until the complaint has a number in it, there is nothing to blame anyone for."
 teachers:
   - tamsin-okoro
 slides: /decks/week-01/

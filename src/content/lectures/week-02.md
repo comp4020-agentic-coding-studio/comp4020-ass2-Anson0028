@@ -1,5 +1,5 @@
 ---
-title: Rules without a screen
+title: A game that needs a screen cannot be measured
 description:
   If a game's rules cannot run without its renderer, nothing about it can be
   measured. This week the specimen runs with no window open, in 6 ms.
@@ -8,6 +8,7 @@ date: 2027-03-02
 slides: /decks/week-02/
 block: The instrument
 suspect: instrument
+bearing: "Neither yet. You cannot ask the question two hundred times if each asking takes two minutes."
 teachers:
   - wei-lindqvist
 related:

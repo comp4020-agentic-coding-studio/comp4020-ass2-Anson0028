@@ -1,5 +1,5 @@
 ---
-title: When a measurement saturates
+title: A metric that cannot fail is noise
 description:
   Nine different builds, 34 kills each. A metric that gives every subject the
   same score is not measuring them, and it will not tell you so.
@@ -8,6 +8,7 @@ date: 2027-05-04
 slides: /decks/week-09/
 block: The edges of measurement
 suspect: instrument
+bearing: "Before you blame either, check the instrument can still tell two things apart."
 teachers:
   - tamsin-okoro
 reading:

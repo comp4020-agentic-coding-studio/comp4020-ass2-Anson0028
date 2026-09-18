@@ -1,5 +1,5 @@
 ---
-title: Dead options
+title: A dead option looks like a live one
 description:
   A choice that does nothing looks exactly like a choice that matters. This week
   you measure what each of the specimen's seven upgrades is worth, by taking it
@@ -9,6 +9,7 @@ date: 2027-03-30
 slides: /decks/week-06/
 block: Options and gates
 suspect: game
+bearing: "If the card you picked did nothing, that one was the game."
 teachers:
   - wei-lindqvist
 reading:

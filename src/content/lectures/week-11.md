@@ -1,5 +1,5 @@
 ---
-title: Who fails the easy level
+title: Every boss is easy for somebody
 description:
   Difficulty is not one number. The same first boss stops 1 player in 51 or 41
   in 51, depending on who is holding the controls.
@@ -8,6 +8,7 @@ date: 2027-05-18
 slides: /decks/week-11/
 block: Different players
 suspect: me
+bearing: "It is always both. The same boss stops 1 player in 51 or 41 in 51, and the design decides which players it is willing to lose."
 teachers:
   - tamsin-okoro
 reading:

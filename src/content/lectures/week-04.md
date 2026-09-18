@@ -8,6 +8,7 @@ date: 2027-03-16
 slides: /decks/week-04/
 block: Players and distributions
 suspect: instrument
+bearing: "One death is not evidence against you or against the game. Fifty-one start to be."
 teachers:
   - wei-lindqvist
 related:
