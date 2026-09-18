@@ -9,6 +9,7 @@ slides: /decks/week-04/
 block: Players and distributions
 suspect: instrument
 bearing: "One death is not evidence against you or against the game. Fifty-one start to be."
+instrument: median
 teachers:
   - wei-lindqvist
 related:

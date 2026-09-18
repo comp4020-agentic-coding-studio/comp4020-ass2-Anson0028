@@ -4,6 +4,8 @@ import { getPublishedCollection } from "astro-course-university/content";
 import RelatedContent from "astro-course-university/components/RelatedContent.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import { withBase } from "astro-theme-university/url";
+import MedianDrift from "../../components/MedianDrift.astro";
+import ReactionLadder from "../../components/ReactionLadder.astro";
 import TeachingTeam from "../../components/TeachingTeam.astro";
 import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, siteConfig } from "../../site-config";
@@ -16,19 +18,32 @@ export async function getStaticPaths() {
 const { lecture } = Astro.props;
 const { Content } = await render(lecture);
 const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
-const suspectLine: Record<string, string> = {
-  instrument: "Suspect: nobody yet. This week builds the instrument.",
-  me: "Suspect: me. This week measures the player.",
-  game: "Suspect: the game. This week measures the design.",
-  verdict: "The verdict. This week you name one and defend it.",
-};
-const suspect = suspectLine[String(lecture.data.suspect)];
+const bearing = (lecture.data as { bearing?: string }).bearing;
+const instrument = (lecture.data as { instrument?: string }).instrument;
 ---
 
 <ContentLayout title={title} description={lecture.data.description} {...siteConfig}>
-  <p><strong>{formatCourseDate(lecture.data.date)}</strong>{suspect && <> · {suspect}</>}</p>
+  <p><strong>{formatCourseDate(lecture.data.date)}</strong></p>
+  {bearing && <p class="bearing"><strong>Is it me or is it the game?</strong> {bearing}</p>}
   {lecture.data.slides && <p><a href={withBase(lecture.data.slides)}>Open the slides</a></p>}
   <Content />
+  {instrument && <h2>Run it yourself</h2>}
+  {instrument === "ladder" && (
+    <ReactionLadder>
+      The table above, one dot a run. A filled dot beat the game. The first
+      press reruns the page's seeds; every press after that draws new ones, and
+      the cliff stays where it is.
+    </ReactionLadder>
+  )}
+  {instrument === "median" && <MedianDrift />}
   <TeachingTeam teachers={lecture.data.teachers} />
   <RelatedContent entry={lecture} collections={graphCollections} />
 </ContentLayout>
+
+<style>
+  .bearing {
+    padding: 0.75rem 1rem;
+    border-inline-start: 3px solid var(--at-primary);
+    background: var(--at-bg-alt);
+  }
+</style>

@@ -1,0 +1,193 @@
+---
+const curve = [
+  { ms: 50, wins: 38 },
+  { ms: 100, wins: 12 },
+  { ms: 150, wins: 2 },
+  { ms: 200, wins: 0 },
+  { ms: 250, wins: 0 },
+  { ms: 300, wins: 0 },
+];
+const RUNS = 51;
+---
+
+<figure class="runs">
+  <div
+    class="matrix"
+    role="img"
+    aria-label={`Wins out of ${RUNS} runs for a simulated player at six reaction times: ${curve.map((p) => `${p.ms} milliseconds, ${p.wins} wins`).join("; ")}.`}
+  >
+    {curve.map((point) => (
+      <div class="run-row" data-ms={point.ms}>
+        <span class="ms">{point.ms} ms</span>
+        <span class="dots" style={`--wins:${point.wins}`}><i /><b /></span>
+        <span class="count">{point.wins}</span>
+      </div>
+    ))}
+  </div>
+  <p class="run-it">
+    <button type="button" id="run-51">Run all 306 in your browser</button>
+    <span id="run-status" aria-live="polite"></span>
+  </p>
+  <figcaption><slot /></figcaption>
+</figure>
+
+<script>
+  const button = document.getElementById("run-51") as HTMLButtonElement;
+  const status = document.getElementById("run-status") as HTMLElement;
+  const rows = [...document.querySelectorAll<HTMLElement>(".run-row")];
+  const printed = rows.map((row) => Number(row.querySelector(".count")?.textContent));
+  const low = [...printed];
+  const high = [...printed];
+  let batch = 0;
+  button.addEventListener("click", async () => {
+    button.disabled = true;
+    status.textContent = batch === 0 ? "Loading the rules…" : "New seeds…";
+    const { runRow } = await import("../scripts/run-51");
+    const started = performance.now();
+    const results: number[] = [];
+    for (const row of rows) {
+      const dots = row.querySelector<HTMLElement>(".dots")!;
+      const count = row.querySelector<HTMLElement>(".count")!;
+      const ms = Number(row.dataset.ms);
+      status.textContent = `Running 51 at ${ms} ms…`;
+      results.push(
+        await runRow(ms, batch, (wins, done) => {
+          dots.style.setProperty("--wins", String(wins));
+          count.textContent = `${wins}`;
+          dots.setAttribute("title", `${done} of 51 run`);
+        }),
+      );
+    }
+    const seconds = ((performance.now() - started) / 1000).toFixed(1);
+    results.forEach((w, i) => {
+      low[i] = Math.min(low[i], w);
+      high[i] = Math.max(high[i], w);
+    });
+    const same = results.every((w, i) => w === printed[i]);
+    if (batch === 0) {
+      status.textContent = `${rows.length * 51} runs in ${seconds} s. ${
+        same
+          ? "The same six numbers the page printed."
+          : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row.`
+      } Now try new seeds.`;
+    } else {
+      const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i]}–${high[i]}`).join(", ");
+      status.textContent = `Batch ${batch + 1}, fresh seeds: ${results.join(", ")}. Across ${batch + 1} batches each row has landed at: ${spread}. The numbers move; the cliff does not. Week 4 is about how many runs a claim needs.`;
+    }
+    batch++;
+    button.textContent = "Run 306 with new seeds";
+    button.disabled = false;
+  });
+</script>
+
+<style is:global>
+  .runs {
+    margin: 2.5rem 0;
+  }
+
+  .matrix {
+    display: grid;
+    gap: 0.5rem;
+    padding-block: 1.25rem;
+    border-block: 2px solid var(--at-text);
+  }
+
+  .run-row {
+    display: grid;
+    grid-template-columns: 3.75rem 1fr 1.75rem;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .count {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .dots {
+    display: flex;
+    container-type: inline-size;
+  }
+
+  .dots i,
+  .dots b {
+    --u: calc(100cqw / 51);
+    height: var(--u);
+    background-size: var(--u) var(--u);
+  }
+
+  .dots i {
+    width: calc(var(--wins) * var(--u));
+    background-image: radial-gradient(circle, var(--at-primary) 0 40%, transparent 44%);
+  }
+
+  .dots b {
+    flex: 1;
+    background-image: radial-gradient(circle, transparent 0 28%, var(--at-text-secondary) 32% 40%, transparent 44%);
+  }
+
+  @media (max-width: 40rem) {
+    .run-row {
+      grid-template-columns: 1fr auto;
+      gap: 0.25rem;
+    }
+
+    .dots {
+      grid-row: 2;
+      grid-column: 1 / -1;
+    }
+  }
+
+  .run-it {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    margin: 0.75rem 0 0;
+  }
+
+  .run-it button {
+    padding: 0.5rem 0.9rem;
+    border: 2px solid var(--at-text);
+    border-radius: 0;
+    background: var(--at-text);
+    color: var(--at-bg);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .run-it button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  .run-it button:focus-visible {
+    outline: 2px solid var(--at-primary);
+    outline-offset: 2px;
+  }
+
+  #run-status {
+    color: var(--at-text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .runs figcaption {
+    margin-top: 0.75rem;
+    max-width: 38rem;
+    color: var(--at-text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .ms,
+  .count {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .count {
+    font-size: 1rem;
+  }
+</style>

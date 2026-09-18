@@ -1,0 +1,90 @@
+---
+const printed = [
+  { runs: 1, median: 69.3 },
+  { runs: 5, median: 69.3 },
+  { runs: 15, median: 81.5 },
+  { runs: 51, median: 78.2 },
+  { runs: 101, median: 78.0 },
+  { runs: 501, median: 73.7 },
+];
+---
+
+<figure class="drift">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Runs</th>
+        <th scope="col">Printed above</th>
+        <th scope="col">In your browser</th>
+      </tr>
+    </thead>
+    <tbody>
+      {printed.map((row) => (
+        <tr data-runs={row.runs}>
+          <th scope="row">{row.runs}</th>
+          <td>{row.median.toFixed(1)} s</td>
+          <td class="live">not run yet</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="run-it">
+    <button type="button" id="run-drift">Run 501 and watch the median move</button>
+    <span id="drift-status" aria-live="polite"></span>
+  </p>
+  <figcaption>
+    The 150 ms player, the same rules, in your browser. The first press uses the
+    page's seeds, and the two columns still will not agree exactly: the printed
+    one was measured in Node, whose arithmetic differs from a browser's in the
+    last bits, and a few runs end differently. Every press after that draws new
+    seeds. That the median moves is the point. Where it lands is not.
+  </figcaption>
+</figure>
+
+<script>
+  const button = document.getElementById("run-drift") as HTMLButtonElement;
+  const status = document.getElementById("drift-status") as HTMLElement;
+  const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
+  const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+  let batch = 0;
+  button.addEventListener("click", async () => {
+    button.disabled = true;
+    status.textContent = "Running…";
+    const { survivalTimes } = await import("../scripts/run-51");
+    const started = performance.now();
+    const most = Math.max(...rows.map((row) => Number(row.dataset.runs)));
+    const times = await survivalTimes(150, most, batch);
+    const medians = rows.map((row) => {
+      const m = median(times.slice(0, Number(row.dataset.runs))) / 1000;
+      row.querySelector(".live")!.textContent = `${m.toFixed(1)} s`;
+      return m;
+    });
+    const seconds = ((performance.now() - started) / 1000).toFixed(1);
+    const spread = (Math.max(...medians) - Math.min(...medians)).toFixed(1);
+    status.textContent = `${most} runs in ${seconds} s${batch === 0 ? "" : `, batch ${batch + 1} on new seeds`}. The median moved by ${spread} s as the runs were added. It was the same player and the same game the whole time.`;
+    batch++;
+    button.textContent = "Run 501 on new seeds";
+    button.disabled = false;
+  });
+</script>
+
+<style is:global>
+  .drift {
+    margin: 2rem 0;
+  }
+
+  .drift table {
+    width: 100%;
+  }
+
+  .drift .live {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  .drift figcaption {
+    margin-top: 0.75rem;
+    color: var(--at-text-secondary);
+    font-size: 0.95rem;
+  }
+</style>

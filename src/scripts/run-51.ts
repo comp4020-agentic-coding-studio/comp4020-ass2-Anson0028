@@ -20,3 +20,13 @@ export async function runRow(reactionMs: number, batch: number, onRun: (wins: nu
   }
   return wins;
 }
+
+export async function survivalTimes(reactionMs: number, count: number, batch: number): Promise<number[]> {
+  const times: number[] = [];
+  for (let i = 0; i < count; i++) {
+    const rng = seeded((i + 1) * 97 + batch * 5003);
+    times.push(runHeadless(withReaction(chaseXpPolicy, rng, reactionMs), rng, "first").ms);
+    if (i % 3 === 2) await yieldFrame();
+  }
+  return times;
+}
