@@ -6,7 +6,7 @@ import { formatCourseDate } from "../lib/dates";
 
 const lectures = await getPublishedCollection("lectures");
 const visible = lectures.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
-const tag: Record<string, string> = { instrument: "the instrument", me: "is it me", game: "is it the game", verdict: "the verdict" };
+const tag: Record<string, string> = { instrument: "the measuring instrument", me: "is it me", game: "is it the game", verdict: "the verdict" };
 ---
 
 <CardGrid columns={2}>

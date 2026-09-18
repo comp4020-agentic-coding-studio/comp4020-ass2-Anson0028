@@ -5,7 +5,7 @@ description:
   numbers, about a game you are not allowed to play.
 week: 1
 date: 2027-02-23
-block: The instrument
+block: The measuring instrument
 suspect: instrument
 bearing: "Neither yet. Until the complaint has a number in it, there is nothing to blame anyone for."
 teachers:

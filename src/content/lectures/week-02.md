@@ -6,7 +6,7 @@ description:
 week: 2
 date: 2027-03-02
 slides: /decks/week-02/
-block: The instrument
+block: The measuring instrument
 suspect: instrument
 bearing: "Neither yet. You cannot ask the question two hundred times if each asking takes two minutes."
 teachers:
