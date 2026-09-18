@@ -1,8 +1,8 @@
 ---
 title: A complaint about balance is a prediction
 description:
-  A complaint about balance is a prediction nobody has written down. This week
-  you write three down, with numbers, about a game you are not allowed to play.
+  Nobody has written it down yet. This week you write three down, with
+  numbers, about a game you are not allowed to play.
 week: 1
 date: 2027-02-23
 block: The instrument
