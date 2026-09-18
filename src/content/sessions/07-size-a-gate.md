@@ -32,6 +32,27 @@ and see whether the line falls where you put it.
 
 It usually does not, the first time. Say why.
 
+## Where it goes wrong
+
+- **Damage from the card text.** The opening weapon says 17 damage every 0.85 s,
+  which is 20 a second, if every bolt hits. Measure what lands.
+- **Counting the wrong thing.** The first version of the specimen's gate counted
+  the player's level. A player who refuses every card still levels up, and was
+  handed a weaker boss for it. Count upgrades held.
+- **Off by one.** The starting weapon counts as one upgrade. "Four upgrades"
+  means three cards picked up. The first draft of this week's lecture had the
+  wrong one of those two numbers in it.
+- **Testing only the players you want to stop.** A gate has two jobs. If the
+  ten-upgrade group gets through 9 times in 51, the gate is a wall.
+
+## What a finished answer looks like
+
+The specimen's own first gate, in the form yours should take:
+
+> 20 damage a second for 26 s is 520 hp, so anything under 520 hp asks nothing.
+> Set to 884 hp for two upgrades or fewer, 510 hp at four. Players who decline
+> every card: 0 of 51 alive after the window. Ordinary players: 47 of 51.
+
 ## Afterwards
 
 Your gate, its arithmetic and its three pass rates are this week's quiz answer.
