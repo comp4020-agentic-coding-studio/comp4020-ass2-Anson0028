@@ -71,10 +71,6 @@ const suspects = [
 
   <p class="lead">{courseMeta.description}</p>
 
-  <ul class="course-tags" aria-label="Course tags">
-    {courseMeta.tags.map((tag) => <li>{tag}</li>)}
-  </ul>
-
   <figure class="runs">
     <div
       class="matrix"
@@ -149,69 +145,29 @@ const suspects = [
     });
   </script>
 
-  <h2>What you will do</h2>
+  <h2>What you will do, and who it is for</h2>
   <p>
-    Spend twelve weeks measuring one small game, <em>Close Quarters</em>, a
-    two-minute survival run with seven upgrades and two bosses. You will pull
-    its rules away from its screen, write players that stand in for people, run
-    it 51 times in a sixth of a second, and learn to read what comes back as a
-    distribution instead of an anecdote.
-  </p>
-  <p>
-    You will not play it until week ten. By then you will have nine weeks of
-    predictions on paper, and the game gets to surprise you in a way you can
-    write down.
-  </p>
-  <p>
-    The game is live at <a href="https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/">Close Quarters</a>.
-    You are asked not to open it yet. Its rules are <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">eight hundred lines of TypeScript</a>,
+    Twelve weeks measuring one small game, <a href="https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/"><em>Close Quarters</em></a>,
+    a two-minute survival run with seven upgrades and two bosses. It is live,
+    and you are asked not to open it until week ten. Its rules are <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">eight hundred lines of TypeScript</a>,
     and those you may read now.
   </p>
   <p>
     You leave with one number: a change to one constant in that game, and a
     ten-minute case for it that three sceptical classmates could check.
   </p>
-
-  <h2>Who it is for</h2>
   <p>
-    People who make or mod games and are tired of balance arguments that nobody
-    can lose. You need to be able to read and edit a few hundred lines of
-    TypeScript. You do not need statistics beyond a median, and you do not need
-    to be good at the game.
-  </p>
-  <p>
-    It is a narrow course on purpose: single-player games only, simulation
-    only. Multiplayer balance and playtesting with real people are different
-    subjects, and week ten is honest about what that leaves out.
+    It is for people who make or mod games and are tired of balance arguments
+    nobody can lose. You need to read and edit TypeScript. You do not need
+    statistics beyond a median, and you do not need to be good at the game.
   </p>
 
   <h2>The semester, week by week</h2>
-  <p>
-    Tuesday is the claim, Thursday is the measurement. Five readings for the
-    whole semester, one per block. Four pieces of assessment, each built from
-    the one before.
-  </p>
+  <p>Tuesday is the claim, Thursday is the measurement.</p>
   <Schedule />
 </BaseLayout>
 
 <style is:global>
-  .course-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-block: 0 2rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .course-tags li {
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    color: var(--at-text-secondary);
-    background: var(--at-bg-alt);
-    font-size: 0.9rem;
-  }
-
   .suspects {
     position: relative;
     z-index: 1;
