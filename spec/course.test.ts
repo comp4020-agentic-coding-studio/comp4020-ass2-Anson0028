@@ -74,6 +74,12 @@ describe("twelve weeks that do not repeat one another", () => {
 });
 
 describe("a course about measurement", () => {
+  it("gives every week a deck of its own", () => {
+    for (const lecture of lectures) {
+      expect(String(lecture.meta?.slides ?? ""), `week ${lecture.meta?.week} has no slides`).toMatch(/^\/decks\/week-\d\d\/$/);
+    }
+  });
+
   it("says which suspect each week measures", () => {
     const allowed = ["instrument", "me", "game", "verdict"];
     for (const lecture of lectures) {
