@@ -90,6 +90,25 @@ try {
     }
     await context.close();
   }
+
+  const phone = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, hasTouch: true });
+  const phonePage = await phone.newPage();
+  for (const path of CONTRAST_PAGES) {
+    await phonePage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
+    const clipped = await phonePage.evaluate(() =>
+      [...document.querySelectorAll("main table")]
+        .map((table) => {
+          let box: HTMLElement | null = table.parentElement;
+          while (box && box.scrollWidth <= box.clientWidth + 1 && box.tagName !== "MAIN") box = box.parentElement;
+          const hidden = box && box.tagName !== "MAIN" ? box.scrollWidth - box.clientWidth : 0;
+          const last = table.querySelector("thead th:last-child")?.textContent?.trim() ?? "";
+          return { hidden, last };
+        })
+        .filter((t) => t.hidden > 1),
+    );
+    for (const table of clipped) failures.push(`${path} at 390 px: a table hides ${table.hidden} px off screen, including its "${table.last}" column`);
+  }
+  await phone.close();
 } finally {
   await browser.close();
   await server.stop();
@@ -100,4 +119,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
