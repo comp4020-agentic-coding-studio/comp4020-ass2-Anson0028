@@ -69,6 +69,8 @@ measured?"
 | No starter prose on any built page | `spec/course.test.ts` › no starter prose |
 | Every built page has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
 | No page costs a visitor more than 3 s at 400 kbit/s | `pnpm check:payload` |
+| Every run button works twice in a row from the keyboard, and focus never leaves it | `pnpm check:browser` (a real browser, so outside `pnpm check`) |
+| Nothing I styled fails colour contrast, in light or dark. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
 | Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
@@ -132,8 +134,11 @@ content site), and everything about harps and survival arenas.
 
 Sensors: `check-payload` comes across, retargeted from "the whole of dist" to
 "what one page makes a visitor download", because this site has twenty pages
-and a visitor loads one. `check-a11y` stays behind, since this platform's build
-already runs axe on every page. `check-viewports` came across late, as `check-decks`:
+and a visitor loads one. `check-a11y` was left behind on the grounds that this platform's build
+already runs axe. That was wrong. The build's axe runs in JSDOM, which has no
+layout and cannot compute a contrast ratio, and it let through a table header
+of mine at 2.41:1 in dark mode. An outside review found it with axe in a real
+browser. It came back as part of `check-browser`. `check-viewports` came across late, as `check-decks`:
 for a day the deck at a phone viewport was held by hand, measured against the
 one deck that had been written to fit the rule. With twelve decks the hand
 measurement missed that table cells were 8.8 px on a phone. The sensor found
