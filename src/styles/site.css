@@ -1,3 +1,11 @@
 .at-footer-legal > span:first-child {
   display: none;
 }
+
+@media (max-width: 30rem) {
+  main table th,
+  main table td {
+    padding-inline: 0.4rem;
+    font-size: 0.9rem;
+  }
+}
