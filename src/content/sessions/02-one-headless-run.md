@@ -25,8 +25,8 @@ Node.
 
 Call the headless runner once with seed 97 and an ordinary simulated player.
 Write down three things: how long it took, whether the run was won or lost, and
-the second it ended on. For reference, a 2024 laptop does it in about 6 ms and
-the run is lost at 69.333 s.
+the second it ended on. For reference, a 2024 laptop takes about 10 ms on the
+first call and under 4 ms once warm, and the run is lost at 69.333 s.
 
 Then run the same seed again. If the two results differ in any digit, something
 in your setup is reading a clock or a random number it was not handed, and
