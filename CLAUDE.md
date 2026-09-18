@@ -11,7 +11,7 @@ the numbers until it feels right. The whole semester measures one specimen,
 Close Quarters, a two-minute survival game. Nobody plays it until week ten, and
 week ten is where the course admits what simulation cannot see. The course argues
 through what a course website affords: the order of the twelve weeks, what each
-studio asks students to measure, what the assessments reward, and the one deck.
+tutorial asks students to measure, what the assessments reward, and the one deck.
 
 Everything on the site serves that sentence. When a page, a paragraph or a
 component does not, the default move is to delete it, not to add an explanation
@@ -28,8 +28,8 @@ measured?"
 1. Every week makes one claim. A week that surveys a topic is a reading list.
 2. Every week hands its result to a later week. A course is a chain, and the
    links are declared in `related:` so the build can see them.
-3. Every studio ends with a number the student produced. This course is about
-   measurement; a studio that ends in a discussion has taught taste again.
+3. Every tutorial ends with a number the student produced. This course is about
+   measurement; a tutorial that ends in a discussion has taught taste again.
 4. Assessments reward a defended number, not a finished game, and each one is
    built from the one before: a curve, then a point on it and what else moved,
    then the defence. The idea of chaining them came from a classmate's course
@@ -40,7 +40,7 @@ measured?"
    through, which the brief calls too broad.
 6. Titles say what the week is. No metaphors in titles; voice lives in the body.
 7. Five readings for the semester, one per block of two or three weeks. A
-   reading every week, the way Calling Bullshit does it, would turn the studios
+   reading every week, the way Calling Bullshit does it, would turn the tutorials
    into a reading group; here the week's text is usually the student's own
    data. Each reading is a real paper that Anson has opened.
 
@@ -49,13 +49,13 @@ measured?"
 | Rule | Check |
 | --- | --- |
 | Twelve lectures, one per teaching week | `spec/course.test.ts` › one lecture per week |
-| A studio for every teaching week | `spec/course.test.ts` › one studio per week |
+| A tutorial for every teaching week | `spec/course.test.ts` › one tutorial per week |
 | Each week links to the next | `spec/course.test.ts` › spine |
 | No two lecture titles share a content word | `spec/course.test.ts` › titles |
 | Every lecture names a quantity with a unit | `spec/course.test.ts` › measurable |
 | Assessment weights total 100 | `spec/course.test.ts` › weights |
 | Assessments are a chain: a piece that `consumes:` another names one due earlier | `spec/course.test.ts` › is a chain |
-| Every studio says what it measures (`measures:`) | `spec/course.test.ts` › studios end in a number |
+| Every tutorial says what it measures (`measures:`) | `spec/course.test.ts` › tutorials end in a number |
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
 
