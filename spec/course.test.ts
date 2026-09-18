@@ -20,7 +20,7 @@ const inWeek = (nodes: ApiNode[], week: number) =>
   nodes.filter((node) => Number(node.meta?.week) === week);
 
 const lectures = ofType("lectures");
-const studios = ofType("sessions");
+const tutorials = ofType("sessions");
 const assessments = ofType("assessments");
 
 const STOPWORDS = new Set([
@@ -43,9 +43,9 @@ describe("the shape of the semester", () => {
     }
   });
 
-  it("has one studio per week", () => {
+  it("has one tutorial per week", () => {
     for (const week of WEEKS) {
-      expect(inWeek(studios, week), `week ${week} studios`).toHaveLength(1);
+      expect(inWeek(tutorials, week), `week ${week} tutorials`).toHaveLength(1);
     }
   });
 
@@ -94,11 +94,11 @@ describe("a course about measurement", () => {
   });
 });
 
-describe("studios end in a number", () => {
-  it("says what each studio measures", () => {
-    expect(studios.length).toBeGreaterThan(0);
-    for (const studio of studios) {
-      expect(String(studio.meta?.measures ?? "").trim(), `${studio.id} measures nothing`).not.toBe("");
+describe("tutorials end in a number", () => {
+  it("says what each tutorial measures", () => {
+    expect(tutorials.length).toBeGreaterThan(0);
+    for (const tutorial of tutorials) {
+      expect(String(tutorial.meta?.measures ?? "").trim(), `${tutorial.id} measures nothing`).not.toBe("");
     }
   });
 });
