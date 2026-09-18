@@ -30,5 +30,5 @@ export const siteConfig = defineSiteConfig({
 
   licence: "CC-BY-NC-SA-4.0",
   socialImage: "/src/assets/images/card.png",
-  socialImageAlt: `${courseMeta.code}: ${courseMeta.title}. Measuring game balance without players. Six rows of 51 dots, one dot per simulated run, filled if the run beat the game: 38, 12, 2, 0, 0, 0 wins as reaction time goes from 50 to 300 ms.`,
+  socialImageAlt: `${courseMeta.code}: ${courseMeta.title} Measuring game balance without players. Six rows of 51 dots, one dot per simulated run, filled if the run beat the game: 38, 12, 2, 0, 0, 0 wins as reaction time goes from 50 to 300 ms.`,
 });
