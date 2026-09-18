@@ -16,6 +16,11 @@ const RUNS = 51;
     role="img"
     aria-label={`Wins out of ${RUNS} runs for a simulated player at six reaction times: ${curve.map((p) => `${p.ms} milliseconds, ${p.wins} wins`).join("; ")}.`}
   >
+    <div class="run-row run-head" aria-hidden="true">
+      <span>reaction time</span>
+      <span></span>
+      <span>wins of 51</span>
+    </div>
     {curve.map((point) => (
       <div class="run-row" data-ms={point.ms}>
         <span class="ms">{point.ms} ms</span>
@@ -34,7 +39,7 @@ const RUNS = 51;
 <script>
   const button = document.getElementById("run-51") as HTMLButtonElement;
   const status = document.getElementById("run-status") as HTMLElement;
-  const rows = [...document.querySelectorAll<HTMLElement>(".run-row")];
+  const rows = [...document.querySelectorAll<HTMLElement>(".run-row[data-ms]")];
   const printed = rows.map((row) => Number(row.querySelector(".count")?.textContent));
   const low = [...printed];
   const high = [...printed];
@@ -90,6 +95,23 @@ const RUNS = 51;
     gap: 0.5rem;
     padding-block: 1.25rem;
     border-block: 2px solid var(--at-text);
+  }
+
+  .run-head {
+    color: var(--at-text-secondary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .run-head span:last-child {
+    justify-self: end;
+  }
+
+  @media (max-width: 40rem) {
+    .run-head span:nth-child(2) {
+      display: none;
+    }
   }
 
   .run-row {
