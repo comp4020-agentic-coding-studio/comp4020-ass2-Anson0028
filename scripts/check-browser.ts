@@ -87,6 +87,23 @@ try {
     if (after === before) failures.push(`arriving ${route.name}: the button does nothing`);
   }
 
+  const hiddenContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  await hiddenContext.addInitScript(() => {
+    window.requestAnimationFrame = () => 0;
+    Object.defineProperty(document, "hidden", { get: () => true });
+  });
+  const hiddenPage = await hiddenContext.newPage();
+  for (const { path, button } of INSTRUMENTS) {
+    await hiddenPage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
+    await hiddenPage.click(button);
+    const finished = await hiddenPage
+      .waitForFunction(settled(button), null, { timeout: 20_000 })
+      .then(() => true)
+      .catch(() => false);
+    if (!finished) failures.push(`${path}: with the tab in the background, where requestAnimationFrame never fires, the run never finishes`);
+  }
+  await hiddenContext.close();
+
   for (const scheme of ["light", "dark"] as const) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: scheme });
     const contrastPage = await context.newPage();
@@ -141,4 +158,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus and still work when reached by a link; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, and finish in a background tab; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
