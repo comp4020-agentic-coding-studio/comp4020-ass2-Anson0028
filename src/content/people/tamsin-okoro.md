@@ -6,7 +6,7 @@ description:
 affiliation: Slop University School of Invented Disciplines
 role: convenor
 email: tamsin.okoro@slop.university
-contact: Email for extensions, assessment and anything about the course as a whole. Bring questions about your own measurements to Thursday's studio.
+contact: Email for extensions, assessment and anything about the course as a whole. Bring questions about your own measurements to Thursday's tutorial.
 ---
 
 Tamsin started simulating players in order to end an argument sooner. It
@@ -25,6 +25,6 @@ She gives the Tuesday lectures with Wei and marks the final defences.
 
 ## Who to ask first
 
-The person next to you in the studio, then Wei, then Tamsin. Most questions in
+The person next to you in the tutorial, then Wei, then Tamsin. Most questions in
 this course are "why did my number move?", and the fastest answer comes from
 someone who can look at your screen.

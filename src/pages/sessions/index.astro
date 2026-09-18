@@ -6,13 +6,14 @@ import { sessionLabels, siteConfig } from "../../site-config";
 
 <ContentLayout
   title={sessionLabels.plural}
-  description="Twelve Thursdays. Every studio ends with a number you produced, and this page is the list of them."
+  description="Twelve Thursdays. Every tutorial ends with a number you produced, and this page is the list of them."
   {...siteConfig}
 >
   <p>
-    Read the right-hand column top to bottom and you have the course. The first
-    five studios are unmarked. From week 6 each one is an entry in your{" "}
-    <a href={`${import.meta.env.BASE_URL}/assessments/lab-book/`.replace(/\/\//g, "/")}>lab book</a>.
+    Read the right-hand column top to bottom and you have the course. Every
+    one ends with a five-minute{" "}
+    <a href={`${import.meta.env.BASE_URL}/assessments/tutorial-quizzes/`.replace(/\/\//g, "/")}>quiz</a>{" "}
+    that asks for the number you just measured.
   </p>
   <SessionsGrid />
 </ContentLayout>

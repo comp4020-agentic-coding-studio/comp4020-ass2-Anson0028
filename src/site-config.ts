@@ -5,8 +5,8 @@ import { courseMeta } from "./course-config";
 // The underlying collection and URL remain `sessions`; these labels are the
 // language students see. Change them to Studios, Tutorials, Expeditions, etc.
 export const sessionLabels = {
-  singular: "Studio",
-  plural: "Studios",
+  singular: "Tutorial",
+  plural: "Tutorials",
 } as const;
 
 export const graphCollections = ["sessions", "assessments", "lectures", "people"];

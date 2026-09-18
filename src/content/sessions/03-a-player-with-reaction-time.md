@@ -16,12 +16,12 @@ related:
   - lectures/week-03
 ---
 
-## Before the studio
+## Before the tutorial
 
 Bring the prediction the room voted most likely to be wrong in week one. Read
 the player model section of Isaksen, Gopstein and Nealen.
 
-## In the studio
+## In the tutorial
 
 Write the simplest policy you can defend: walk towards the nearest experience,
 step away from anything close. Run it over seeds 1 to 15 and count the wins.
@@ -35,5 +35,5 @@ Last 20 minutes: test the prediction you brought. Most of them die here.
 
 ## Afterwards
 
-Both win counts go in the lab book, with the reaction time you settled on and
+Both win counts go on this week's quiz, with the reaction time you settled on and
 one line on how you chose it.

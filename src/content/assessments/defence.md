@@ -25,10 +25,10 @@ spec:
   - one constant, its old value and its new value
   - the seven parts from week twelve, each present and in order
   - wins out of 51 and median survival before and after, for at least two kinds of player
-  - every quoted number traceable to a lab book entry or a reproducible command
+  - every quoted number traceable to a quiz answer or a reproducible command
 related:
   - nothing-broke
-  - lab-book
+  - tutorial-quizzes
   - lectures/week-12
   - sessions/12-defence-rehearsal
 ---
@@ -48,12 +48,12 @@ is allowed and is harder than it sounds.
 
 ## What you submit
 
-A recording of no more than ten minutes, your fork, and your lab book. The
+A recording of no more than ten minutes, your fork, and your twelve quiz sheets. The
 panel is three classmates and one member of the teaching team, and they ask
 questions from the recording.
 
 ## How the four pieces fit
 
 Assignment 1 produces a curve. Assignment 2 picks a point on it and checks the
-blast radius. The lab book records everything in between. The defence is the
+blast radius. The quizzes record everything in between. The defence is the
 point, the radius and the record, said out loud.

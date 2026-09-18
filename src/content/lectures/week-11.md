@@ -57,7 +57,7 @@ Shaghayegh Roohi and colleagues,
 
 They predict which levels of a shipped mobile game lose players, using
 simulated players and a model of a population with different skill and
-patience. It is this week's table at the scale of a real studio.
+patience. It is this week's table at the scale of a real tutorial.
 
 ## What you leave with
 

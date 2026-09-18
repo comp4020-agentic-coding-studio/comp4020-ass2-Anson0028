@@ -16,12 +16,12 @@ related:
   - lectures/week-02
 ---
 
-## Before the studio
+## Before the tutorial
 
 Clone the specimen and install its dependencies. Bring a laptop that can run
 Node.
 
-## In the studio
+## In the tutorial
 
 Call the headless runner once with seed 97 and an ordinary simulated player.
 Write down three things: how long it took, whether the run was won or lost, and
@@ -30,9 +30,9 @@ the run is lost at 69.333 s.
 
 Then run the same seed again. If the two results differ in any digit, something
 in your setup is reading a clock or a random number it was not handed, and
-finding it is the rest of your studio.
+finding it is the rest of your tutorial.
 
 ## Afterwards
 
-The timing goes in your lab book. Multiply it out: how many runs could you do
+The timing is your number for this week's quiz. Multiply it out: how many runs could you do
 in the 120 s it takes a person to play one?

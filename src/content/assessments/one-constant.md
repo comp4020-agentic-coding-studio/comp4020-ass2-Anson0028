@@ -30,7 +30,7 @@ related:
 
 > Turn one dial evenly. Show that the game did not respond evenly, and say why.
 
-This is the week 5 studio done properly. The studio let you be rough; here the
+This is the week 5 tutorial done properly. The tutorial let you be rough; here the
 seeds are fixed, the run count is stated, and your prediction is written down
 before you measure, where everyone can see how wrong it was. Being wrong is not
 marked down. Not having predicted anything is.

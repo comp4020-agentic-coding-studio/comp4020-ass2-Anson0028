@@ -16,14 +16,14 @@ related:
   - lectures/week-05
 ---
 
-## Before the studio
+## Before the tutorial
 
 Fork the specimen. Choose your constant before you arrive and write down what
 you expect the curve to look like. Enemy speed, spawn interval and boss health
 are all reasonable. Do not choose the boss's time limit; the lecture already
 spoiled it.
 
-## In the studio
+## In the tutorial
 
 Six values, 51 runs each, same seeds throughout. Plot wins against the value of
 the constant, by hand if you like.
@@ -33,5 +33,5 @@ the two is what this course is for.
 
 ## Afterwards
 
-This is the last unmarked studio. Assignment 1 asks for exactly this, done
-properly, on a constant you have not used yet.
+Today's quiz answer is the six-row table. Assignment 1 asks for exactly this,
+done properly, on a constant you have not used yet.

@@ -16,12 +16,12 @@ related:
   - lectures/week-12
 ---
 
-## Before the studio
+## Before the tutorial
 
 Have the whole defence ready. This is a rehearsal, and rehearsing half a thing
 teaches you nothing about the other half.
 
-## In the studio
+## In the tutorial
 
 Groups of four. One presents for ten minutes; three listen with the list of
 seven parts in front of them and tick them off. The first missing tick is the

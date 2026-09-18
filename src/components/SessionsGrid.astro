@@ -7,11 +7,11 @@ const visible = sessions.sort((a, b) => a.data.week - b.data.week);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<table class="studios">
+<table class="tutorials">
   <thead>
     <tr>
       <th scope="col">Week</th>
-      <th scope="col">Studio</th>
+      <th scope="col">Tutorial</th>
       <th scope="col">You leave with</th>
     </tr>
   </thead>
@@ -34,44 +34,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 </table>
 
 <style>
-  .studios {
+  .tutorials {
     width: 100%;
     border-collapse: collapse;
   }
 
-  .studios th,
-  .studios td {
+  .tutorials th,
+  .tutorials td {
     padding: 0.6rem 0.75rem 0.6rem 0;
     text-align: start;
     vertical-align: top;
     border-bottom: 1px solid var(--at-divider);
   }
 
-  .studios thead th {
+  .tutorials thead th {
     color: var(--at-text-secondary);
     font-weight: 600;
     font-size: 0.9rem;
   }
 
-  .studios small {
+  .tutorials small {
     display: block;
     color: var(--at-text-secondary);
     white-space: nowrap;
   }
 
   @media (max-width: 36rem) {
-    .studios thead {
+    .tutorials thead {
       display: none;
     }
 
-    .studios tr {
+    .tutorials tr {
       display: grid;
       padding-block: 0.6rem;
       border-bottom: 1px solid var(--at-divider);
     }
 
-    .studios th,
-    .studios td {
+    .tutorials th,
+    .tutorials td {
       padding: 0.1rem 0;
       border: 0;
     }

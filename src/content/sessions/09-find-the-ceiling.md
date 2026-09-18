@@ -16,12 +16,12 @@ related:
   - lectures/week-09
 ---
 
-## Before the studio
+## Before the tutorial
 
 Decide which single metric you have leaned on most since week three. Median
-survival, wins out of 51, kills: pick the one your lab book is full of.
+survival, wins out of 51, kills: pick the one your quiz answers are full of.
 
-## In the studio
+## In the tutorial
 
 Two comparisons. First, best build against worst build. Second, one build
 against itself on seeds 1 to 51 and then on seeds 52 to 102.

@@ -16,12 +16,12 @@ related:
   - lectures/week-08
 ---
 
-## Before the studio
+## Before the tutorial
 
 Think of the most annoying person you have ever played a game with. Bring
 their habits.
 
-## In the studio
+## In the tutorial
 
 Corner camping. Circling the edge. Never picking up anything. Only ever moving
 left. Each one is five lines of code. Run all of them, 51 seeds each, against
@@ -33,5 +33,5 @@ different lazy player the new winner.
 
 ## Afterwards
 
-The strategy table goes in the lab book. This block ends here; the next one is
+The strategy table is this week's quiz answer. This block ends here; the next one is
 about what none of these tables can tell you.

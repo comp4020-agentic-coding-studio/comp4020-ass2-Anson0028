@@ -16,11 +16,11 @@ related:
   - lectures/week-10
 ---
 
-## Before the studio
+## Before the tutorial
 
 Nothing. Do not play it early. The first ten minutes only happen once.
 
-## In the studio
+## In the tutorial
 
 Play for ten minutes with a notebook open. Write as you go and do not tidy it
 up. "I didn't know what the bar was." "I keep walking past the orbs." "I stood
@@ -39,5 +39,5 @@ moving.
 
 ## Afterwards
 
-The raw list goes in the lab book unedited. The new check joins your
+The raw list is this week's quiz answer, unedited. The new check joins your
 instrument for the defence.

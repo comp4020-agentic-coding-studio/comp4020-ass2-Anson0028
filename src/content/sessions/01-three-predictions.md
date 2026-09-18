@@ -16,12 +16,12 @@ related:
   - lectures/week-01
 ---
 
-## Before the studio
+## Before the tutorial
 
 Read `rules.ts` from top to bottom. It is about 800 lines and it is the whole
 game. Do not run it and do not look for a playable build.
 
-## In the studio
+## In the tutorial
 
 The first 20 minutes are in pairs. One person states an opinion about the game
 from the rules alone ("the shockwave looks weak", "the second boss comes too
@@ -34,5 +34,5 @@ the first thing you test in week three.
 
 ## Afterwards
 
-Your three predictions go in your lab book as its first entry. Nothing is
+Your three predictions are your answers on the first quiz. Nothing else is
 marked this week.

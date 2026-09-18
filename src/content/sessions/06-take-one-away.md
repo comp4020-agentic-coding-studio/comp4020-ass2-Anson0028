@@ -16,12 +16,12 @@ related:
   - lectures/week-06
 ---
 
-## Before the studio
+## Before the tutorial
 
 Read Jaffe and colleagues up to the end of their definition of restricted
 play. Write down which card you think is worth the most. Seal it.
 
-## In the studio
+## In the tutorial
 
 Baseline first: your delayed player, leftmost card every time, 51 seeds. Then
 seven restricted runs. The only change each time is the card your player is
@@ -31,5 +31,5 @@ Sort the table by wins lost. Open what you sealed.
 
 ## Afterwards
 
-The table goes in the lab book. Assignment 1 is due after the break; this
+The table is this week's quiz answer. Assignment 1 is due after the break; this
 table is allowed to appear in it.

@@ -16,11 +16,11 @@ related:
   - lectures/week-07
 ---
 
-## Before the studio
+## Before the tutorial
 
 Re-read the multiplication in the lecture until you could do it on a napkin.
 
-## In the studio
+## In the tutorial
 
 You are adding a third boss at 100 s. It should stop anyone holding fewer than
 ten upgrades and let through anyone holding more.
@@ -34,4 +34,4 @@ It usually does not, the first time. Say why.
 
 ## Afterwards
 
-Your gate, its arithmetic and its three pass rates go in the lab book.
+Your gate, its arithmetic and its three pass rates are this week's quiz answer.

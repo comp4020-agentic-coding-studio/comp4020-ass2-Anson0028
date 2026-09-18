@@ -16,11 +16,11 @@ related:
   - lectures/week-04
 ---
 
-## Before the studio
+## Before the tutorial
 
 Read the survival analysis section of the block's reading.
 
-## In the studio
+## In the tutorial
 
 Run your delayed player from last week over 501 seeds and keep every result.
 Print the median of the first 1, 5, 15, 51, 101 and 501. For reference, the
@@ -32,5 +32,5 @@ free: 51 runs take about 166 ms.
 
 ## Afterwards
 
-Your chosen run count goes on the first page of the lab book. Every number you
+Your chosen run count is this week's quiz answer, and every number you
 report for the rest of the semester carries it.

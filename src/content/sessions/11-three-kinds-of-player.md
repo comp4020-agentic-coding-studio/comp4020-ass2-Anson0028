@@ -16,12 +16,12 @@ related:
   - lectures/week-11
 ---
 
-## Before the studio
+## Before the tutorial
 
 Read Roohi and colleagues as far as their population model. Think of three
 real people you know who would play this differently.
 
-## In the studio
+## In the tutorial
 
 Turn the three people into three policies. Reaction time is the obvious dial.
 Aim error, how greedy they are for experience, and how early they back away
