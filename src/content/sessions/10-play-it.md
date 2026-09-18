@@ -37,6 +37,25 @@ Pick one no. Make your instrument able to see it. A player that stands still,
 a player that misses pickups by a body width, a metric for time spent not
 moving.
 
+## Where it goes wrong
+
+- **Tidying the list.** "Pickup radius too small" is a diagnosis. "I keep
+  walking past the orbs" is what happened. Write what happened; the diagnosis
+  is next week's work and it is often wrong.
+- **Writing fixes.** "Make the bar thicker" skips the finding, which is that you
+  did not know what the bar was.
+- **Answering for a simulation you could write.** The question is whether yours
+  could have produced the line. The course's simulated player was checked for
+  this: across one run it gave no input on 0 of its 6202 steps. It has never
+  once stood still, so "I stood still and nothing died" was invisible to it, in
+  a game where a new player's first instinct is to stand still and look.
+
+## What a finished answer looks like
+
+> 14 lines. 9 of them my simulation could not have produced. I picked "I stood
+> still and nothing died", and my instrument now has a player that stops for
+> 6 s every 30 s.
+
 ## Afterwards
 
 The raw list is this week's quiz answer, unedited. The new check joins your
