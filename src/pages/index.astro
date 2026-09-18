@@ -38,13 +38,12 @@ const suspects = [
 >
   <section slot="hero" class="suspects" aria-labelledby="course-title">
     <h1 id="course-title" class="visually-hidden">{courseMeta.code}: {courseMeta.title}</h1>
+    <div class="band">
+      <p class="sub">Measuring game balance without players</p>
+      <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · nobody plays until week ten</p>
+    </div>
     {suspects.map((side) => (
       <div class={`side ${side.id}`}>
-        {side.id === "me" ? (
-          <p class="sub">Measuring game balance without players</p>
-        ) : (
-          <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · 306 runs · nobody plays until week ten</p>
-        )}
         <p class="big" aria-hidden="true">{side.big}</p>
         <ul>
           {side.rows.map((row) => (
@@ -101,21 +100,47 @@ const suspects = [
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .band {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 2rem;
+    align-items: baseline;
+    padding: 1.75rem clamp(1rem, 5vw, 4.5rem) 2rem;
+    background: var(--at-bg);
+  }
+
+  .band::before {
+    grid-column: 1 / -1;
+    width: 3rem;
+    height: 3px;
+    margin-bottom: 0.4rem;
+    background: var(--at-primary);
+    content: "";
+  }
+
+  .band p {
+    margin: 0;
+  }
+
   .sub {
-    margin: 0 0 auto;
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    max-inline-size: none;
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
     font-weight: 700;
+    line-height: 1.2;
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   .meta {
-    margin: 0 0 auto;
+    color: var(--at-text-secondary);
     text-align: right;
   }
 
   .side {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     gap: 2rem;
     padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);
   }
@@ -187,6 +212,16 @@ const suspects = [
     color: light-dark(#f0b94a, #1b1a17);
   }
 
+  @media (max-width: 80rem) {
+    .side a {
+      grid-template-columns: 4.5rem 1fr;
+    }
+
+    .num {
+      grid-column: 2;
+    }
+  }
+
   @media (max-width: 56rem) {
     .suspects {
       grid-template-columns: 1fr;
@@ -198,6 +233,10 @@ const suspects = [
 
     .num {
       grid-column: 2;
+    }
+
+    .band {
+      grid-template-columns: 1fr;
     }
 
     .meta {
