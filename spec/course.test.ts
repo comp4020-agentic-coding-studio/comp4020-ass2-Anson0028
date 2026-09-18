@@ -141,6 +141,14 @@ describe("nothing left over from the starter", () => {
       }
     }
   });
+
+  it("gives every built page outside the deck exactly one h1", () => {
+    const pages = htmlFiles(resolve("dist")).filter((path) => !relative(resolve("dist"), path).startsWith("decks"));
+    for (const page of pages) {
+      const count = (readFileSync(page, "utf8").match(/<h1[\s>]/g) ?? []).length;
+      expect(count, `${relative(resolve("dist"), page)} has ${count} h1 elements`).toBe(1);
+    }
+  });
 });
 
 describe("assessment", () => {
