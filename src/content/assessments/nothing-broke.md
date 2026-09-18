@@ -43,6 +43,43 @@ that makes the game the right difficulty and quietly makes the shockwave
 worthless is a finding. Report it; do not tune it away and pretend the first
 version never happened.
 
+## What the marks look like
+
+| Band | What the three pages do |
+| --- | --- |
+| HD | Both tables at both values on the same seeds, something that moved is found and reported, and the last paragraph names a result that would have ended the change. |
+| D to Cr | Both tables complete and reproducible. The conclusion is "nothing broke" and may well be right, but nothing in it could have come out otherwise. |
+| P | The table after the change and not before it, fewer than 51 runs, or a lazy player dropped because it was inconvenient. |
+
+## What the two tables look like
+
+The course's own worked change, starting hearts from 3 to 4, the 100 ms player,
+the same 51 seeds. Baseline wins go from 12 to 23.
+
+| Banned card | Lost at 3 hearts | Lost at 4 hearts |
+| --- | --- | --- |
+| pickup reach | 11 | 20 |
+| attack rate | 9 | 15 |
+| extra bolt | 5 | 10 |
+| speed | 5 | 8 |
+| damage | 5 | 7 |
+| orbiting shard | 3 | 4 |
+| shockwave | 2 | 3 |
+
+| Lazy strategy | At 3 hearts | At 4 hearts |
+| --- | --- | --- |
+| run away | 52.5 s, 1 win | 66.0 s, 2 wins |
+| camp a corner | 18.6 s, 0 wins | 25.7 s, 0 wins |
+| stand still | 17.4 s, 0 wins | 20.6 s, 0 wins |
+
+No card went dead and no lazy player got close. The finding is in the first
+row: with four hearts, a player without pickup reach wins 3 runs of 51. The
+change made the game easier and made one card close to compulsory. Whether
+that is acceptable is what the last paragraph is for.
+
+At 15 runs this table cannot be read at all: the baseline is 3 and the seven
+rows run from 0 to 3.
+
 ## What you submit
 
 Your fork, with both tables reproducible from a single command, and three

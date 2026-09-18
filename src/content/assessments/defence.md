@@ -46,6 +46,19 @@ exists to teach.
 A defence of "I changed nothing, and here is why the current value is right"
 is allowed and is harder than it sounds.
 
+## What the marks look like
+
+| Band | What the ten minutes do |
+| --- | --- |
+| HD | Part six is a demonstration: the instrument is shown telling two things apart that are closer together than the change being claimed. Results for players who differ by more than the noise. What was felt in play is reported even where it disagrees. |
+| D to Cr | All seven parts, in order, inside the time. Part six is an assurance and not a demonstration. |
+| P | "It feels better now" with numbers beside it, one kind of player, or a change no bigger than a second set of seeds would produce. |
+
+The course's own worked change is set out in the
+[week 12 tutorial](/sessions/12-defence-rehearsal/). It would land in the
+middle band: it shows the change holds on a second set of seeds, and it never
+shows the instrument telling apart two things that close.
+
 ## What you submit
 
 A recording of no more than ten minutes, your fork, and your twelve quiz sheets. The

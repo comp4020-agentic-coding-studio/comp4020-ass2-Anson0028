@@ -49,7 +49,8 @@ The course's own worked change, for the shape and not for copying:
 > 101.6 s to 117.2 s, same seeds. On a second set of 51: 7 to 20, so it holds.
 > The 50 ms player: 38 to 43. The 150 ms player: 2 to 3, so it does almost
 > nothing for the people who needed it most. Running away: 1 win to 2. Standing
-> still: 17.4 s to 20.6 s. Still to show: that no card went dead.
+> still: 17.4 s to 20.6 s. No card went dead: the cheapest ban still costs 3
+> wins. But without pickup reach the player now wins 3 of 51.
 
 ## Afterwards
 

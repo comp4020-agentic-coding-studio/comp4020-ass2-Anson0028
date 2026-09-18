@@ -36,6 +36,18 @@ that only holds the measurements that went well is an advertisement. The week
 your metric turned out to be saturated is worth exactly as much as the week
 everything worked.
 
+## What two marks, one mark and none look like
+
+Week 4 asks for the run count you will use from now on.
+
+- **Two.** "51 runs. From 51 to 501 my median moved 4.5 s. I expected it to stop
+  moving by 15." A number with its unit and run count, and what was expected.
+- **One.** "51 runs, median 78.2 s." The number is complete. There is no
+  sentence about what you expected, so nobody can tell whether it surprised
+  you.
+- **None.** "About 50 should be enough." No unit, no run count behind it, and
+  nothing that was measured.
+
 ## What you submit
 
 Nothing outside the room. The sheet is handed in at the end of each tutorial.
