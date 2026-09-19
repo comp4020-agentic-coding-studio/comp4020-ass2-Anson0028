@@ -262,4 +262,15 @@ const suspects = [
     max-inline-size: 40rem;
   }
 
+  @media (min-width: 56rem) and (max-height: 54rem) {
+    .big {
+      font-size: clamp(3.25rem, min(8vw, 11vh), 8.5rem);
+    }
+
+    .side {
+      gap: 1.25rem;
+      padding-top: clamp(2rem, 6vh, 5rem);
+    }
+  }
+
 </style>
