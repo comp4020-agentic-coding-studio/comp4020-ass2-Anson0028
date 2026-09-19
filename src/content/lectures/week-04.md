@@ -11,7 +11,7 @@ suspect: instrument
 bearing: "One death is not evidence against you or against the game. Fifty-one start to be."
 instrument: median
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 related:
   - week-03
   - sessions/04-how-many-runs

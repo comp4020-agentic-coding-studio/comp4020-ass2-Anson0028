@@ -13,7 +13,7 @@ Tamsin started simulating players in order to end an argument sooner. It
 worked, the argument moved to whether the simulated player was any good, and
 that turned out to be a better argument. This course is the long version of it.
 
-She gives the Tuesday lectures with Wei and marks the final defences.
+She gives all twelve Tuesday lectures and marks the final defences.
 
 ## Reaching her
 

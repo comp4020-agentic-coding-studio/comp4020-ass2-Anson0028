@@ -10,7 +10,7 @@ block: The edges of measurement
 suspect: instrument
 bearing: "Some answers are neither. You could not see what the bar was for, or the thing you needed was three pixels wide."
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 related:
   - week-09
   - sessions/10-play-it

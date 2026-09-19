@@ -10,7 +10,7 @@ block: Options and gates
 suspect: game
 bearing: "If running away beats fighting, then losing while you fight is the game's fault."
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 related:
   - week-07
   - sessions/08-break-the-game

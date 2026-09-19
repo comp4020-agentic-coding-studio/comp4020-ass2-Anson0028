@@ -11,7 +11,7 @@ block: Options and gates
 suspect: game
 bearing: "If the card you picked did nothing, that one was the game."
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 reading:
   authors: Alexander Jaffe, Alex Miller, Erik Andersen, Yun-En Liu, Anna Karlin and Zoran Popović
   title: Evaluating Competitive Game Balance with Restricted Play

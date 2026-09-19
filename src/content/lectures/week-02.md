@@ -10,7 +10,7 @@ block: The measuring instrument
 suspect: instrument
 bearing: "Neither yet. You cannot ask the question two hundred times if each asking takes two minutes."
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 related:
   - week-01
   - sessions/02-one-headless-run

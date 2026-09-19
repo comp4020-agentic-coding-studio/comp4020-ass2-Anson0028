@@ -10,7 +10,7 @@ block: Different players
 suspect: verdict
 bearing: "Your answer, as one number, with enough behind it that someone else could show you are wrong."
 teachers:
-  - wei-lindqvist
+  - tamsin-okoro
 related:
   - week-11
   - sessions/12-defence-rehearsal
