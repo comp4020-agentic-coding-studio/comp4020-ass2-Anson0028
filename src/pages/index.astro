@@ -15,7 +15,7 @@ const suspects = [
     rows: [
       { week: 3, href: "/lectures/week-03/", name: "A perfect player describes nobody", number: "perfect player 12 of 15, slowed 1 of 15" },
       { week: 5, href: "/lectures/week-05/", name: "Even steps, uneven difficulty", number: "38, 12, 2, 0 wins of 51" },
-      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "past it: 50 of 51 at 50 ms, 10 at 300 ms" },
+      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "first boss passed: 50 at 50 ms, 10 at 300 ms" },
     ],
   },
   {
@@ -23,8 +23,8 @@ const suspects = [
     big: "or is it the game?",
     rows: [
       { week: 6, href: "/lectures/week-06/", name: "A dead option looks like a live one", number: "ban pickup reach: 11 fewer wins of 51" },
-      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "47 of 51 past it, 0 with no cards" },
-      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "chase 101.6 s, flee 52.5 s, stand 17.4 s" },
+      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "gate passed: 47 of 51, 0 with no cards" },
+      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "go for experience 101.6 s, run away 52.5 s" },
     ],
   },
 ];
@@ -40,7 +40,7 @@ const suspects = [
     <h1 id="course-title" class="visually-hidden">{courseMeta.code}: {courseMeta.title}</h1>
     <div class="band">
       <p class="sub">Measuring game balance without players</p>
-      <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · nobody plays until week ten</p>
+      <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game<span class="meta-tail"> · nobody plays until week ten</span></p>
       <p class="lead-top">{courseMeta.description}</p>
     </div>
     {suspects.map((side) => (
@@ -245,6 +245,10 @@ const suspects = [
 
     .band .lead-top {
       display: block;
+    }
+
+    .meta-tail {
+      display: none;
     }
 
     .lead-below {
