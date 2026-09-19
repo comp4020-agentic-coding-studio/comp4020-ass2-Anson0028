@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { join, relative, resolve } from "node:path";
+import { dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const DIST = resolve("dist");
@@ -36,6 +36,18 @@ function resolveAsset(ref: string): string | null {
   return null;
 }
 
+function staticImports(file: string, seen: Set<string>): string[] {
+  if (!/\.m?js$/.test(file)) return [];
+  const found: string[] = [];
+  for (const match of readFileSync(file, "utf8").matchAll(/(?:\bfrom\s*|\bimport\s*)["'](\.{1,2}\/[^"']+\.m?js)["']/g)) {
+    const next = resolve(dirname(file), match[1]);
+    if (seen.has(next) || !existsSync(next)) continue;
+    seen.add(next);
+    found.push(next, ...staticImports(next, seen));
+  }
+  return found;
+}
+
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
 export function main(): boolean {
@@ -49,7 +61,9 @@ export function main(): boolean {
     const assets = localAssets(html)
       .map(resolveAsset)
       .filter((path): path is string => path !== null);
-    const parts = [page.path, ...new Set(assets)].map((path) => ({ path, bytes: statSync(path).size }));
+    const seen = new Set(assets);
+    const imported = assets.flatMap((asset) => staticImports(asset, seen));
+    const parts = [page.path, ...new Set([...assets, ...imported])].map((path) => ({ path, bytes: statSync(path).size }));
     return { rel: page.rel, parts, total: parts.reduce((sum, part) => sum + part.bytes, 0) };
   });
 
