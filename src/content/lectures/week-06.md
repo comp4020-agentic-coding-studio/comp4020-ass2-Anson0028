@@ -46,14 +46,28 @@ Both questions below are put to the same player, the 100 ms one, over the same
 51 seeds.
 
 **Take only this.** Give the player several levels of one card and refuse
-everything else. Asked this way, movement speed is worth nothing and then less
-than nothing: median survival reads 66.0 s with no speed and with one, two or
-three levels of it, then 55.4 s with four. With every other card refused, the
-typical run dies at the first boss's deadline, 66 s in, however fast it is.
+everything else. For movement speed, median survival reads 66.0 s with no
+speed and with one, two or three levels, then 55.4 s with four. Taken at its
+word, speed is worthless and then harmful.
+
+Do not take it at its word. 66 s is the first boss's deadline: the boss arrives
+at 40 s, and the run ends if it is still alive 26 s later. With no speed, 36 of
+the 51 runs end at exactly that moment. The median is reading the deadline, not
+the player. Count the runs that kill the first boss instead, and the same five
+builds read 0, 0, 0, 8, 18. Week 9 has a name for a
+reading like 66.0 s.
+
+Speed is not the only thing changing, either. The boss is sized by how many
+cards the player holds when it arrives (week 7), and refusing everything else
+means each level of speed is one more card held. These players arrive holding
+one to five cards, counting the weapon, and meet a boss of 884, 884, 680, 510
+and 408 hp. A player choosing normally arrives holding 7.
 
 **Never take this.** Let the player choose normally but ban one card, and count
 what is lost. Baseline is 12 wins out of 51. This is restricted play, the
-method in this block's reading.
+method in this block's reading. The player still takes a card at every level,
+so whichever card is banned, they reach the first boss holding a median of 6
+to 8.
 
 | Banned card | Wins out of 51 | Lost |
 | --- | --- | --- |
@@ -67,7 +81,8 @@ method in this block's reading.
 
 Asked this way, speed is worth 5 wins, and the most valuable card in the game
 is the one that looks least like a weapon. "Take only this" is a rigged
-question for any card whose value is in what it lets you do next.
+question for any card whose value is in what it lets you do next. In this game
+it is rigged twice, because refusing every other card changes the boss as well.
 
 ## Reading for weeks 6 to 8
 

@@ -21,8 +21,9 @@ related:
   - sessions/09-find-the-ceiling
 ---
 
-For eight weeks the instrument has been right. This week is about how it goes
-wrong without going red.
+In week 6, median survival read 66.0 s four times running while the runs that
+killed the first boss went from 0 to 8. Nothing went red. This week names what
+happened there, and how to catch it next time.
 
 ## The claim
 
@@ -38,10 +39,12 @@ game as it was then, won 15 runs out of 15 with every build it was given,
 including builds that were doing nothing ([`c34ed0b`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/commit/c34ed0b)).
 Every card looked equally good because nothing could look bad.
 
-**A floor.** Give the player extra damage and refuse every other card: median
-survival reads 66.0 s, 66.0 s, 67.6 s, 62.7 s, 64.4 s, 65.1 s across six
-levels, 15 runs each. The first boss wall stands at 66 s and every build dies against it.
-The dial is connected to nothing the metric can see.
+**A floor.** Give the 150 ms player extra damage and refuse every other card:
+median survival reads 66.0 s, 66.0 s, 67.6 s, 62.7 s, 64.4 s, 65.1 s across six
+levels, 15 runs each. It looks like one wall at 66 s. With no damage or one
+level, it is the first boss's deadline and no run gets past it. From two levels
+on, 12 to 14 of the 15 runs kill that boss, and still end at about the same
+time. The dial is connected to something the metric cannot see.
 
 **A cap.** Count kills in the first 38 s instead, median of 51 runs. Leftmost
 card, no cards at all, each of the seven cards banned in turn: 34, 34, 34, 34,
