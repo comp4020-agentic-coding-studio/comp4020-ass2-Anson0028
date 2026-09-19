@@ -131,7 +131,7 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
 
 - What a stranger would try. After seven or eight passes by the agent found
   nothing more, a fresh session with no context (a new Claude session, given a
-  prompt I wrote; the commits call it an outside review) pressed Enter twice, ran axe in
+  prompt the agent drafted at my request; the commits call it an outside review) pressed Enter twice, ran axe in
   a real browser, searched the build for one template sentence and scrolled a
   table on a phone. Each found something, and each is now a check. The agent's
   passes kept looking the way they had looked before. Get a cold reader before
@@ -149,8 +149,9 @@ the omission was caught by my asking, not by any check. The earlier repos
 were set up through the course's `start` skill, which merges the old harness
 as one of its steps; this repo was cloned by hand thirteen days earlier, to
 read the brief, and nothing failed when the step was skipped. It was not the
-model switch or a summary: the session log shows the rules named forty minutes
-before a file was written without them. See the first rule.
+model switch or a summary: the session log shows three of the rules named seven
+minutes before a file was written without them, and forty before it was
+committed. See the first rule.
 
 - **A rule is not a rule until something fails when it is broken.** A1's
   CLAUDE.md described touch input that was never built, and 47 passing tests
