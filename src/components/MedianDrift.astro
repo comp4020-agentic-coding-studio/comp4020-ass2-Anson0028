@@ -42,18 +42,28 @@ const printed = [
 </figure>
 
 <script>
+  type Shared = Window & { slopRulesUnreachable?: boolean };
+  const RESUME = "slop-resume";
+  const shared = () => window as Shared;
+
   function wire() {
     const probe = document.getElementById("run-drift");
     if (!probe || probe.dataset.wired) return;
     probe.dataset.wired = "true";
-    let unreachable = false;
     const button = document.getElementById("run-drift") as HTMLButtonElement;
     const status = document.getElementById("drift-status") as HTMLElement;
     const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
     let batch = 0;
     button.addEventListener("click", async () => {
       if (button.getAttribute("aria-disabled") === "true") return;
-      if (unreachable) {
+      if (shared().slopRulesUnreachable) {
+        if (!navigator.onLine) {
+          status.textContent = "Still offline, so the page stays as it is. Press again once you are back online.";
+          return;
+        }
+        try {
+          sessionStorage.setItem(RESUME, button.id);
+        } catch {}
         location.reload();
         return;
       }
@@ -64,7 +74,7 @@ const printed = [
       try {
         ({ survivalTimes, median } = await import("../scripts/run-51"));
       } catch {
-        unreachable = true;
+        shared().slopRulesUnreachable = true;
         status.textContent = "Could not load the rules, so nothing ran. Once you are back online, press again to reload the page.";
         button.textContent = "Reload and try again";
         button.removeAttribute("aria-disabled");
@@ -85,6 +95,19 @@ const printed = [
       button.textContent = "Run 501 on new seeds";
       button.removeAttribute("aria-disabled");
     });
+    if (shared().slopRulesUnreachable) {
+      status.textContent = "The rules did not load earlier on this visit, so pressing reloads the page first.";
+      button.textContent = "Reload and try again";
+    }
+    let resume: string | null = null;
+    try {
+      resume = sessionStorage.getItem(RESUME);
+      if (resume === button.id) sessionStorage.removeItem(RESUME);
+    } catch {}
+    if (resume === button.id) {
+      button.focus();
+      button.click();
+    }
   }
   document.addEventListener("astro:page-load", wire);
 </script>

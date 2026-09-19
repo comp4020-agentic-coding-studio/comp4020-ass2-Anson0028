@@ -37,21 +37,31 @@ const RUNS = 51;
 </figure>
 
 <script>
+  type Shared = Window & { slopRulesUnreachable?: boolean };
+  const RESUME = "slop-resume";
+  const shared = () => window as Shared;
+
   function wire() {
     const probe = document.getElementById("run-51");
     if (!probe || probe.dataset.wired) return;
     probe.dataset.wired = "true";
-    let unreachable = false;
     const button = document.getElementById("run-51") as HTMLButtonElement;
     const status = document.getElementById("run-status") as HTMLElement;
     const rows = [...document.querySelectorAll<HTMLElement>(".run-row[data-ms]")];
     const printed = rows.map((row) => Number(row.querySelector(".count")?.textContent));
-    const low = [...printed];
-    const high = [...printed];
+    const low: number[] = [];
+    const high: number[] = [];
     let batch = 0;
     button.addEventListener("click", async () => {
       if (button.getAttribute("aria-disabled") === "true") return;
-      if (unreachable) {
+      if (shared().slopRulesUnreachable) {
+        if (!navigator.onLine) {
+          status.textContent = "Still offline, so the page stays as it is. Press again once you are back online.";
+          return;
+        }
+        try {
+          sessionStorage.setItem(RESUME, button.id);
+        } catch {}
         location.reload();
         return;
       }
@@ -61,7 +71,7 @@ const RUNS = 51;
       try {
         ({ runRow } = await import("../scripts/run-51"));
       } catch {
-        unreachable = true;
+        shared().slopRulesUnreachable = true;
         status.textContent = "Could not load the rules, so nothing ran. Once you are back online, press again to reload the page.";
         button.textContent = "Reload and try again";
         button.removeAttribute("aria-disabled");
@@ -84,8 +94,8 @@ const RUNS = 51;
       }
       const seconds = ((performance.now() - started) / 1000).toFixed(1);
       results.forEach((w, i) => {
-        low[i] = Math.min(low[i], w);
-        high[i] = Math.max(high[i], w);
+        low[i] = Math.min(low[i] ?? w, w);
+        high[i] = Math.max(high[i] ?? w, w);
       });
       const same = results.every((w, i) => w === printed[i]);
       if (batch === 0) {
@@ -105,6 +115,19 @@ const RUNS = 51;
       button.textContent = "Run 306 with new seeds";
       button.removeAttribute("aria-disabled");
     });
+    if (shared().slopRulesUnreachable) {
+      status.textContent = "The rules did not load earlier on this visit, so pressing reloads the page first.";
+      button.textContent = "Reload and try again";
+    }
+    let resume: string | null = null;
+    try {
+      resume = sessionStorage.getItem(RESUME);
+      if (resume === button.id) sessionStorage.removeItem(RESUME);
+    } catch {}
+    if (resume === button.id) {
+      button.focus();
+      button.click();
+    }
   }
   document.addEventListener("astro:page-load", wire);
 </script>
