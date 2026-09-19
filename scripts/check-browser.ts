@@ -89,47 +89,71 @@ try {
 
   const offlineContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   const offlinePage = await offlineContext.newPage();
-  for (const { path, button, status } of INSTRUMENTS) {
-    await offlinePage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
+  const at = (path: string) => `http://localhost:${PORT}${base}${path}`;
+  const within = async (seconds: number, check: () => Promise<boolean>) => {
+    const end = Date.now() + seconds * 1000;
+    while (Date.now() < end) {
+      try {
+        if (await check()) return true;
+      } catch {}
+      await new Promise((r) => setTimeout(r, 250));
+    }
+    return false;
+  };
+  const hasFocus = (button: string) => offlinePage.evaluate((b) => document.activeElement === document.querySelector(b), button);
+  const ranWithFocus = async (where: string, button: string, status: string) => {
+    const ran = await within(30, () =>
+      offlinePage.evaluate(
+        ([b, st]) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? ""),
+        [button, status],
+      ),
+    );
+    if (!ran) failures.push(`${where}: back online, one press does not run`);
+    else if (!(await hasFocus(button))) failures.push(`${where}: back online, it ran, but keyboard focus has left ${button}`);
+  };
+  const failOffline = async (path: string, button: string, status: string) => {
+    await offlinePage.goto(at(path), { waitUntil: "networkidle" });
     await offlineContext.setOffline(true);
-    await offlinePage.click(button);
+    await offlinePage.focus(button);
+    await offlinePage.keyboard.press("Enter");
     const released = await offlinePage
       .waitForFunction(settled(button), null, { timeout: 10_000 })
       .then(() => true)
       .catch(() => false);
     const said = ((await offlinePage.textContent(status)) ?? "").trim();
-    await offlineContext.setOffline(false);
     if (!released) {
       failures.push(`${path}: pressed while offline, the button stays busy for good ("${said.slice(0, 40)}")`);
+      return false;
+    }
+    if (said === "" || /^(Loading|Running|New seeds)/.test(said)) failures.push(`${path}: pressed while offline, the page does not say what went wrong`);
+    if (!(await hasFocus(button))) failures.push(`${path}: pressed while offline, keyboard focus has left ${button}`);
+    return true;
+  };
+  for (const { path, button, status } of INSTRUMENTS) {
+    if (!(await failOffline(path, button, status))) {
+      await offlineContext.setOffline(false);
       continue;
     }
-    if (said === "" || said.startsWith("Loading")) failures.push(`${path}: pressed while offline, the page does not say what went wrong`);
-    const recovered = async () => {
-      await offlinePage.waitForSelector(button);
-      await offlinePage.click(button);
-      return offlinePage
-        .waitForFunction(
-          ([b, st]) => {
-            const el = document.querySelector(b);
-            return !!el && el.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? "");
-          },
-          [button, status],
-          { timeout: 30_000 },
-        )
-        .then(() => true)
-        .catch(() => false);
-    };
-    let ran = false;
-    try {
-      ran = await recovered();
-    } catch {
-      ran = false;
+    await offlinePage.keyboard.press("Enter");
+    await offlinePage.waitForTimeout(1_500);
+    const stayed = offlinePage.url() === at(path) && (await offlinePage.$(button)) !== null;
+    await offlineContext.setOffline(false);
+    if (!stayed) {
+      failures.push(`${path}: pressed again while still offline, the page threw itself away (now at ${offlinePage.url()})`);
+      continue;
     }
-    if (!ran) {
-      await offlinePage.waitForLoadState("networkidle");
-      ran = await recovered();
-    }
-    if (!ran) failures.push(`${path}: back online, two presses (one may reload the page) still do not run`);
+    await offlinePage.keyboard.press("Enter");
+    await ranWithFocus(path, button, status);
+  }
+  if (await failOffline("/lectures/week-05/", "#run-51", "#run-status")) {
+    await offlineContext.setOffline(false);
+    await offlinePage.locator(`a[href$="/lectures/week-04/"]`).first().click();
+    await offlinePage.waitForURL(at("/lectures/week-04/"), { timeout: 15_000 });
+    await offlinePage.waitForLoadState("networkidle");
+    await offlinePage.waitForTimeout(800);
+    await offlinePage.focus("#run-drift");
+    await offlinePage.keyboard.press("Enter");
+    await ranWithFocus("failed offline on week 5, then followed the link to week 4", "#run-drift", "#drift-status");
   }
   await offlineContext.close();
 
@@ -204,4 +228,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, finish in a background tab, and recover from a press made offline; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, finish in a background tab, and, after a press made offline, stay on the page when pressed offline again and run with one press once back online, focus kept, on the same page or the next; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
