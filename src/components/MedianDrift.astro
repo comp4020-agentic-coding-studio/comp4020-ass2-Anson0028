@@ -46,6 +46,7 @@ const printed = [
     const probe = document.getElementById("run-drift");
     if (!probe || probe.dataset.wired) return;
     probe.dataset.wired = "true";
+    let unreachable = false;
     const button = document.getElementById("run-drift") as HTMLButtonElement;
     const status = document.getElementById("drift-status") as HTMLElement;
     const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
@@ -53,9 +54,22 @@ const printed = [
     let batch = 0;
     button.addEventListener("click", async () => {
       if (button.getAttribute("aria-disabled") === "true") return;
+      if (unreachable) {
+        location.reload();
+        return;
+      }
       button.setAttribute("aria-disabled", "true");
       status.textContent = "Running…";
-      const { survivalTimes } = await import("../scripts/run-51");
+      let survivalTimes: typeof import("../scripts/run-51").survivalTimes;
+      try {
+        ({ survivalTimes } = await import("../scripts/run-51"));
+      } catch {
+        unreachable = true;
+        status.textContent = "Could not load the rules, so nothing ran. Once you are back online, press again to reload the page.";
+        button.textContent = "Reload and try again";
+        button.removeAttribute("aria-disabled");
+        return;
+      }
       const started = performance.now();
       const most = Math.max(...rows.map((row) => Number(row.dataset.runs)));
       const times = await survivalTimes(150, most, batch);

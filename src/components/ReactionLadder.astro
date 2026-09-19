@@ -41,6 +41,7 @@ const RUNS = 51;
     const probe = document.getElementById("run-51");
     if (!probe || probe.dataset.wired) return;
     probe.dataset.wired = "true";
+    let unreachable = false;
     const button = document.getElementById("run-51") as HTMLButtonElement;
     const status = document.getElementById("run-status") as HTMLElement;
     const rows = [...document.querySelectorAll<HTMLElement>(".run-row[data-ms]")];
@@ -50,9 +51,22 @@ const RUNS = 51;
     let batch = 0;
     button.addEventListener("click", async () => {
       if (button.getAttribute("aria-disabled") === "true") return;
+      if (unreachable) {
+        location.reload();
+        return;
+      }
       button.setAttribute("aria-disabled", "true");
       status.textContent = batch === 0 ? "Loading the rules…" : "New seeds…";
-      const { runRow } = await import("../scripts/run-51");
+      let runRow: typeof import("../scripts/run-51").runRow;
+      try {
+        ({ runRow } = await import("../scripts/run-51"));
+      } catch {
+        unreachable = true;
+        status.textContent = "Could not load the rules, so nothing ran. Once you are back online, press again to reload the page.";
+        button.textContent = "Reload and try again";
+        button.removeAttribute("aria-disabled");
+        return;
+      }
       const started = performance.now();
       const results: number[] = [];
       for (const row of rows) {
@@ -81,7 +95,7 @@ const RUNS = 51;
             : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row, which was measured in Node and not in a browser.`
         } Now try new seeds.`;
       } else {
-        const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i]}–${high[i]}`).join(", ");
+        const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i] === high[i] ? `${low[i]} every time` : `${low[i]}–${high[i]}`}`).join(", ");
         status.textContent = `Batch ${batch + 1}, fresh seeds: ${results.join(", ")}. Across ${batch + 1} batches each row has landed at: ${spread}. The numbers move; the cliff does not. Week 4 is about how many runs a claim needs.`;
       }
       document
