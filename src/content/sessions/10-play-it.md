@@ -23,8 +23,8 @@ Nothing. Do not play it early. The first ten minutes only happen once.
 ## In the tutorial
 
 Play for ten minutes with a notebook open. Write as you go and do not tidy it
-up. "I didn't know what the bar was." "I keep walking past the orbs." "I stood
-still and nothing died." That register.
+up. "I didn't know what the bar was." "I keep walking past the orbs." "I
+couldn't tell what hit me." That register.
 
 If ten minutes of fast play is a barrier, do the observer's version set out in
 the [policies](/policies/): sit beside someone who is playing and write the
@@ -47,14 +47,14 @@ moving.
 - **Answering for a simulation you could write.** The question is whether yours
   could have produced the line. The course's simulated player was checked for
   this: across one run it gave no input on 0 of its 6202 steps. It has never
-  once stood still, so "I stood still and nothing died" was invisible to it, in
-  a game where a new player's first instinct is to stand still and look.
+  once stood still, so anything that happens to a player who stops to look was
+  invisible to it, and stopping to look is a new player's first instinct.
 
 ## What a finished answer looks like
 
-> 14 lines. 9 of them my simulation could not have produced. I picked "I stood
-> still and nothing died", and my instrument now has a player that stops for
-> 6 s every 30 s.
+> 14 lines. 9 of them my simulation could not have produced. I picked "I keep
+> walking past the orbs", and my instrument now has a player that misses any
+> pickup it passes within a body width.
 
 ## Afterwards
 

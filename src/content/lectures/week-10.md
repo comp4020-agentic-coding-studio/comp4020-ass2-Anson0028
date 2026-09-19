@@ -2,7 +2,7 @@
 title: Playing finds what simulation never asked
 description:
   This is the week you finally play the game. Ten minutes with your hands finds
-  things that 51 runs a second for nine weeks did not.
+  things that nine weeks of simulated runs did not.
 week: 10
 date: 2027-05-11
 slides: /decks/week-10/
@@ -17,7 +17,8 @@ related:
 ---
 
 [Here it is.](https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/)
-You have measured this game for nine weeks. Go and play it.
+You have measured this game for nine weeks. On Thursday you play it for the
+first time, for ten minutes, with a notebook open.
 
 ## The claim
 
