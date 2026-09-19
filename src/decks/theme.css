@@ -34,4 +34,10 @@
     font-size: 2.9rem;
     line-height: 1.15;
   }
+
+  .reveal .slides section pre,
+  .reveal .slides section pre code {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
 }
