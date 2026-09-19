@@ -38,10 +38,12 @@ everything worked.
 
 ## What two marks, one mark and none look like
 
-Week 4 asks for the run count you will use from now on.
+Week 4 asks for the run count you will quote from now on, and the smallest
+difference you will claim with it.
 
-- **Two.** "51 runs. From 51 to 501 my median moved 4.5 s. I expected it to stop
-  moving by 15." A number with its unit and run count, and what was expected.
+- **Two.** "51 runs. From 51 to 501 my median moved 4.5 s, and a second set of
+  51 seeds moved it 7 s, so I will not claim a difference under 7 s. I expected
+  it to stop moving by 15." A number with its unit and run count, and what was expected.
 - **One.** "51 runs, median 78.2 s." The number is complete. There is no
   sentence about what you expected, so nobody can tell whether it surprised
   you.

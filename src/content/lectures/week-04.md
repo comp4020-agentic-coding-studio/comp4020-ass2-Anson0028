@@ -45,7 +45,9 @@ Here is the median as the number of runs grows:
 
 Fifteen runs put the median 12 s above what one run said. Five hundred and one
 pull it back down by 8 s. It never stops moving completely. What you get to
-decide is how much movement the decision in front of you can tolerate.
+decide is how much movement the decision in front of you can tolerate. Run the
+same count again on different seeds and the median moves again; how far it
+moves is the smallest difference that count lets you claim.
 
 This course uses 51 as its working number. It is odd, so the median is a run
 that actually happened, and 51 runs of the specimen cost 166 ms. There is no
@@ -54,4 +56,4 @@ excuse for quoting fewer.
 ## What you leave with
 
 The run count you will quote from now on, and the smallest difference you will
-claim at that count: how far a second set of seeds moved your median.
+claim at that count: how far a second set of seeds moves your median.
