@@ -1,8 +1,8 @@
 ---
 title: A complaint about balance is a prediction
 description:
-  Nobody has written it down yet. This week you write three down, with
-  numbers, about a game you are not allowed to play.
+  Nobody has written it down yet. This week you write down three predictions
+  of your own, each with a number, about a game you may not play until week ten.
 week: 1
 date: 2027-02-23
 block: The measuring instrument
@@ -38,7 +38,9 @@ This course has one game in it for twelve weeks:
 [Close Quarters](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts),
 a survival game where a run lasts 120 s, the first boss arrives at 40 s, and it
 has to be dead 26 s later or the run ends. That link goes to its rules, not to
-the game. You will not play it until week ten.
+the game. You will not play it until week ten, so that what you predict comes
+from its rules and not from a first impression you then spend the semester
+defending.
 
 Here is an opinion about it: _you can skip the upgrades and still get through
 the first boss._
@@ -62,4 +64,7 @@ is allowed to exist.
 ## What you leave with
 
 Three predictions about Close Quarters, each with a number, a unit and a run
-count. Week two builds the thing that tests them.
+count. Week two builds the thing that tests them. The one the room thinks most
+likely to be wrong is tested in week three. All three are still on paper when
+you play the game for the first time in week ten, and the final asks you to
+open with a prediction written before you measured.
