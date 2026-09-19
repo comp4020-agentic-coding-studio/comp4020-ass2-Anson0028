@@ -55,10 +55,10 @@ measured?"
 | --- | --- |
 | Twelve lectures, one per teaching week | `spec/course.test.ts` › one lecture per week |
 | A tutorial for every teaching week | `spec/course.test.ts` › one tutorial per week |
-| Each week links to the next | `spec/course.test.ts` › spine |
-| No two lecture titles share a content word | `spec/course.test.ts` › titles |
-| Every lecture names a quantity with a unit | `spec/course.test.ts` › measurable |
-| Assessment weights total 100 | `spec/course.test.ts` › weights |
+| Each week links to the next | `spec/course.test.ts` › links every week to the next |
+| No two lecture titles share a content word | `spec/course.test.ts` › shares no content word |
+| Every lecture names a quantity with a unit | `spec/course.test.ts` › names a quantity with a unit |
+| Assessment weights total 100 | `spec/course.test.ts` › adds up to 100 |
 | Assessments are a chain: a piece that `consumes:` another names one due earlier | `spec/course.test.ts` › is a chain |
 | Every tutorial says what it measures (`measures:`) | `spec/course.test.ts` › tutorials end in a number |
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
@@ -67,19 +67,19 @@ measured?"
 | Every deck leads back to the week it belongs to | `spec/course.test.ts` › lead back to the week |
 | Every week says which side of the title's question it measures, three weeks each for "me" and "the game" | `spec/course.test.ts` › which suspect |
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
-| No starter prose on any built page | `spec/course.test.ts` › no starter prose |
+| No starter prose on any built page outside the decks, the 404 page included | `spec/course.test.ts` › no starter prose |
 | Every built page has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
 | Search finds every course page and none of the decks that repeat them | `spec/course.test.ts` › lets search find the course pages |
 | Every printed copy of the instruments' numbers agrees: chart, tables, decks, home page, social card, tutorial, quiz, and the sentences worked out from them | `spec/numbers.test.ts`, on any machine |
 | Week 4's medians and week 5's ladder are what the page's own runner computes | `spec/numbers.test.ts`, exact on darwin-arm64 only, the machine they were measured on. Elsewhere, CI included, it skips and prints its own numbers beside the printed ones |
-| No page costs a visitor more than 3 s at 400 kbit/s | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
+| No course page costs a visitor more than 3 s at 400 kbit/s. Decks, which load Reveal, are not counted | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
 | Every run button works twice in a row from the keyboard, and focus never leaves it | `pnpm check:browser` (a real browser, so outside `pnpm check`) |
 | Every run button works when its page was reached by a link, not only on a fresh load | `pnpm check:browser` |
 | Every run finishes in a background tab | `pnpm check:browser` |
 | A press made offline says what went wrong; pressed again offline, the page stays; back online, one press runs with focus kept, on that page or the next one reached by a link | `pnpm check:browser` |
-| Nothing I styled fails colour contrast, in light or dark. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
-| No table hides a column off screen at 390 px | `pnpm check:browser` |
-| Every slide fits its stage at 1920x1080 and 390x844, and no text on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
+| Nothing I styled fails colour contrast, in light or dark, on the ten pages the check visits. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
+| No table hides a column off screen at 390 px, on the same ten pages | `pnpm check:browser` |
+| Every slide fits its stage at 1920x1080 and 390x844, and no paragraph, list, table cell or code line on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
 says why it is held by hand.
@@ -106,6 +106,8 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
   that was verified to exist, and gets opened by Anson before it goes on a page.
+  The first five went on the pages first: c78cdd8 says they still had to be
+  opened, and e6ab4b4, nineteen minutes later, that Anson had opened them.
 
 - Whether a first-time reader can tell what a thing is. Three times on 18
   September every check was green and Anson, reading as a stranger, was stopped:
@@ -123,7 +125,8 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
   what a flat median means.
 
 - What a stranger would try. After seven or eight passes of my own found
-  nothing more, a fresh session with no context pressed Enter twice, ran axe in
+  nothing more, a fresh session with no context (a new Claude session, given a
+  prompt Anson wrote; the commits call it an outside review) pressed Enter twice, ran axe in
   a real browser, searched the build for one template sentence and scrolled a
   table on a phone. Each found something, and each is now a check. My passes
   kept looking the way they had looked before. Get a cold reader before
@@ -184,11 +187,14 @@ it on its first run.
 
 - One or two weeks of content per change. Never generate all twelve at once:
   the weeks come back repeating each other, and the history becomes one commit.
+  Broken on 17 and 18 September: weeks 9 to 12 landed in one commit, the
+  twelve tutorials in three, and eleven decks in one.
 - A new deliverable starts by carrying the harness forward, before any content.
 - Run `pnpm check` before accepting anything.
 - A change to this file or to `spec/` gets its own commit, straight after the
   commit that taught the lesson.
-- Do not commit. Anson commits after reading the diff.
+- Commit only when Anson says so, after telling him what changed. The agent
+  makes the commits; he decides when.
 - The dev server is not the site. It served stale frontmatter for hours (old
   titles, eleven missing slides links), has no search index, and shows a
   toolbar the build does not. Anything a marker will see gets looked at on
