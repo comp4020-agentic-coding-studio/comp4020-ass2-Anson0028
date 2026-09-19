@@ -9,9 +9,10 @@ email: wei.lindqvist@slop.university
 contact: Ask in the tutorial first. Email when it cannot wait until Thursday, and include the seed.
 ---
 
-Wei wrote the simulated player that the lectures quote numbers from. It reacts
-about every 150 ms, aims up to nine degrees off, and walks into things a person
-would not. Wei will tell you which of your results it should not be trusted
+Wei wrote the simulated player that the lectures quote numbers from. Its
+reaction time is a dial the lectures turn from 50 to 300 ms, most often to
+100 ms. It aims up to nine degrees off, and walks into things a person would
+not. Wei will tell you which of your results it should not be trusted
 with.
 
 He runs every Thursday tutorial and marks the quizzes.

@@ -23,8 +23,9 @@ play. Write down which card you think is worth the most. Seal it.
 
 ## In the tutorial
 
-Baseline first: your delayed player, leftmost card every time, 51 seeds. Then
-seven restricted runs. The only change each time is the card your player is
+Baseline first: your delayed player turned down to 100 ms, leftmost card every
+time, 51 seeds. At 150 ms it wins 2 of 51, which leaves a ban almost nothing to
+take away. Then seven restricted runs. The only change each time is the card your player is
 forbidden to take.
 
 Sort the table by wins lost. Open what you sealed.

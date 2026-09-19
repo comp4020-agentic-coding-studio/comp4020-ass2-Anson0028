@@ -1,1 +1,1 @@
-glob: "{index.html,lectures/**/*.html,sessions/**/*.html,assessments/**/*.html,people/**/*.html,policies/**/*.html,404.html}"
+glob: "{index.html,lectures/**/*.html,sessions/**/*.html,assessments/**/*.html,people/**/*.html,policies/**/*.html}"
