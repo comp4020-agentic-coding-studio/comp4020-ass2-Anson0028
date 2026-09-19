@@ -57,10 +57,10 @@ week's claim" ([`bfefe5e`](https://github.com/comp4020-agentic-coding-studio/com
 Removed: the lab book, for quizzes a student can understand in one line
 ([`51f6a06`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/51f6a06)); the block list and navigation cards, once a schedule did
 their job ([`3392805`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/3392805)); a third of the home page's prose, because A1's
-home page was called too full ([`296c81f`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/296c81f)); and a paragraph explaining why
-Chromium gives 37 wins where Node gives 38. I found that by pressing the page's
-own button. It is true, and it is about `Math.sin`, not about balance
-([`c073262`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/c073262)).
+home page was called too full ([`296c81f`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/296c81f)); and, from the home page, why Chromium
+gives 37 wins where Node gives 38, found by pressing the page's button.
+It is `Math.sin`, not balance ([`c073262`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/c073262)), so week 2, on
+determinism, explains it ([`1b42251`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/1b42251)).
 
 Thin spots: the commits span two days, and content commits are batches of
 three weeks, because I read each batch before saying commit.
