@@ -56,7 +56,7 @@ try {
           const boxes = [...slide.children].map((child) => child.getBoundingClientRect());
           const stageEl = document.querySelector(".reveal .slides") as HTMLElement;
           const scale = stageEl.getBoundingClientRect().width / stageEl.offsetWidth;
-          const sizes = [...slide.querySelectorAll("p, li, td, th")].map((el) => parseFloat(getComputedStyle(el).fontSize) * scale);
+          const sizes = [...slide.querySelectorAll("p, li, td, th, pre, code")].map((el) => parseFloat(getComputedStyle(el).fontSize) * scale);
           const px = sizes.length > 0 ? Math.min(...sizes) : null;
           return {
             below: Math.max(...boxes.map((b) => b.bottom)) - stage.bottom,
@@ -69,7 +69,7 @@ try {
         if (m.below > 1) failures.push(`${where}: content runs ${Math.round(m.below)} px below the stage`);
         if (m.beside > 1) failures.push(`${where}: content runs ${Math.round(m.beside)} px past the right edge`);
         if (viewport.name === "phone" && m.px !== null && m.px < MIN_PHONE_TEXT_PX) {
-          failures.push(`${where}: body text renders at ${m.px.toFixed(1)} px, under ${MIN_PHONE_TEXT_PX} px`);
+          failures.push(`${where}: text renders at ${m.px.toFixed(1)} px, under ${MIN_PHONE_TEXT_PX} px`);
         }
         if (-m.below < tightest.margin) tightest = { margin: -m.below, where };
       }

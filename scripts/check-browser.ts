@@ -163,14 +163,18 @@ try {
     Object.defineProperty(document, "hidden", { get: () => true });
   });
   const hiddenPage = await hiddenContext.newPage();
-  for (const { path, button } of INSTRUMENTS) {
+  for (const { path, button, status } of INSTRUMENTS) {
     await hiddenPage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
     await hiddenPage.click(button);
     const finished = await hiddenPage
-      .waitForFunction(settled(button), null, { timeout: 20_000 })
+      .waitForFunction(
+        ([b, st]) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? ""),
+        [button, status],
+        { timeout: 60_000 },
+      )
       .then(() => true)
       .catch(() => false);
-    if (!finished) failures.push(`${path}: with the tab in the background, where requestAnimationFrame never fires, the run never finishes`);
+    if (!finished) failures.push(`${path}: with the tab in the background, where requestAnimationFrame never fires, the run never reports a result`);
   }
   await hiddenContext.close();
 

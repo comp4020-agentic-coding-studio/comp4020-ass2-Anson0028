@@ -155,6 +155,7 @@ describe("nothing left over from the starter", () => {
     "placeholder",
     "leaves room for a response",
     "Written so a reader can tell",
+    "Try the navigation above",
   ];
 
   const htmlFiles = (dir: string): string[] =>
