@@ -50,9 +50,11 @@ It usually does not, the first time. Say why.
 
 The specimen's own first gate, in the form yours should take:
 
-> 20 damage a second for 26 s is 520 hp, so anything under 520 hp asks nothing.
-> Set to 884 hp for two upgrades or fewer, 510 hp at four. Players who decline
-> every card: 0 of 51 alive after the window. Ordinary players: 47 of 51.
+> The card says 20 damage a second, 520 hp over the 26 s window. Measured, the
+> 100 ms player declining every card lands a median of 476 hp on the first boss
+> in that window and 561 hp at most, so a gate for that player has to be over
+> 561 hp. Set to 884 hp for two upgrades or fewer, 510 hp at four. Players who
+> decline every card: 0 of 51 alive after the window. Ordinary players: 47 of 51.
 
 ## Afterwards
 

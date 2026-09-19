@@ -61,8 +61,8 @@ shows the instrument telling apart two things that close.
 
 ## What you submit
 
-A recording of no more than ten minutes, your fork, and your twelve marked quiz
-sheets. The panel is three classmates and one member of the teaching team; they
+A recording of no more than ten minutes, your fork, and every quiz sheet you
+sat: marked ones back from weeks 1 to 11, and week 12's as you handed it in. The panel is three classmates and one member of the teaching team; they
 watch the recording and put their questions to you in person the week after.
 
 The seven parts are the ones listed in [week 12](/lectures/week-12/): the

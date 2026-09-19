@@ -53,4 +53,5 @@ willing to lose, and at which boss do you lose them?
 
 ## Afterwards
 
-This table is the opening slide of your defence.
+This table is the result in your defence, part three of the seven, with more
+than one kind of player in it.

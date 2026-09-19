@@ -53,5 +53,5 @@ different lazy player the new winner.
 
 ## Afterwards
 
-The strategy table is this week's quiz answer. This block ends here; the next one is
-about what none of these tables can tell you.
+The strategy table is this week's quiz answer. Weeks 6 to 8 end here; weeks 9 and
+10 are about what none of these tables can tell you.
