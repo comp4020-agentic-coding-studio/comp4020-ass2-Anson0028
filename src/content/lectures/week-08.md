@@ -8,7 +8,7 @@ date: 2027-04-27
 slides: /decks/week-08/
 block: Options and gates
 suspect: game
-bearing: "Write the laziest player you can: if it beats the intended way to play, the game is at fault. Running away used to, 102 s against 87 s, until the rules changed."
+bearing: "Write the laziest player you can: if it beats the intended way to play, the game is at fault. Running away once did, in an older version of the game: 102 s against 87 s."
 teachers:
   - tamsin-okoro
 related:

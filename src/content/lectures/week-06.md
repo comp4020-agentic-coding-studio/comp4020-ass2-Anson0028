@@ -58,10 +58,9 @@ builds read 0, 0, 0, 8, 18. Week 9 has a name for a
 reading like 66.0 s.
 
 Speed is not the only thing changing, either. The boss is sized by how many
-cards the player holds when it arrives (week 7), and refusing everything else
-means each level of speed is one more card held. These players arrive holding
-one to five cards, counting the weapon, and meet a boss of 884, 884, 680, 510
-and 408 hp. A player choosing normally arrives holding 7.
+cards the player holds when it arrives (week 7), and with everything else
+refused, each level of speed is one more card, so each of these players meets a
+smaller boss than the last. A player choosing normally arrives holding 7.
 
 **Never take this.** Let the player choose normally but ban one card, and count
 what is lost. Baseline is 12 wins out of 51. This is restricted play, the
