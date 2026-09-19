@@ -27,7 +27,8 @@ to 140 s, or the boss's 26 s clock never runs out. The boss should stop anyone
 holding fewer than ten upgrades and let through anyone holding more.
 
 Measure what a ten-upgrade player actually deals per second. Do not compute it
-from the card descriptions; builds differ and the average is what matters.
+from the rules' constants; builds differ, bolts miss or bank up, and the
+average is what matters.
 Multiply by the window. Set the health. Then run three groups of 51 against it
 and see whether the line falls where you put it.
 
@@ -35,8 +36,10 @@ It usually does not, the first time. Say why.
 
 ## Where it goes wrong
 
-- **Damage from the card text.** The opening weapon says 17 damage every 0.85 s,
-  which is 20 a second, if every bolt hits. Measure what lands.
+- **Damage from the constants.** The rules set the opening weapon to 17 damage
+  every 0.85 s, which is 20 a second. What lands can be less, when bolts miss,
+  or more: a bolt's cooldown keeps counting down while nothing is in range, and
+  the backlog fires when the boss arrives. Measure it.
 - **Counting the wrong thing.** The first version of the specimen's gate counted
   the player's level. A player who refuses every card still levels up, and was
   handed a weaker boss for it. Count upgrades held.
@@ -50,10 +53,11 @@ It usually does not, the first time. Say why.
 
 The specimen's own first gate, in the form yours should take:
 
-> The card says 20 damage a second, 520 hp over the 26 s window. Measured, the
-> 100 ms player declining every card lands a median of 476 hp on the first boss
-> in that window and 561 hp at most, so a gate for that player has to be over
-> 561 hp. Set to 884 hp for two upgrades or fewer, 510 hp at four. Players who
+> The rules say 17 damage every 0.85 s: 20 a second, 520 hp over the 26 s
+> window. Measured, the 100 ms player declining every card lands a median of
+> 476 hp on the first boss in that window, about 18 a second, and 561 hp at
+> most, so a gate for that player has to be over 561 hp. Set to 884 hp for two
+> upgrades or fewer, and 510 hp for four, who should get through. Players who
 > decline every card: 0 of 51 alive after the window. Ordinary players: 47 of 51.
 
 ## Afterwards

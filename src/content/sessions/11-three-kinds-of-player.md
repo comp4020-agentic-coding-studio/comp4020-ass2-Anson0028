@@ -53,5 +53,5 @@ willing to lose, and at which boss do you lose them?
 
 ## Afterwards
 
-This table is the result in your defence, part three of the seven, with more
-than one kind of player in it.
+These three players are the ones your defence runs. Part two of the seven names
+them, and part three gives each of them before and after your change.
