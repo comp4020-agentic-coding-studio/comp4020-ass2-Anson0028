@@ -95,16 +95,18 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
 ## Held by hand, on purpose
 
 - Voice. Short sentences, first-hand numbers, no survey prose. No test can tell
-  whether a paragraph sounds like a person, so every week gets read aloud once
-  before it is committed.
+  whether a paragraph sounds like a person, so a week should be read aloud once
+  before it is committed. The first content batches were not: some were
+  approved within two minutes of being drafted, which is why the twelve
+  bearing sentences are rewritten by hand.
 - The thirty-second test. For each page: what would someone choosing courses
   learn from this in thirty seconds, and does it connect to the sentence above?
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
   that was verified to exist, and gets opened by Anson before it goes on a page.
 
-- Whether a first-time reader can tell what a thing is. Three times in one
-  evening every check was green and Anson, reading as a stranger, was stopped:
+- Whether a first-time reader can tell what a thing is. Three times on 18
+  September every check was green and Anson, reading as a stranger, was stopped:
   a hero with no subtitle, a chart shown before it was explained, and a tag
   that said "the instrument" and was read as a musical one. Read each page
   cold before it ships.
@@ -159,8 +161,10 @@ before a file was written without them. See the first rule.
 - **pnpm brings its own Node.** `pnpm dev` here picked up the system's Node 20
   and Astro refused to start; run through `mise exec`.
 
-Not carried: the key-event ownership rule (an interaction rule; this is a
-content site), and everything about harps and survival arenas.
+Not carried: the key-event ownership rule (an interaction rule; the site's
+only interactive parts are three run buttons, and their one keyboard bug was
+lost focus, which `check:browser` now holds), and everything about harps and
+survival arenas.
 
 Sensors: `check-payload` comes across, retargeted from "the whole of dist" to
 "what one page makes a visitor download", because this site has twenty pages
