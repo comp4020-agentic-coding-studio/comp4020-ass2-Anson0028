@@ -61,9 +61,13 @@ shows the instrument telling apart two things that close.
 
 ## What you submit
 
-A recording of no more than ten minutes, your fork, and your twelve quiz sheets. The
-panel is three classmates and one member of the teaching team, and they ask
-questions from the recording.
+A recording of no more than ten minutes, your fork, and your twelve marked quiz
+sheets. The panel is three classmates and one member of the teaching team; they
+watch the recording and put their questions to you in person the week after.
+
+The seven parts are the ones listed in [week 12](/lectures/week-12/): the
+prediction, the instrument, the result, what you took away, who tried to break
+it, where the instrument could be lying, and what you felt.
 
 ## How the four pieces fit
 

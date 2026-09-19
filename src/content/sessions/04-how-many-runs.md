@@ -24,7 +24,7 @@ Read the survival analysis section of the block's reading.
 
 Run your delayed player from last week over 501 seeds and keep every result.
 Print the median of the first 1, 5, 15, 51, 101 and 501. For reference, the
-course's own player goes 69.3 s, 69.3 s, 81.5 s, 78.2 s, 78.0 s, 73.7 s.
+150 ms player goes 69.3 s, 69.3 s, 81.5 s, 78.2 s, 78.0 s, 73.7 s.
 
 Then argue with your neighbour about where you would stop. There is no correct
 answer. There is a cost, which is time, and the specimen makes time nearly

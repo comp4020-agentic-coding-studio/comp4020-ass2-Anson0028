@@ -46,8 +46,8 @@ level, it is the first boss's deadline and no run gets past it. From two levels
 on, 12 to 14 of the 15 runs kill that boss, and still end at about the same
 time. The dial is connected to something the metric cannot see.
 
-**A cap.** Count kills in the first 38 s instead, median of 51 runs. Leftmost
-card, no cards at all, each of the seven cards banned in turn: 34, 34, 34, 34,
+**A cap.** Count kills in the first 38 s instead, median of 51 runs. Ordinary
+card choices, no cards at all, each of the seven cards banned in turn: 34, 34, 34, 34,
 34, 34, 34, 34, 34. The game only spawns about that many enemies in 38 s and every build
 kills all of them. The metric is measuring the spawn rate.
 

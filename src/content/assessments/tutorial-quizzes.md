@@ -50,7 +50,8 @@ Week 4 asks for the run count you will use from now on.
 
 ## What you submit
 
-Nothing outside the room. The sheet is handed in at the end of each tutorial.
+Nothing outside the room. The sheet is handed in at the end of each tutorial
+and handed back, marked, the week after.
 The two lowest of the twelve are dropped, so two missed weeks cost nothing.
 
 ## What it feeds

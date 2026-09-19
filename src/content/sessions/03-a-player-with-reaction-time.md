@@ -24,7 +24,8 @@ the player model section of Isaksen, Gopstein and Nealen.
 ## In the tutorial
 
 Write the simplest policy you can defend: walk towards the nearest experience,
-step away from anything close. Run it over seeds 1 to 15 and count the wins.
+step away from anything close. Run it over seeds 1 to 15 (the course's first fifteen, 97 apart; see the
+[policies](/policies/)) and count the wins.
 
 Then wrap it. The wrapped player asks your policy for a direction only every
 150 ms and holds that direction in between. Run the same seeds. If your win

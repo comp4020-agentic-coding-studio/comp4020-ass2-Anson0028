@@ -22,8 +22,9 @@ Re-read the multiplication in the lecture until you could do it on a napkin.
 
 ## In the tutorial
 
-You are adding a third boss at 100 s. It should stop anyone holding fewer than
-ten upgrades and let through anyone holding more.
+You are adding a third boss at 110 s. A run ends at 120 s, so first lengthen it
+to 140 s, or the boss's 26 s clock never runs out. The boss should stop anyone
+holding fewer than ten upgrades and let through anyone holding more.
 
 Measure what a ten-upgrade player actually deals per second. Do not compute it
 from the card descriptions; builds differ and the average is what matters.

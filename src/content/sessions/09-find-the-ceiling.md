@@ -34,15 +34,15 @@ ceiling everything reaches, or a supply that runs out.
 
 ## Where it goes wrong
 
-- **Skipping the second comparison.** The course's own player, same build, same
+- **Skipping the second comparison.** The 100 ms player, same build, same
   day: 12 wins and a median of 101.6 s on seeds 1 to 51, then 7 wins and 92.7 s
   on seeds 52 to 102. Five wins and 8.9 s is what the dice are worth here.
   Nobody likes measuring it, because it makes earlier results smaller.
-- **A difference inside the noise.** Taking only damage cards scores 8 wins
-  against the ordinary build's 12. That gap of 4 is smaller than the 5 that
+- **A difference inside the noise.** Taking damage whenever it is offered scores
+  8 wins against the 12 of ordinary card choices. That gap of 4 is smaller than the 5 that
   changing seeds produced. It may be real. This table cannot say so.
 - **Only ever comparing neighbours.** Taking no cards at all scores 0 wins and
-  66.0 s. Against the ordinary build that is 12 wins and 35.6 s apart, and
+  66.0 s. Against ordinary card choices that is 12 wins and 35.6 s apart, and
   35.6 s is four times the 8.9 s the seeds were worth. Your metric can tell those two apart, and that is the first
   thing to establish about it.
 

@@ -55,5 +55,5 @@ boss for it ([`010a79d`](https://github.com/comp4020-agentic-coding-studio/comp4
 
 ## What you leave with
 
-The health a third boss would need at 100 s to stop a player holding fewer than
+The health a third boss would need at 110 s to stop a player holding fewer than
 ten upgrades, with the multiplication shown.
