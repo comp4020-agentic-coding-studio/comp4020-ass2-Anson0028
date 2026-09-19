@@ -25,13 +25,15 @@ checks, written red before the content existed: weeks chain to the next, no two
 lecture titles share a word, every lecture names a quantity with a unit,
 assessments feed each other and total 100 ([`01baaab`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/01baaab), [`48fe7f2`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/48fe7f2)).
 
-The harness itself went wrong first. The session had switched models and been
-summarised, and the agent wrote a new `CLAUDE.md` carrying nothing from earlier
-weeks. Every check was green. I asked whether the harness had come across. It
-had not: I had cloned the repo by hand and skipped the skill that carries it.
-The obvious move was to ask again. Instead the rules came in late and labelled
-late, the payload sensor was retargeted to one page, and harness changes have
-had their own commit since ([`1c27ee7`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/1c27ee7), [`79d1cba`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/79d1cba)).
+The harness went wrong first. The agent wrote a new `CLAUDE.md` carrying
+nothing from earlier weeks, and every check stayed green until I asked whether
+the harness had come across. I suspected the model switch. The session log
+disagreed: forty minutes earlier the agent had named the rules it would carry,
+with no summary between. Carrying the harness is a step in the course's
+start skill, and thirteen days before, I had the repo cloned by hand to read
+the brief. The rules came in late and labelled late
+([`1c27ee7`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/1c27ee7), [`79d1cba`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/79d1cba)). The fix is still a
+`CLAUDE.md` line that nothing fails without.
 
 Later I left "every slide fits on a phone" to a hand measurement, made against
 the one deck written to fit the rule. With twelve decks I asked for a real
