@@ -2,6 +2,9 @@
 
 Subtitle, used on the social card: Measuring game balance without players.
 
+In this file "I" is Anson, and "the agent" is Claude, which wrote most of it
+at my direction.
+
 ## What this course argues
 
 I'm building a persuasive, hands-on course that teaches balance in
@@ -47,7 +50,7 @@ measured?"
 7. Five readings for the semester, one per block of two or three weeks. A
    reading every week, the way Calling Bullshit does it, would turn the tutorials
    into a reading group; here the week's text is usually the student's own
-   data. Each reading is a real paper that Anson has opened.
+   data. Each reading is a real paper that I have opened.
 
 ## Rules, and the check that holds each one
 
@@ -68,8 +71,8 @@ measured?"
 | Every week says which side of the title's question it measures, three weeks each for "me" and "the game" | `spec/course.test.ts` › which suspect |
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
 | No starter prose on any built page outside the decks, the 404 page included | `spec/course.test.ts` › no starter prose |
-| Every built page has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
-| Search finds every course page and none of the decks that repeat them | `spec/course.test.ts` › lets search find the course pages |
+| Every built page outside the decks has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
+| Search indexes as many pages as the site has outside the decks. It compares counts, so a deck swapped in for a course page would pass | `spec/course.test.ts` › lets search find the course pages |
 | Every printed copy of the instruments' numbers agrees: chart, tables, decks, home page, social card, tutorial, quiz, and the sentences worked out from them | `spec/numbers.test.ts`, on any machine |
 | Week 4's medians and week 5's ladder are what the page's own runner computes | `spec/numbers.test.ts`, exact on darwin-arm64 only, the machine they were measured on. Elsewhere, CI included, it skips and prints its own numbers beside the printed ones |
 | No course page costs a visitor more than 3 s at 400 kbit/s. Decks, which load Reveal, are not counted | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
@@ -99,18 +102,18 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
   before it is committed. The first content batches were not: some were
   approved within two minutes of being drafted. The twelve bearing sentences
   were redrafted by the agent against a written guide, checked by three more
-  agents that re-ran every number, and read by Anson before they were
-  committed. They are still the agent's words, not his.
+  agents that re-ran every number, and read by me before they were
+  committed. They are still the agent's words, not mine.
 - The thirty-second test. For each page: what would someone choosing courses
   learn from this in thirty seconds, and does it connect to the sentence above?
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
-  that was verified to exist, and gets opened by Anson before it goes on a page.
-  The first five went on the pages first: c78cdd8 says they still had to be
-  opened, and e6ab4b4, nineteen minutes later, that Anson had opened them.
+  that was verified to exist, and gets opened by me before it goes on a page.
+  That order slipped once: Nelson went on the week 1 page in c78cdd8 before I
+  had opened it; e6ab4b4, nineteen minutes later, records all five opened.
 
 - Whether a first-time reader can tell what a thing is. Three times on 18
-  September every check was green and Anson, reading as a stranger, was stopped:
+  September every check was green and I, reading as a stranger, was stopped:
   a hero with no subtitle, a chart shown before it was explained, and a tag
   that said "the instrument" and was read as a musical one. Read each page
   cold before it ships.
@@ -124,12 +127,12 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
   holds the sentence. Count something the median cannot flatten before saying
   what a flat median means.
 
-- What a stranger would try. After seven or eight passes of my own found
+- What a stranger would try. After seven or eight passes by the agent found
   nothing more, a fresh session with no context (a new Claude session, given a
-  prompt Anson wrote; the commits call it an outside review) pressed Enter twice, ran axe in
+  prompt I wrote; the commits call it an outside review) pressed Enter twice, ran axe in
   a real browser, searched the build for one template sentence and scrolled a
-  table on a phone. Each found something, and each is now a check. My passes
-  kept looking the way they had looked before. Get a cold reader before
+  table on a phone. Each found something, and each is now a check. The agent's
+  passes kept looking the way they had looked before. Get a cold reader before
   shipping, and turn what they find into sensors, not just fixes.
 
 ## Carried forward from earlier weeks
@@ -140,7 +143,7 @@ with the incidents behind them, are in
 [crit 5's CLAUDE.md](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/CLAUDE.md).
 
 This section was added late. The A2 harness was first written from scratch, and
-the omission was caught by Anson asking, not by any check. The earlier repos
+the omission was caught by my asking, not by any check. The earlier repos
 were set up through the course's `start` skill, which merges the old harness
 as one of its steps; this repo was cloned by hand thirteen days earlier, to
 read the brief, and nothing failed when the step was skipped. It was not the
@@ -159,7 +162,7 @@ before a file was written without them. See the first rule.
   instruments passed every check and sounded like one note. Here it is the
   "held by hand" section.
 - **PROCESS.md uses my facts, not a plausible reconstruction.** If a beat is
-  missing, ask Anson or leave it out. He defends every claim out loud at the
+  missing, ask me or leave it out. I defend every claim out loud at the
   retro.
 - **Harness changes get their own commit,** straight after the commit that
   taught the lesson, with a message that names the lesson.
@@ -187,14 +190,15 @@ it on its first run.
 
 - One or two weeks of content per change. Never generate all twelve at once:
   the weeks come back repeating each other, and the history becomes one commit.
-  Broken on 17 and 18 September: weeks 9 to 12 landed in one commit, the
-  twelve tutorials in three, and eleven decks in one.
+  Broken on 17 and 18 September: the twelve lectures landed two, three, three
+  and four weeks at a time, all inside nineteen minutes; the twelve tutorials
+  came in three commits, and eleven decks in one.
 - A new deliverable starts by carrying the harness forward, before any content.
 - Run `pnpm check` before accepting anything.
 - A change to this file or to `spec/` gets its own commit, straight after the
   commit that taught the lesson.
-- Commit only when Anson says so, after telling him what changed. The agent
-  makes the commits; he decides when.
+- Commit only when I say so, after telling me what changed. The agent makes
+  the commits; I decide when.
 - The dev server is not the site. It served stale frontmatter for hours (old
   titles, eleven missing slides links), has no search index, and shows a
   toolbar the build does not. Anything a marker will see gets looked at on
@@ -205,7 +209,7 @@ it on its first run.
 - No site-wide visual rules. The platform's theme stays on every page. The one
   exception is the home page: its hero is the title split into its two
   suspects, and its picture is the course's own 306 runs drawn one dot per run.
-  Anson asked for this after looking at classmates' sites, where the strong ones
+  I asked for this after looking at classmates' sites, where the strong ones
   keep the theme and put one thing of their own on the front page. It is drawn
   in CSS with no images and no web font, and `pnpm check:payload` still holds.
 - No architecture section. The platform is fixed and `README.md` documents it.
@@ -217,5 +221,5 @@ it on its first run.
 - Every number about Close Quarters on the site was measured from its
   `rules.ts` on the day it was written. Re-measure before quoting one, on the
   Apple laptop, and say which player: the game has changed since the numbers
-  in my head were true, and week 9 printed a series without saying it came from
+  anyone remembers were true, and week 9 printed a series without saying it came from
   the 150 ms player, three weeks after week 6 printed one from the 100 ms player.
