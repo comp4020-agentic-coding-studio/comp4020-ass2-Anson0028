@@ -36,7 +36,8 @@ const printed = [
     The 150 ms player, the same rules, in your browser. The first press uses the
     page's seeds, and the two columns still will not agree exactly: the printed
     one was measured in Node on one Apple laptop, and your browser rounds
-    <code>Math.sin</code> a little differently, so a few runs end differently. Every press after that draws new
+    <code>Math.sin</code> a little differently, so several runs end differently,
+    enough to move the 51-run median by a few seconds. Every press after that draws new
     seeds. That the median moves is the point. Where it lands is not.
   </figcaption>
 </figure>
@@ -86,7 +87,7 @@ const printed = [
       const medians = rows.map((row) => {
         const m = median(times.slice(0, Number(row.dataset.runs))) / 1000;
         row.querySelector(".live")!.textContent = `${m.toFixed(1)} s`;
-        return m;
+        return Number(m.toFixed(1));
       });
       const seconds = ((performance.now() - started) / 1000).toFixed(1);
       const spread = (Math.max(...medians) - Math.min(...medians)).toFixed(1);
@@ -109,6 +110,7 @@ const printed = [
       button.click();
     }
   }
+  wire();
   document.addEventListener("astro:page-load", wire);
 </script>
 

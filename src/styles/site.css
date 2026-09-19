@@ -2,6 +2,11 @@
   display: none;
 }
 
+.related-content h2,
+.at-card-title {
+  color: light-dark(#8a5a0c, var(--at-heading));
+}
+
 @media (max-width: 30rem) {
   main table th,
   main table td {

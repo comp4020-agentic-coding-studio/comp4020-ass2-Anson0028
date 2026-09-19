@@ -1,1 +1,3 @@
 glob: "{index.html,lectures/**/*.html,sessions/**/*.html,assessments/**/*.html,people/**/*.html,policies/**/*.html}"
+exclude_selectors:
+  - ".at-heading-anchor"
