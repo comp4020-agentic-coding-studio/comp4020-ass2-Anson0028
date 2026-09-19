@@ -42,10 +42,14 @@ less time, and the attack-rate card was worth exactly nothing.
 
 ## Two ways to ask, and they disagree
 
+Both questions below are put to the same player, the 100 ms one, over the same
+51 seeds.
+
 **Take only this.** Give the player several levels of one card and refuse
-everything else. Asked this way, movement speed looks harmful: the 150 ms
-player's median survival goes 65.3 s, 66.0 s, 52.4 s, 45.5 s as speed levels
-are added. A fast player with slow reactions runs into things.
+everything else. Asked this way, movement speed is worth nothing and then less
+than nothing: median survival reads 66.0 s with no speed and with one, two or
+three levels of it, then 55.4 s with four. With every other card refused, the
+typical run dies at the first boss's deadline, 66 s in, however fast it is.
 
 **Never take this.** Let the player choose normally but ban one card, and count
 what is lost. Baseline is 12 wins out of 51. This is restricted play, the
