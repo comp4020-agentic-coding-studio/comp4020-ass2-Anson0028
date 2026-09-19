@@ -8,7 +8,7 @@ date: 2027-05-04
 slides: /decks/week-09/
 block: The edges of measurement
 suspect: instrument
-bearing: "The metric may not be able to say. Extra damage took the runs that kill the first boss from 0 to 14 of 15, while median survival stayed near 66 s."
+bearing: "The metric may not be able to say. Extra damage took the runs that kill the first boss from 0 to 43 of 51, while median survival stayed within a few seconds of 65 s."
 teachers:
   - tamsin-okoro
 reading:
@@ -40,11 +40,10 @@ including builds that were doing nothing ([`c34ed0b`](https://github.com/comp402
 Every card looked equally good because nothing could look bad.
 
 **A floor.** Give the 150 ms player extra damage and refuse every other card:
-median survival reads 66.0 s, 66.0 s, 67.6 s, 62.7 s, 64.4 s, 65.1 s across six
-levels, 15 runs each. It looks like one wall at 66 s. With no damage or one
-level, it is the first boss's deadline and no run gets past it. From two levels
-on, 12 to 14 of the 15 runs kill that boss, and still end at about the same
-time. The dial is connected to something the metric cannot see.
+median survival reads 65.3 s, 65.3 s, 67.4 s, 61.3 s, 62.7 s, 62.3 s across six
+levels, 51 runs each. It looks like one wall. With no damage or one level, no
+run gets past the first boss. From two levels on, 32 to 43 of the 51 runs kill
+it, and still end at about the same time. The dial is connected to something the metric cannot see.
 
 **A cap.** Count the 100 ms player's kills in the first 38 s instead, median of 51 runs. Ordinary
 card choices, no cards at all, each of the seven cards banned in turn: 34, 34, 34, 34,

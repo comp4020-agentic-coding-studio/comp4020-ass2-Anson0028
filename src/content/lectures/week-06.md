@@ -58,16 +58,17 @@ builds read 0, 0, 0, 8, 18. Week 9 has a name for a
 reading like 66.0 s.
 
 Speed is not the only thing changing, either. The boss is sized by how many
-cards the player holds when it arrives (week 7), and with everything else
-refused, each level of speed is one more card held. With none and with one
+upgrades the player holds when it arrives, counting the starting weapon
+(week 7), and with everything else refused, each level of speed is one more
+upgrade held. With none and with one
 level the player meets the same 884 hp boss; from two levels on, each meets a
-smaller one than the last. A player choosing normally arrives holding 7.
+smaller one than the last. A player choosing normally arrives holding 7 upgrades.
 
 **Never take this.** Let the player choose normally but ban one card, and count
 what is lost. Baseline is 12 wins out of 51. This is restricted play, the
 method in this week's reading, below. The player still takes a card at every level,
 so whichever card is banned, they reach the first boss holding a median of 6
-to 8.
+to 8 upgrades.
 
 | Banned card | Wins out of 51 | Lost |
 | --- | --- | --- |

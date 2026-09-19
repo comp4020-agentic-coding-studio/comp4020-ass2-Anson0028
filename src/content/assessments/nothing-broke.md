@@ -66,6 +66,9 @@ the same 51 seeds. Baseline wins go from 12 to 23.
 | orbiting shard | 3 | 4 |
 | shockwave | 2 | 3 |
 
+The lazy strategies are tutorial 8's: running away, camping in a corner, and
+standing still.
+
 | Lazy strategy | At 3 hearts | At 4 hearts |
 | --- | --- | --- |
 | run away | 52.5 s, 1 win | 66.0 s, 2 wins |

@@ -8,7 +8,7 @@ date: 2027-03-23
 slides: /decks/week-05/
 block: Players and distributions
 suspect: me
-bearing: "Here it is you. Give each boss anywhere from 18 s to 34 s on its clock and the 100 ms player still wins 12 of 51; at the usual 26 s, a player 50 ms quicker wins 38."
+bearing: "It is you, unevenly. Give each boss anywhere from 18 s to 34 s on its clock and the 100 ms player still wins 12 of 51; at the usual 26 s, a player 50 ms quicker wins 38."
 instrument: ladder
 teachers:
   - tamsin-okoro

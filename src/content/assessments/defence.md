@@ -35,7 +35,7 @@ related:
 
 ## The brief
 
-> Change one number in Close Quarters. Convince three people who have spent a
+> Change one number in Close Quarters. Convince a panel who have spent a
 > semester learning to distrust numbers.
 
 The largest share of the mark goes to part six: where your instrument could be

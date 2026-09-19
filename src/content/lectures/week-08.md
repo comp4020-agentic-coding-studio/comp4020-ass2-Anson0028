@@ -49,10 +49,10 @@ Three strategies, the 100 ms player, 51 runs each:
 | run away | 52.5 s | 1 |
 | stand still | 17.4 s | 0 |
 
-The intended way to play is now also the best way to play. That is the only
-thing "balanced" means in this course.
+The intended way to play is now also the best way to play. That is what
+"balanced" means for strategies in this course.
 
 ## What you leave with
 
-One degenerate strategy of your own for the specimen, its numbers against the
-intended strategy, and, if it wins, the one constant you would change.
+Three degenerate strategies of your own for the specimen, their numbers against
+the intended strategy, and, if one wins, the one constant you would change.
