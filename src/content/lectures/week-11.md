@@ -8,7 +8,7 @@ date: 2027-05-18
 slides: /decks/week-11/
 block: Different players
 suspect: me
-bearing: "It is always both. The same boss lets 50 players in 51 past, or 10 in 51, and the design decides which players it is willing to lose."
+bearing: "That depends on the player. At a 200 ms reaction time, 46 of 51 runs reach the first boss and 18 outlast its clock; whether to lose that player is the designer's call."
 teachers:
   - tamsin-okoro
 reading:
@@ -31,7 +31,8 @@ those players you are willing to lose.
 
 ## The same game, six players
 
-Ordinary card choices, 51 runs each. Only the reaction time changes.
+Ordinary card choices, 51 runs each. Only the reaction time changes. "Get past"
+means still alive when that boss's clock runs out.
 
 | Reaction time | Reach the first boss | Get past it | Get past the second | Win |
 | --- | --- | --- | --- | --- |
@@ -45,8 +46,8 @@ Ordinary card choices, 51 runs each. Only the reaction time changes.
 Read across a row and you get one player's way through the game. Read down a column and
 you get what a gate does to a crowd. The first boss lets through 50 of the
 fastest player's runs and 10 of the slowest one's. For the 200 ms player, 33 runs out of
-51 end at or before it: two thirds of that audience never sees the second
-minute of the game.
+51 are over by the time its clock runs out, 66 s in: two thirds of that
+audience never reaches the second boss.
 
 Whether that is right depends on who the game is for. It is a number now, so
 it can be argued about.

@@ -9,7 +9,7 @@ date: 2027-03-30
 slides: /decks/week-06/
 block: Options and gates
 suspect: game
-bearing: "If the card you picked did nothing, that one was the game."
+bearing: "Ban pickup reach, the card that looks least like a weapon, and wins fall from 12 of 51 to 1. What a card is worth comes from the game's rules."
 teachers:
   - tamsin-okoro
 reading:

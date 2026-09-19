@@ -8,7 +8,7 @@ date: 2027-03-02
 slides: /decks/week-02/
 block: The measuring instrument
 suspect: instrument
-bearing: "Neither yet. You cannot ask the question two hundred times if each asking takes two minutes."
+bearing: "You cannot tell by playing alone. In the two minutes a person spends on one run, the rules on their own get through about twenty thousand."
 teachers:
   - tamsin-okoro
 related:

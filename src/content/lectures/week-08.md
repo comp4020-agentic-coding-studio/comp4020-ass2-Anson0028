@@ -8,7 +8,7 @@ date: 2027-04-27
 slides: /decks/week-08/
 block: Options and gates
 suspect: game
-bearing: "If running away beats fighting, then losing while you fight is the game's fault."
+bearing: "Write the laziest player you can: if it beats the intended way to play, the game is at fault. Running away used to, 102 s against 87 s, until the rules changed."
 teachers:
   - tamsin-okoro
 related:

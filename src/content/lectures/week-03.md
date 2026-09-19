@@ -8,7 +8,7 @@ date: 2027-03-09
 slides: /decks/week-03/
 block: Players and distributions
 suspect: me
-bearing: "This week builds the me: a player slow enough to be somebody."
+bearing: "It was the player. Leave the game alone, make the player wait about 150 ms before turning and aim a little off, and the same seeds give 1 win."
 teachers:
   - tamsin-okoro
 reading:

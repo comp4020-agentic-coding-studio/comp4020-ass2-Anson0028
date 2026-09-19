@@ -8,7 +8,7 @@ date: 2027-03-16
 slides: /decks/week-04/
 block: Players and distributions
 suspect: instrument
-bearing: "One death is not evidence against you or against the game. Fifty-one start to be."
+bearing: "A single death is one draw from the dice. One run said 69.3 s; the median of fifteen said 81.5 s, and nothing had changed but the seeds."
 instrument: median
 teachers:
   - tamsin-okoro

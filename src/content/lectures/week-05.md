@@ -8,7 +8,7 @@ date: 2027-03-23
 slides: /decks/week-05/
 block: Players and distributions
 suspect: me
-bearing: "Here it is you, and then it is not. The first 50 ms of reaction time is worth 26 wins; after that the wall takes over."
+bearing: "Here it is you. The 100 ms player wins 12 of 51 with anywhere from 18 s to 34 s to kill each boss; the same player 50 ms quicker wins 38."
 instrument: ladder
 teachers:
   - tamsin-okoro

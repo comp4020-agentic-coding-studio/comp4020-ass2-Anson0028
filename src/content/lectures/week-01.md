@@ -7,7 +7,7 @@ week: 1
 date: 2027-02-23
 block: The measuring instrument
 suspect: instrument
-bearing: "Neither yet. Until the complaint has a number in it, there is nothing to blame anyone for."
+bearing: "There is no answer until someone says how many runs out of how many. Once counted, “you can skip the upgrades and still get through the first boss” was wrong in all 15 runs."
 teachers:
   - tamsin-okoro
 slides: /decks/week-01/

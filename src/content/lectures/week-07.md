@@ -8,7 +8,7 @@ date: 2027-04-20
 slides: /decks/week-07/
 block: Options and gates
 suspect: game
-bearing: "If a player who picked up nothing gets through, the gate never asked, and nobody was to blame for anything."
+bearing: "The game, and you can tell before anyone fights: the opening weapon alone does 20 damage a second for 26 s, so beating a boss under 520 hp says nothing about you."
 teachers:
   - tamsin-okoro
 related:

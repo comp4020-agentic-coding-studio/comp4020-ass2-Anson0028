@@ -8,7 +8,7 @@ date: 2027-05-25
 slides: /decks/week-12/
 block: Different players
 suspect: verdict
-bearing: "Your answer, as one number, with enough behind it that someone else could show you are wrong."
+bearing: "Your answer is the constant's new value beside its old one, measured on the same 51 fixed seeds, so anyone can run it again and show you are wrong."
 teachers:
   - tamsin-okoro
 related:
@@ -31,7 +31,7 @@ order, each taking a minute or less:
 
 1. **The prediction** you made before measuring, with its number and unit.
 2. **The instrument**: which simulated players, what reaction times, and that
-   it was 51 runs on fixed seeds.
+   it was 51 runs on fixed seeds, the same ones before and after.
 3. **The result**, as a distribution and not a single figure: wins out of 51
    and median survival, before and after.
 4. **What you took away**: a restricted-play comparison showing the change did

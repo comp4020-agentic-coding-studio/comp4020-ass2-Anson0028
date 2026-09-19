@@ -8,7 +8,7 @@ date: 2027-05-11
 slides: /decks/week-10/
 block: The edges of measurement
 suspect: instrument
-bearing: "Some answers are neither. You could not see what the bar was for, or the thing you needed was three pixels wide."
+bearing: "Some of the answer only a person finds. Standing still with the old shard weapon killed nothing, and no simulated run showed it, because the simulated player was always moving."
 teachers:
   - tamsin-okoro
 related:

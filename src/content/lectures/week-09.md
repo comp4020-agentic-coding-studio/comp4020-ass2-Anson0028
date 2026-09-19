@@ -8,7 +8,7 @@ date: 2027-05-04
 slides: /decks/week-09/
 block: The edges of measurement
 suspect: instrument
-bearing: "Before you blame either, check the instrument can still tell two things apart."
+bearing: "The metric may not be able to say. Extra damage took the runs that kill the first boss from 0 to 14 of 15, while median survival stayed near 66 s."
 teachers:
   - tamsin-okoro
 reading:
