@@ -1,7 +1,7 @@
 ---
 title: Every boss is easy for somebody
 description:
-  Difficulty is not one number. The same first boss lets 50 players in 51 past,
+  Difficulty is not one number. The same first boss lets 50 runs in 51 past,
   or 10 in 51, depending on who is holding the controls.
 week: 11
 date: 2027-05-18
@@ -44,7 +44,7 @@ Ordinary card choices, 51 runs each. Only the reaction time changes.
 
 Read across a row and you get one player's way through the game. Read down a column and
 you get what a gate does to a crowd. The first boss lets through 50 of the
-fastest players and 10 of the slowest. For the 200 ms player, 33 runs out of
+fastest player's runs and 10 of the slowest one's. For the 200 ms player, 33 runs out of
 51 end at or before it: two thirds of that audience never sees the second
 minute of the game.
 

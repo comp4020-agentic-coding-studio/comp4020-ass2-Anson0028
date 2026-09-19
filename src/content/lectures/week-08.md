@@ -17,7 +17,8 @@ related:
 ---
 
 Close Quarters is built on one idea: getting stronger means walking back into
-the fight. For about a day, that was false, and nothing on screen showed it.
+the fight. For under an hour one evening, while it was being built, that was false, and
+nothing on screen showed it.
 
 ## The claim
 
@@ -25,13 +26,14 @@ A strategy that wins regardless of what the game throws at it turns every other
 option into decoration. Players find it eventually. A simulation finds it in a
 second, if you think to write the lazy player as well as the good one.
 
-## The day running away was correct
+## The hour running away was correct
 
 Experience used to be scattered generously across the arena. A simulated player
 that only ever fled survived a median of 102 s. One that went looking for
 experience survived 87 s
 ([`56f46ba`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/commit/56f46ba)).
-The game's premise had been quietly reversed by a spawn rate.
+The game's premise had been quietly reversed by free experience worth as much
+as the kind you fight for.
 
 Two changes put it back. Experience dropped by a kill became worth 2.5 times
 the experience lying free, in that same commit. And nothing is collected at a

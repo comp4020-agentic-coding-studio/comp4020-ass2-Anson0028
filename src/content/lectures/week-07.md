@@ -45,9 +45,9 @@ arrives, counting the weapon they start with as one: 884 hp for one or two,
 four. So the gate's question, in plain words, is "have you picked up at least
 three cards in the first 40 s?"
 
-Measured over 51 runs: ordinary players arrive holding a median of 7, and 47
-of them are still alive after the window closes. Players who decline every
-card: 0 out of 51.
+Measured with the 100 ms player over 51 runs: choosing cards normally, it
+arrives holding a median of 7, and 47 runs are still alive after the window
+closes. Declining every card: 0 out of 51.
 
 It counts upgrades banked and not level reached, because a player who refuses
 every card still levels up, and the first version handed that player a weaker
