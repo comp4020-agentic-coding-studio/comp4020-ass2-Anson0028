@@ -13,9 +13,9 @@ const suspects = [
     id: "me",
     big: "Is it me",
     rows: [
-      { week: 3, href: "/lectures/week-03/", name: "A perfect player describes nobody", number: "12 wins of 15, then 1 of 15" },
+      { week: 3, href: "/lectures/week-03/", name: "A perfect player describes nobody", number: "perfect player 12 of 15, slowed 1 of 15" },
       { week: 5, href: "/lectures/week-05/", name: "Even steps, uneven difficulty", number: "38, 12, 2, 0 wins of 51" },
-      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "past the first boss: 50 of 51, or 10" },
+      { week: 11, href: "/lectures/week-11/", name: "Every boss is easy for somebody", number: "past it: 50 of 51 at 50 ms, 10 at 300 ms" },
     ],
   },
   {
@@ -23,8 +23,8 @@ const suspects = [
     big: "or is it the game?",
     rows: [
       { week: 6, href: "/lectures/week-06/", name: "A dead option looks like a live one", number: "ban pickup reach: 11 fewer wins of 51" },
-      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "past the first boss's clock: 47 of 51, or 0 with no cards" },
-      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "median survival 101.6 s against 17.4 s" },
+      { week: 7, href: "/lectures/week-07/", name: "A gate everyone passes asks no question", number: "47 of 51 past it, 0 with no cards" },
+      { week: 8, href: "/lectures/week-08/", name: "The lazy strategy must lose", number: "chase 101.6 s, flee 52.5 s, stand 17.4 s" },
     ],
   },
 ];
@@ -41,6 +41,7 @@ const suspects = [
     <div class="band">
       <p class="sub">Measuring game balance without players</p>
       <p class="meta">{courseMeta.code} · {courseMeta.session} {courseMeta.year} · one game · nobody plays until week ten</p>
+      <p class="lead-top">{courseMeta.description}</p>
     </div>
     {suspects.map((side) => (
       <div class={`side ${side.id}`}>
@@ -60,7 +61,7 @@ const suspects = [
     ))}
   </section>
 
-  <p class="lead">{courseMeta.description}</p>
+  <p class="lead lead-below">{courseMeta.description}</p>
 
   <h2>Start with “is it me”</h2>
   <p>
@@ -78,7 +79,7 @@ const suspects = [
   <p>
     Twelve weeks measuring one small game, <a href="https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/"><em>Close Quarters</em></a>,
     a two-minute survival run with seven upgrades and two bosses. It is live,
-    and you are asked not to open it until week ten. Its rules are <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">eight hundred lines of TypeScript</a>,
+    linked here on purpose, and you are asked not to open it until week ten. Its rules are <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">eight hundred lines of TypeScript</a>,
     and those you may read now.
   </p>
   <p>
@@ -241,10 +242,24 @@ const suspects = [
     .meta {
       text-align: left;
     }
+
+    .band .lead-top {
+      display: block;
+    }
+
+    .lead-below {
+      display: none;
+    }
   }
 
   .lead {
     margin-top: 3rem;
+  }
+
+  .lead-top {
+    display: none;
+    margin-top: 0.75rem;
+    max-inline-size: 40rem;
   }
 
 </style>

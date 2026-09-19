@@ -46,6 +46,7 @@ export default defineConfig({
     astromotion({
       theme: "./src/decks/theme.css",
       fontVariables: ["--font-public-sans"],
+      favicon: "/favicon.svg",
     }),
   ],
 });
