@@ -87,6 +87,39 @@ try {
     if (after === before) failures.push(`arriving ${route.name}: the button does nothing`);
   }
 
+  const offlineContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  const offlinePage = await offlineContext.newPage();
+  for (const { path, button, status } of INSTRUMENTS) {
+    await offlinePage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "networkidle" });
+    await offlineContext.setOffline(true);
+    await offlinePage.click(button);
+    const released = await offlinePage
+      .waitForFunction(settled(button), null, { timeout: 10_000 })
+      .then(() => true)
+      .catch(() => false);
+    const said = ((await offlinePage.textContent(status)) ?? "").trim();
+    await offlineContext.setOffline(false);
+    if (!released) {
+      failures.push(`${path}: pressed while offline, the button stays busy for good ("${said.slice(0, 40)}")`);
+      continue;
+    }
+    if (said === "" || said.startsWith("Loading")) failures.push(`${path}: pressed while offline, the page does not say what went wrong`);
+    await offlinePage.click(button);
+    const ran = await offlinePage
+      .waitForFunction(
+        ([b, st]) => {
+          const el = document.querySelector(b)!;
+          return el.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? "");
+        },
+        [button, status],
+        { timeout: 30_000 },
+      )
+      .then(() => true)
+      .catch(() => false);
+    if (!ran) failures.push(`${path}: back online, pressing again does not run`);
+  }
+  await offlineContext.close();
+
   const hiddenContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   await hiddenContext.addInitScript(() => {
     window.requestAnimationFrame = () => 0;
@@ -158,4 +191,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, and finish in a background tab; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, finish in a background tab, and recover from a press made offline; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
