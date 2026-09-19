@@ -7,7 +7,16 @@ const seeded = (n: number) => {
   return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
 };
 
-const yieldFrame = () => new Promise<void>((r) => requestAnimationFrame(() => r()));
+const yieldFrame = () =>
+  document.hidden
+    ? Promise.resolve()
+    : new Promise<void>((resolve) => {
+        const fallback = setTimeout(resolve, 60);
+        requestAnimationFrame(() => {
+          clearTimeout(fallback);
+          resolve();
+        });
+      });
 
 export async function runRow(reactionMs: number, batch: number, onRun: (wins: number, done: number) => void): Promise<number> {
   let wins = 0;
