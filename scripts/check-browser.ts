@@ -104,19 +104,32 @@ try {
       continue;
     }
     if (said === "" || said.startsWith("Loading")) failures.push(`${path}: pressed while offline, the page does not say what went wrong`);
-    await offlinePage.click(button);
-    const ran = await offlinePage
-      .waitForFunction(
-        ([b, st]) => {
-          const el = document.querySelector(b)!;
-          return el.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? "");
-        },
-        [button, status],
-        { timeout: 30_000 },
-      )
-      .then(() => true)
-      .catch(() => false);
-    if (!ran) failures.push(`${path}: back online, pressing again does not run`);
+    const recovered = async () => {
+      await offlinePage.waitForSelector(button);
+      await offlinePage.click(button);
+      return offlinePage
+        .waitForFunction(
+          ([b, st]) => {
+            const el = document.querySelector(b);
+            return !!el && el.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? "");
+          },
+          [button, status],
+          { timeout: 30_000 },
+        )
+        .then(() => true)
+        .catch(() => false);
+    };
+    let ran = false;
+    try {
+      ran = await recovered();
+    } catch {
+      ran = false;
+    }
+    if (!ran) {
+      await offlinePage.waitForLoadState("networkidle");
+      ran = await recovered();
+    }
+    if (!ran) failures.push(`${path}: back online, two presses (one may reload the page) still do not run`);
   }
   await offlineContext.close();
 
