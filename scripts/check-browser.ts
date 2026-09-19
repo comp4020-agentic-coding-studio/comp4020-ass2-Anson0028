@@ -30,8 +30,6 @@ const CONTRAST_PAGES = [
   "/policies/",
 ];
 
-const PLATFORM_OWNED = /\bh[1-4]\b|\.at-/;
-
 const INSTRUMENTS = [
   { path: "/", button: "#run-51", status: "#run-status" },
   { path: "/lectures/week-05/", button: "#run-51", status: "#run-status" },
@@ -41,7 +39,6 @@ const INSTRUMENTS = [
 const server = await preview({ root: process.cwd(), server: { port: PORT }, logLevel: "silent" });
 const browser = await chromium.launch();
 const failures: string[] = [];
-const platformOwned: string[] = [];
 
 const settled = (selector: string) =>
   `(() => { const b = document.querySelector(${JSON.stringify(selector)}); return !b.disabled && b.getAttribute("aria-disabled") !== "true"; })()`;
@@ -54,6 +51,7 @@ try {
     await page.keyboard.press("Enter");
     await page.waitForFunction(settled(button), null, { timeout: 90_000 });
     const first = (await page.textContent(status)) ?? "";
+    const firstColumn = await page.$$eval(".drift tbody tr .live", (cells) => cells.map((c) => parseFloat(c.textContent ?? "")));
 
     const focused = await page.evaluate((sel) => document.activeElement === document.querySelector(sel), button);
     if (!focused) failures.push(`${path}: after a run, keyboard focus has left ${button}`);
@@ -63,6 +61,14 @@ try {
     await page.waitForFunction(settled(button), null, { timeout: 90_000 });
     const second = (await page.textContent(status)) ?? "";
     if (second === first) failures.push(`${path}: a second Enter did nothing; the status still reads "${first.slice(0, 60)}…"`);
+    if (button === "#run-drift") {
+      for (const [when, text] of [["first", first], ["second", second]] as const) {
+        const said = Number(/moved by ([\d.]+) s/.exec(text)?.[1]);
+        const shown = when === "second" ? await page.$$eval(".drift tbody tr .live", (cells) => cells.map((c) => parseFloat(c.textContent ?? ""))) : firstColumn;
+        const spread = Math.max(...shown) - Math.min(...shown);
+        if (Math.abs(said - spread) > 0.05) failures.push(`${path}: after the ${when} run the status says the median moved by ${said} s, but the column it sits under spans ${spread.toFixed(1)} s`);
+      }
+    }
   }
 
   const ROUTES = [
@@ -178,6 +184,28 @@ try {
   }
   await hiddenContext.close();
 
+  const slowContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  const slowPage = await slowContext.newPage();
+  const cdp = await slowContext.newCDPSession(slowPage);
+  await cdp.send("Network.enable");
+  await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 400, downloadThroughput: 50 * 1024, uploadThroughput: 50 * 1024 });
+  for (const { path, button, status } of INSTRUMENTS) {
+    await slowPage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "domcontentloaded" });
+    const looksReady = await slowPage.evaluate((b) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true", button);
+    if (!looksReady) continue;
+    await slowPage.click(button);
+    const ran = await slowPage
+      .waitForFunction(
+        ([b, st]) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true" && /runs in/.test(document.querySelector(st)?.textContent ?? ""),
+        [button, status],
+        { timeout: 60_000 },
+      )
+      .then(() => true)
+      .catch(() => false);
+    if (!ran) failures.push(`${path}: on a slow connection, a press made as soon as the button appears is lost, and nothing says so`);
+  }
+  await slowContext.close();
+
   for (const scheme of ["light", "dark"] as const) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: scheme });
     const contrastPage = await context.newPage();
@@ -197,8 +225,7 @@ try {
       });
       for (const node of nodes) {
         const line = `${path} (${scheme}): "${node.text}" at ${node.target} is ${node.ratio}:1, needs ${node.need}`;
-        if (PLATFORM_OWNED.test(node.target)) platformOwned.push(line);
-        else failures.push(line);
+        failures.push(line);
       }
     }
     await context.close();
@@ -232,4 +259,4 @@ if (failures.length > 0) {
   console.error(`✗ browser: ${failures.length} problem(s)`);
   process.exit(1);
 }
-console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, finish in a background tab, and, after a press made offline, stay on the page when pressed offline again and run with one press once back online, focus kept, on the same page or the next; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px (${platformOwned.length} findings on platform-owned elements, not counted)`);
+console.log(`✓ browser: ${INSTRUMENTS.length} instruments run twice from the keyboard without losing focus still work when reached by a link, finish in a background tab, take a press made before a slow page has finished loading, and, after a press made offline, stay on the page when pressed offline again and run with one press once back online, focus kept, on the same page or the next; ${CONTRAST_PAGES.length} pages pass colour contrast in light and dark and hide no table column at 390 px`);

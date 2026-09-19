@@ -47,7 +47,11 @@ try {
       const total = await page.evaluate(() => document.querySelectorAll(".reveal .slides > section").length);
       for (let i = 0; i < total; i++) {
         if (i > 0) {
+          const before = await page.evaluate(() => [...document.querySelectorAll(".reveal .slides > section")].findIndex((s) => s.classList.contains("present")));
           await page.keyboard.press("ArrowRight");
+          await page.waitForTimeout(0);
+          const after = await page.evaluate(() => [...document.querySelectorAll(".reveal .slides > section")].findIndex((s) => s.classList.contains("present")));
+          if (after !== before + 1) failures.push(`${deck} at ${viewport.name}: ArrowRight from slide ${before + 1} did not reach slide ${before + 2}`);
           await page.waitForTimeout(120);
         }
         const m = await page.evaluate(() => {

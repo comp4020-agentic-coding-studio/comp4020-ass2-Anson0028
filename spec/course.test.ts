@@ -92,7 +92,8 @@ describe("a course about measurement", () => {
 
   it("gives every week a deck of its own", () => {
     for (const lecture of lectures) {
-      expect(String(lecture.meta?.slides ?? ""), `week ${lecture.meta?.week} has no slides`).toMatch(/^\/decks\/week-\d\d\/$/);
+      const week = String(lecture.meta?.week).padStart(2, "0");
+      expect(String(lecture.meta?.slides ?? ""), `week ${lecture.meta?.week} does not have its own deck`).toBe(`/decks/week-${week}/`);
     }
   });
 

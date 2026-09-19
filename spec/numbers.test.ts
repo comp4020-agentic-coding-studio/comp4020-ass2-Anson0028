@@ -48,6 +48,8 @@ describe("every printed copy of the instruments' numbers agrees with the others"
     const wins = ladder.map((r) => r.wins);
     expect(read("src/pages/index.astro")).toContain(`number: "${wins.slice(0, 4).join(", ")} wins of 51"`);
     expect(read("src/site-config.ts")).toContain(`${wins.join(", ")} wins as reaction time goes from 50 to 300 ms`);
+    const week11 = tableRows("src/content/lectures/week-11.md", /^\| (\d+) ms \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|$/).map((m) => ({ ms: Number(m[1]), wins: Number(m[5]) }));
+    expect(week11, "week 11's Win column is the same ladder").toEqual(ladder.map(({ ms, wins }) => ({ ms, wins })));
 
     const firstStep = wins[0] - wins[1];
     const flatStep = (Number(ladder[3].median) - Number(ladder[4].median)).toFixed(1);
