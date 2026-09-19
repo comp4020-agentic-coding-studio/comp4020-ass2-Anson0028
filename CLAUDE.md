@@ -97,8 +97,10 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
 - Voice. Short sentences, first-hand numbers, no survey prose. No test can tell
   whether a paragraph sounds like a person, so a week should be read aloud once
   before it is committed. The first content batches were not: some were
-  approved within two minutes of being drafted, which is why the twelve
-  bearing sentences are rewritten by hand.
+  approved within two minutes of being drafted. The twelve bearing sentences
+  were redrafted by the agent against a written guide, checked by three more
+  agents that re-ran every number, and read by Anson before they were
+  committed. They are still the agent's words, not his.
 - The thirty-second test. For each page: what would someone choosing courses
   learn from this in thirty seconds, and does it connect to the sentence above?
 - Readings are real. Agents invent plausible citations, and no test can open
