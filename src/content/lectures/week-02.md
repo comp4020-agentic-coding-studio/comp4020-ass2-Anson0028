@@ -41,10 +41,13 @@ clock. Three things follow.
 - **Time is handed in.** A run is 7200 steps of 1/60 s. Nothing waits for a
   real second to pass.
 - **Randomness is handed in.** The same seed gives the same run. Seed 97 ends
-  at 69.333 s with 58 kills, every time you run it in the same engine. That
-  last clause is a real limit. Node and a browser disagree in the last bits of
-  `Math.sin`, and for the 50 ms player 7 runs of 51 end differently, moving 38
-  wins to 37. The seed fixes the dice. It does not fix the arithmetic.
+  at 69.333 s with 58 kills, every time you run it on the same kind of machine.
+  That last clause is a real limit. `Math.sin` and its neighbours are not
+  rounded the same way everywhere. Node on the Apple laptop these numbers were
+  measured on ends seed 97 at 69.333 s; Node on the Linux server that checks
+  this course's code ends it at 63.1 s; Chrome on the same laptop turns the
+  50 ms player's 38 wins into 37. The seed fixes the dice. It does not fix the
+  arithmetic.
 - **The player is handed in.** `input` is a direction. It does not care whether
   a hand or a function produced it. Week three is about that function.
 

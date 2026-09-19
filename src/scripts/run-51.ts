@@ -2,6 +2,8 @@ import { chaseXpPolicy, runHeadless, withReaction } from "../lib/close-quarters"
 
 const RUNS = 51;
 
+export const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+
 const seeded = (n: number) => {
   let s = n >>> 0;
   return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);

@@ -35,8 +35,8 @@ const printed = [
   <figcaption>
     The 150 ms player, the same rules, in your browser. The first press uses the
     page's seeds, and the two columns still will not agree exactly: the printed
-    one was measured in Node, whose arithmetic differs from a browser's in the
-    last bits, and a few runs end differently. Every press after that draws new
+    one was measured in Node on one Apple laptop, and your browser rounds
+    <code>Math.sin</code> a little differently, so a few runs end differently. Every press after that draws new
     seeds. That the median moves is the point. Where it lands is not.
   </figcaption>
 </figure>
@@ -50,7 +50,6 @@ const printed = [
     const button = document.getElementById("run-drift") as HTMLButtonElement;
     const status = document.getElementById("drift-status") as HTMLElement;
     const rows = [...document.querySelectorAll<HTMLElement>(".drift tbody tr")];
-    const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
     let batch = 0;
     button.addEventListener("click", async () => {
       if (button.getAttribute("aria-disabled") === "true") return;
@@ -61,8 +60,9 @@ const printed = [
       button.setAttribute("aria-disabled", "true");
       status.textContent = "Running…";
       let survivalTimes: typeof import("../scripts/run-51").survivalTimes;
+      let median: typeof import("../scripts/run-51").median;
       try {
-        ({ survivalTimes } = await import("../scripts/run-51"));
+        ({ survivalTimes, median } = await import("../scripts/run-51"));
       } catch {
         unreachable = true;
         status.textContent = "Could not load the rules, so nothing ran. Once you are back online, press again to reload the page.";

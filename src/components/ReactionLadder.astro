@@ -92,7 +92,7 @@ const RUNS = 51;
         status.textContent = `${rows.length * 51} runs in ${seconds} s. ${
           same
             ? "The same six numbers the page printed."
-            : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row, which was measured in Node and not in a browser.`
+            : `This browser got ${results.join(", ")}, ${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0)} run${results.reduce((d, w, i) => d + Math.abs(w - printed[i]), 0) === 1 ? "" : "s"} off the printed row, which was measured in Node on one Apple laptop. Week 2 says why.`
         } Now try new seeds.`;
       } else {
         const spread = rows.map((row, i) => `${row.dataset.ms} ms ${low[i] === high[i] ? `${low[i]} every time` : `${low[i]}–${high[i]}`}`).join(", ");
