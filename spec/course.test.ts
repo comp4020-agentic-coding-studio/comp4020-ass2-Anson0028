@@ -175,6 +175,14 @@ describe("nothing left over from the starter", () => {
     }
   });
 
+  it("lets search find the course pages and not the decks that repeat them", () => {
+    const entry = JSON.parse(readFileSync(resolve("dist", "pagefind", "pagefind-entry.json"), "utf8"));
+    const indexed = Object.values(entry.languages as Record<string, { page_count: number }>).reduce((sum, l) => sum + l.page_count, 0);
+    const pages = htmlFiles(resolve("dist")).filter((path) => !relative(resolve("dist"), path).startsWith("decks"));
+    const searchable = pages.filter((path) => !readFileSync(path, "utf8").includes('data-pagefind-ignore="all"'));
+    expect(indexed, "search is indexing pages outside the course, such as the decks").toBe(searchable.length);
+  });
+
   it("gives every built page outside the deck exactly one h1", () => {
     const pages = htmlFiles(resolve("dist")).filter((path) => !relative(resolve("dist"), path).startsWith("decks"));
     for (const page of pages) {
