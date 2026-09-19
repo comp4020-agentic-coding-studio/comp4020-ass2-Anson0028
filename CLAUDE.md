@@ -2,8 +2,8 @@
 
 Subtitle, used on the social card: Measuring game balance without players.
 
-In this file "I" is Anson, and "the agent" is Claude, which wrote most of it
-at my direction.
+In this file "I" is Anson, and "the agent" is Claude, which wrote most of this file,
+and most of the site, at my direction.
 
 ## What this course argues
 
@@ -72,7 +72,7 @@ measured?"
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
 | No starter prose on any built page outside the decks, the 404 page included | `spec/course.test.ts` › no starter prose |
 | Every built page outside the decks has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
-| Search indexes as many pages as the site has outside the decks. It compares counts, so a deck swapped in for a course page would pass | `spec/course.test.ts` › lets search find the course pages |
+| Search indexes as many pages as the site has outside the decks and the unlisted 404. It compares counts, so a deck swapped in for a course page would pass | `spec/course.test.ts` › lets search find the course pages |
 | Every printed copy of the instruments' numbers agrees: chart, tables, decks, home page, social card, tutorial, quiz, and the sentences worked out from them | `spec/numbers.test.ts`, on any machine |
 | Week 4's medians and week 5's ladder are what the page's own runner computes | `spec/numbers.test.ts`, exact on darwin-arm64 only, the machine they were measured on. Elsewhere, CI included, it skips and prints its own numbers beside the printed ones |
 | No course page costs a visitor more than 3 s at 400 kbit/s. Decks, which load Reveal, are not counted | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
@@ -80,7 +80,7 @@ measured?"
 | Every run button works when its page was reached by a link, not only on a fresh load | `pnpm check:browser` |
 | Every run finishes in a background tab | `pnpm check:browser` |
 | A press made offline says what went wrong; pressed again offline, the page stays; back online, one press runs with focus kept, on that page or the next one reached by a link | `pnpm check:browser` |
-| Nothing I styled fails colour contrast, in light or dark, on the ten pages the check visits. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
+| Nothing styled in this repo fails colour contrast, in light or dark, on the ten pages the check visits. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
 | No table hides a column off screen at 390 px, on the same ten pages | `pnpm check:browser` |
 | Every slide fits its stage at 1920x1080 and 390x844, and no paragraph, list, table cell or code line on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
@@ -109,8 +109,10 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
 - Readings are real. Agents invent plausible citations, and no test can open
   a PDF and check it says what the page claims. Every reading comes from a list
   that was verified to exist, and gets opened by me before it goes on a page.
-  That order slipped once: Nelson went on the week 1 page in c78cdd8 before I
-  had opened it; e6ab4b4, nineteen minutes later, records all five opened.
+  That order was not kept on 17 September. Nelson's paper (week 1), Isaksen's
+  (week 3) and Jaffe's (week 6) went on their pages at 20:36, 20:41 and 20:50;
+  c78cdd8 says Nelson's still had to be opened, and the first record that all
+  five were opened is e6ab4b4, at 20:55.
 
 - Whether a first-time reader can tell what a thing is. Three times on 18
   September every check was green and I, reading as a stranger, was stopped:
@@ -179,7 +181,7 @@ Sensors: `check-payload` comes across, retargeted from "the whole of dist" to
 and a visitor loads one. `check-a11y` was left behind on the grounds that this platform's build
 already runs axe. That was wrong. The build's axe runs in JSDOM, which has no
 layout and cannot compute a contrast ratio, and it let through a table header
-of mine at 2.41:1 in dark mode. An outside review found it with axe in a real
+styled in this repo, at 2.41:1 in dark mode. An outside review found it with axe in a real
 browser. It came back as part of `check-browser`. `check-viewports` came across late, as `check-decks`:
 for a day the deck at a phone viewport was held by hand, measured against the
 one deck that had been written to fit the rule. With twelve decks the hand
@@ -190,9 +192,10 @@ it on its first run.
 
 - One or two weeks of content per change. Never generate all twelve at once:
   the weeks come back repeating each other, and the history becomes one commit.
-  Broken on 17 and 18 September: the twelve lectures landed two, three, three
-  and four weeks at a time, all inside nineteen minutes; the twelve tutorials
-  came in three commits, and eleven decks in one.
+  Broken on 17 and 18 September: the twelve lectures and their tutorials landed
+  two, three, three and four weeks at a time, in under twenty minutes; the next
+  evening the tutorials' worked answers came in three commits, and eleven decks
+  in one.
 - A new deliverable starts by carrying the harness forward, before any content.
 - Run `pnpm check` before accepting anything.
 - A change to this file or to `spec/` gets its own commit, straight after the
@@ -213,13 +216,13 @@ it on its first run.
   keep the theme and put one thing of their own on the front page. It is drawn
   in CSS with no images and no web font, and `pnpm check:payload` still holds.
 - No architecture section. The platform is fixed and `README.md` documents it.
-## Things this platform has actually bitten me with
+## Things this platform has actually bitten this repo with
 
 - A week links back to the week before it, never forward. `related:` renders on
   both pages either way, but the build fails on a ref to a page that does not
   exist yet, and weeks get written one or two at a time.
 - Every number about Close Quarters on the site was measured from its
   `rules.ts` on the day it was written. Re-measure before quoting one, on the
-  Apple laptop, and say which player: the game has changed since the numbers
-  anyone remembers were true, and week 9 printed a series without saying it came from
+  Apple laptop, and say which player: the game has changed since most remembered
+  numbers were measured, and week 9 printed a series without saying it came from
   the 150 ms player, three weeks after week 6 printed one from the 100 ms player.
