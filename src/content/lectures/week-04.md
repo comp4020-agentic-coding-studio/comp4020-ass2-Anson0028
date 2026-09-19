@@ -53,6 +53,5 @@ excuse for quoting fewer.
 
 ## What you leave with
 
-The smallest number of runs at which your own median stops moving by more than
-1 s, and one sentence on why you would or would not trust a claim made on
-fewer.
+The run count you will quote from now on, and the smallest difference you will
+claim at that count: how far a second set of seeds moved your median.

@@ -1,11 +1,11 @@
 ---
 title: How many runs
 description:
-  Find the number of runs at which your median stops moving, and decide how
-  much movement you are willing to live with.
+  Watch how far your median still moves as runs are added, and decide how much
+  movement you are willing to live with.
 week: 4
 date: 2027-03-18
-measures: the smallest run count at which the median moves by less than 1 s
+measures: the run count you will quote from now on, and the smallest difference you will claim with it
 teachers:
   - wei-lindqvist
 spec:
@@ -18,7 +18,7 @@ related:
 
 ## Before the tutorial
 
-Read the survival analysis section of the block's reading.
+Read the survival analysis section of the reading for weeks 3 to 5.
 
 ## In the tutorial
 
@@ -41,7 +41,8 @@ free: 51 runs take about 166 ms.
   "died at 120 s". A median does not care how long the winners would have
   lasted.
 - **One set of 51.** The page's 51 seeds give a median of 78.2 s. A different
-  51 gave 71.4 s. If your later claims are about differences smaller than that,
+  51, seeds 5100 to 9950 in steps of 97 (the ones the week 4 page runs when
+  you press it a second time), gave 71.4 s. If your later claims are about differences smaller than that,
   51 is not enough for them.
 
 ## What a finished answer looks like
