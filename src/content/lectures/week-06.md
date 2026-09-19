@@ -59,12 +59,12 @@ reading like 66.0 s.
 
 Speed is not the only thing changing, either. The boss is sized by how many
 cards the player holds when it arrives (week 7), and with everything else
-refused, each level of speed is one more card, so each of these players meets a
-smaller boss than the last. A player choosing normally arrives holding 7.
+refused, each level of speed is one more card, so from the second level on,
+each of these players meets a smaller boss than the last. A player choosing normally arrives holding 7.
 
 **Never take this.** Let the player choose normally but ban one card, and count
 what is lost. Baseline is 12 wins out of 51. This is restricted play, the
-method in this block's reading. The player still takes a card at every level,
+method in the reading for weeks 6 to 8. The player still takes a card at every level,
 so whichever card is banned, they reach the first boss holding a median of 6
 to 8.
 
