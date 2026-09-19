@@ -66,23 +66,25 @@ measured?"
 | Every tutorial says what it measures (`measures:`) | `spec/course.test.ts` › tutorials end in a number |
 | At most six readings, each with authors, a title and a URL | `spec/course.test.ts` › few readings |
 | Dated material stays inside the teaching period | `spec/data-integrity.test.ts` (shipped) |
-| Every week has a deck of its own | `spec/course.test.ts` › a deck of its own |
+| Every week's deck is its own: week N points at /decks/week-NN/ | `spec/course.test.ts` › a deck of its own |
 | Every deck leads back to the week it belongs to | `spec/course.test.ts` › lead back to the week |
 | Every week says which side of the title's question it measures, three weeks each for "me" and "the game" | `spec/course.test.ts` › which suspect |
 | Every week answers the title's question in a sentence of its own, eight words or more, no two alike | `spec/course.test.ts` › what it does to the course's question |
 | No starter prose on any built page outside the decks, the 404 page included | `spec/course.test.ts` › no starter prose |
 | Every built page outside the decks has exactly one h1 | `spec/course.test.ts` › exactly one h1 |
 | Search indexes as many pages as the site has outside the decks and the unlisted 404. It compares counts, so a deck swapped in for a course page would pass | `spec/course.test.ts` › lets search find the course pages |
-| Every printed copy of the instruments' numbers agrees: chart, tables, decks, home page, social card, tutorial, quiz, and the sentences worked out from them | `spec/numbers.test.ts`, on any machine |
+| Every printed copy of the instruments' numbers agrees: chart, tables, decks, home page, social card, week 11's win column, tutorial, quiz, and the sentences worked out from them | `spec/numbers.test.ts`, on any machine |
 | Week 4's medians and week 5's ladder are what the page's own runner computes | `spec/numbers.test.ts`, exact on darwin-arm64 only, the machine they were measured on. Elsewhere, CI included, it skips and prints its own numbers beside the printed ones |
 | No course page costs a visitor more than 3 s at 400 kbit/s. Decks, which load Reveal, are not counted | `scripts/check-payload.ts`, run by `pnpm check` and so by CI |
 | Every run button works twice in a row from the keyboard, and focus never leaves it | `pnpm check:browser` (a real browser, so outside `pnpm check`) |
 | Every run button works when its page was reached by a link, not only on a fresh load | `pnpm check:browser` |
 | Every run finishes in a background tab | `pnpm check:browser` |
+| A press made as soon as a slow page shows the button is not lost | `pnpm check:browser` |
+| Week 4's status sentence says the same spread as the column above it | `pnpm check:browser` |
 | A press made offline says what went wrong; pressed again offline, the page stays; back online, one press runs with focus kept, on that page or the next one reached by a link | `pnpm check:browser` |
-| Nothing styled in this repo fails colour contrast, in light or dark, on the ten pages the check visits. Headings in the platform's fixed amber are reported and not counted | `pnpm check:browser` |
+| Nothing on the ten pages the check visits fails colour contrast, in light or dark, the platform's headings included | `pnpm check:browser` |
 | No table hides a column off screen at 390 px, on the same ten pages | `pnpm check:browser` |
-| Every slide fits its stage at 1920x1080 and 390x844, and no paragraph, list, table cell or code line on a phone is under 14 px | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
+| Every slide fits its stage at 1920x1080 and 390x844, no paragraph, list, table cell or code line on a phone is under 14 px, and every ArrowRight reaches the next slide | `pnpm check:decks` (a real browser, so outside `pnpm check`) |
 
 A rule with no check is not in this table. It goes in the next section, and
 says why it is held by hand.
@@ -124,7 +126,7 @@ which prints as 81.5 s by a hair. A harmless change can flip it to 81.4.
   slots is a pattern an agent fills in without being asked.
 - Whether a sentence says what its number shows. Weeks 6 and 9 printed
   correct medians and read them wrongly: "every run dies at the first boss",
-  "every build dies against it". Re-measured, 18 of 51 and 14 of 15 runs
+  "every build dies against it". Re-measured, 18 of 51 and 43 of 51 runs
   killed that boss. A check can hold a number; only reading the runs behind it
   holds the sentence. Count something the median cannot flatten before saying
   what a flat median means.
@@ -158,7 +160,9 @@ committed. See the first rule.
   never noticed. This is why the rules above sit in a table beside their checks.
 - **An assertion goes green most easily when its subject is absent.** I don't
   trust a check I haven't watched fail. Here: the weights check passed on day
-  one only because the starter's placeholders happen to sum to 100.
+  one only because the starter's placeholders happen to sum to 100, and four
+  spec checks (c0d6194, f9616a3, ad11484, d3ecead) came in with or after the
+  content they check and were never seen red in the history.
 - **Measure the baseline before changing anything,** and write down what was
   already true, so a later green is known to mean something changed.
 - **Name what only a person can judge, then go and judge it.** Crit 4: four
