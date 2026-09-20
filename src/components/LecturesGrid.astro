@@ -1,21 +1,168 @@
 ---
 import { getPublishedCollection } from "astro-course-university/content";
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import { formatCourseDate } from "../lib/dates";
 
 const lectures = await getPublishedCollection("lectures");
-const visible = lectures.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+const visible = lectures.sort((a, b) => a.data.week - b.data.week);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const tag: Record<string, string> = { instrument: "the measuring instrument", me: "is it me", game: "is it the game", verdict: "the verdict" };
 ---
 
-<CardGrid columns={2}>
+<ol class="weeks">
   {
     visible.map((lecture) => (
-      <Card headingLevel="h2" title={lecture.data.title} href={`/lectures/${lecture.id}/`}>
-        {lecture.data.description && <p>{lecture.data.description}</p>}
-        <p><small>Week {lecture.data.week} · {formatCourseDate(lecture.data.date)} · {tag[String(lecture.data.suspect)]}</small></p>
-      </Card>
+      <li class={String(lecture.data.suspect)}>
+        <a href={`${base}/lectures/${lecture.id}/`}>
+          <span class="wk">{String(lecture.data.week).padStart(2, "0")}</span>
+          <span class="when">{formatCourseDate(lecture.data.date)}</span>
+          <h2 class="t">{lecture.data.title}</h2>
+          <span class="tag">{tag[String(lecture.data.suspect)]}</span>
+          {lecture.data.description && <p class="d">{lecture.data.description}</p>}
+        </a>
+      </li>
     ))
   }
-</CardGrid>
+</ol>
+
+<style>
+  .weeks {
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--at-divider);
+  }
+
+  .weeks li {
+    border-top: 1px solid var(--at-divider);
+  }
+
+  .weeks a {
+    display: grid;
+    grid-template-columns: 4.75rem minmax(0, 1fr) max-content;
+    gap: 0.15rem 1.25rem;
+    align-items: baseline;
+    padding: 1rem 0.9rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .wk {
+    grid-row: 1;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 2.1rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .when,
+  .tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .when {
+    grid-row: 2;
+    grid-column: 3;
+    justify-self: end;
+    opacity: 0.75;
+  }
+
+  .tag {
+    grid-row: 1;
+    grid-column: 3;
+    justify-self: end;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+  }
+
+  .t {
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0;
+    color: light-dark(var(--at-secondary), var(--at-heading));
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .d {
+    grid-row: 2;
+    grid-column: 2;
+    margin: 0.15rem 0 0;
+    font-size: 0.95rem;
+    opacity: 0.82;
+  }
+
+  .weeks a:hover .t,
+  .weeks a:focus-visible .t {
+    text-decoration: underline;
+  }
+
+  .weeks li.me a {
+    background: var(--at-bg-alt);
+  }
+
+  .weeks li.game + li.game {
+    border-top-color: transparent;
+  }
+
+  .weeks li.game a {
+    color: light-dark(#fdfcf8, #1b1a17);
+    background: light-dark(#1b1a17, #f0b94a);
+  }
+
+  .weeks li.verdict a {
+    background: var(--at-bg-alt);
+    box-shadow: inset 0.3rem 0 0 var(--at-primary);
+  }
+
+  .weeks li.game .t {
+    color: light-dark(#f0b94a, #1b1a17);
+  }
+
+  .weeks li.game .d,
+  .weeks li.verdict .d,
+  .weeks li.game .tag,
+  .weeks li.verdict .tag,
+  .weeks li.game .when,
+  .weeks li.verdict .when {
+    opacity: 0.9;
+  }
+
+  .weeks li.game a:focus-visible,
+  .weeks li.verdict a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -4px;
+  }
+
+  @media (max-width: 40rem) {
+    .weeks a {
+      grid-template-columns: 3.1rem minmax(0, 1fr);
+      padding-inline: 0.6rem;
+    }
+
+    .wk {
+      font-size: 1.6rem;
+    }
+
+    .tag {
+      grid-row: 3;
+      grid-column: 2;
+      justify-self: start;
+    }
+
+    .when {
+      grid-row: 4;
+      grid-column: 2;
+      justify-self: start;
+    }
+
+    .d {
+      grid-column: 2;
+    }
+  }
+</style>

@@ -4,7 +4,7 @@
 
 .related-content h2,
 .at-card-title {
-  color: light-dark(#8a5a0c, var(--at-heading));
+  color: light-dark(var(--at-secondary), var(--at-heading));
 }
 
 @media (max-width: 30rem) {

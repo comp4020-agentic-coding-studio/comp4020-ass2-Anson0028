@@ -18,7 +18,7 @@ const rows = lectures.map((lecture, i) => {
   const reading = (lecture.data as { reading?: { authors: string; title: string; url: string } }).reading;
   const next = lectures[i + 1];
   const breakAfter = next ? (next.data.date.getTime() - lecture.data.date.getTime()) / DAY > 7 : false;
-  return { lecture, tutorial, due, reading, breakAfter };
+  return { lecture, tutorial, due, reading, breakAfter, suspect: String(lecture.data.suspect) };
 });
 ---
 
@@ -32,9 +32,9 @@ const rows = lectures.map((lecture, i) => {
     </tr>
   </thead>
   <tbody>
-    {rows.map(({ lecture, tutorial, due, reading, breakAfter }) => (
+    {rows.map(({ lecture, tutorial, due, reading, breakAfter, suspect }) => (
       <>
-        <tr>
+        <tr class={suspect}>
           <td>
             {lecture.data.week}
             <small>{formatCourseDate(lecture.data.date)}</small>
@@ -112,6 +112,44 @@ const rows = lectures.map((lecture, i) => {
     background: var(--at-bg-alt);
   }
 
+  .schedule tbody tr {
+    background: none;
+  }
+
+  .schedule tbody tr.me {
+    background: var(--at-bg-alt);
+  }
+
+  .schedule tbody tr.game {
+    color: light-dark(#fdfcf8, #1b1a17);
+    background: light-dark(#1b1a17, #f0b94a);
+  }
+
+  .schedule tbody tr.game th,
+  .schedule tbody tr.game td {
+    border-bottom-color: transparent;
+  }
+
+  .schedule tbody tr.game + tr.game th,
+  .schedule tbody tr.game + tr.game td {
+    border-top: 0;
+  }
+
+  .schedule tbody tr.verdict {
+    background: var(--at-bg-alt);
+    box-shadow: inset 0.3rem 0 0 var(--at-primary);
+  }
+
+  .schedule tbody tr.game a {
+    color: light-dark(#f0b94a, #1b1a17);
+  }
+
+  .schedule tbody tr.game small,
+  .schedule tbody tr.game .read {
+    color: inherit;
+    opacity: 0.85;
+  }
+
   @media (max-width: 40rem) {
     .schedule thead {
       display: none;
@@ -134,8 +172,13 @@ const rows = lectures.map((lecture, i) => {
     }
 
     .schedule tbody tr {
-      padding-block: 0.6rem;
+      padding: 0.6rem 0.75rem;
       border-bottom: 1px solid var(--at-divider);
+    }
+
+    .schedule tbody tr.game + tr.game {
+      border-top: 0;
+      padding-top: 0;
     }
 
     .break td {
