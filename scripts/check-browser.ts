@@ -63,7 +63,12 @@ try {
     if (second === first) failures.push(`${path}: a second Enter did nothing; the status still reads "${first.slice(0, 60)}…"`);
     if (button === "#run-drift") {
       for (const [when, text] of [["first", first], ["second", second]] as const) {
-        const said = Number(/moved by ([\d.]+) s/.exec(text)?.[1]);
+        const match = /moved by ([\d.]+) s/.exec(text);
+        if (!match) {
+          failures.push(`${path}: after the ${when} run the status does not say how far the median moved`);
+          continue;
+        }
+        const said = Number(match[1]);
         const shown = when === "second" ? await page.$$eval(".drift tbody tr .live", (cells) => cells.map((c) => parseFloat(c.textContent ?? ""))) : firstColumn;
         const spread = Math.max(...shown) - Math.min(...shown);
         if (Math.abs(said - spread) > 0.05) failures.push(`${path}: after the ${when} run the status says the median moved by ${said} s, but the column it sits under spans ${spread.toFixed(1)} s`);
@@ -191,8 +196,25 @@ try {
   await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 400, downloadThroughput: 50 * 1024, uploadThroughput: 50 * 1024 });
   for (const { path, button, status } of INSTRUMENTS) {
     await slowPage.goto(`http://localhost:${PORT}${base}${path}`, { waitUntil: "domcontentloaded" });
-    const looksReady = await slowPage.evaluate((b) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true", button);
-    if (!looksReady) continue;
+    const appeared = await slowPage
+      .waitForSelector(button, { timeout: 60_000 })
+      .then(() => true)
+      .catch(() => false);
+    if (!appeared) {
+      failures.push(`${path}: on a slow connection, the button never appears`);
+      continue;
+    }
+    const held = await slowPage.evaluate((b) => document.querySelector(b)?.getAttribute("aria-disabled") === "true", button);
+    if (held) {
+      const freed = await slowPage
+        .waitForFunction((b) => document.querySelector(b)?.getAttribute("aria-disabled") !== "true", button, { timeout: 60_000 })
+        .then(() => true)
+        .catch(() => false);
+      if (!freed) {
+        failures.push(`${path}: on a slow connection, the button says it is not ready and never becomes ready`);
+        continue;
+      }
+    }
     await slowPage.click(button);
     const ran = await slowPage
       .waitForFunction(
