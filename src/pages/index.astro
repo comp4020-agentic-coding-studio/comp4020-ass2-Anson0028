@@ -63,6 +63,7 @@ const suspects = [
 
   <p class="lead lead-below">{courseMeta.description}</p>
 
+  <p class="kicker">01 · the dial</p>
   <h2>Start with “is it me”</h2>
   <p>
     Take one simulated player and make them slower, 50 ms at a time. Each row
@@ -75,23 +76,51 @@ const suspects = [
   </ReactionLadder>
 
 
+  <p class="kicker">02 · the specimen</p>
   <h2>What you will do, and who it is for</h2>
-  <p>
-    Twelve weeks measuring one small game, <a href="https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/"><em>Close Quarters</em></a>,
-    a two-minute survival run with seven upgrade cards and two bosses. It is live,
-    linked here on purpose, and you are asked not to open it until week ten. Its rules are <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">eight hundred lines of TypeScript</a>,
-    and those you may read now.
-  </p>
-  <p>
-    You leave with one number: a change to one constant in that game, and a
-    ten-minute case for it that three sceptical classmates could check.
-  </p>
-  <p>
-    It is for people who make or mod games and are tired of balance arguments
-    nobody can lose. You need to read and edit TypeScript. You do not need
-    statistics beyond a median, and you do not need to be good at the game.
-  </p>
+  <p>Twelve weeks measuring one small game.</p>
+  <dl class="spec">
+    <div>
+      <dt>Specimen</dt>
+      <dd>
+        <a href="https://comp4020-agentic-coding-studio.github.io/comp4020-crit5-Anson0028/"><em>Close Quarters</em></a>,
+        a two-minute survival run with seven upgrade cards and two bosses. It is
+        live, and linked here on purpose.
+      </dd>
+    </div>
+    <div>
+      <dt>Its rules</dt>
+      <dd>
+        <a href="https://github.com/comp4020-agentic-coding-studio/comp4020-crit5-Anson0028/blob/main/rules.ts">Eight hundred lines of TypeScript</a>,
+        and those you may read now.
+      </dd>
+    </div>
+    <div>
+      <dt>You open it</dt>
+      <dd>Week ten. You are asked not to before then.</dd>
+    </div>
+    <div>
+      <dt>You leave with</dt>
+      <dd>
+        One number: a change to one constant in that game, and a ten-minute case
+        for it that three sceptical classmates could check.
+      </dd>
+    </div>
+    <div>
+      <dt>It is for</dt>
+      <dd>People who make or mod games and are tired of balance arguments nobody can lose.</dd>
+    </div>
+    <div>
+      <dt>You need</dt>
+      <dd>To read and edit TypeScript.</dd>
+    </div>
+    <div>
+      <dt>You do not need</dt>
+      <dd>Statistics beyond a median, or to be good at the game.</dd>
+    </div>
+  </dl>
 
+  <p class="kicker">03 · the semester</p>
   <h2>The semester, week by week</h2>
   <p>Tuesday is the claim, Thursday is the measurement.</p>
   <Schedule />
@@ -151,11 +180,11 @@ const suspects = [
     padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);
   }
 
-  .me {
+  .suspects .me {
     background: var(--at-bg-alt);
   }
 
-  .game {
+  .suspects .game {
     color: light-dark(#fdfcf8, #1b1a17);
     background: light-dark(#1b1a17, #f0b94a);
   }
@@ -169,7 +198,7 @@ const suspects = [
     text-wrap: balance;
   }
 
-  .game .big {
+  .suspects .game .big {
     color: light-dark(#f0b94a, #1b1a17);
   }
 
@@ -196,7 +225,7 @@ const suspects = [
     text-decoration: underline;
   }
 
-  .game a:focus-visible {
+  .suspects .game a:focus-visible {
     outline-color: currentColor;
   }
 
@@ -214,7 +243,7 @@ const suspects = [
     font-weight: 700;
   }
 
-  .game .num {
+  .suspects .game .num {
     color: light-dark(#f0b94a, #1b1a17);
   }
 
@@ -253,6 +282,61 @@ const suspects = [
 
     .lead-below {
       display: none;
+    }
+  }
+
+  .kicker {
+    margin: 3.5rem 0 0.35rem;
+    color: var(--at-text-secondary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .kicker::before {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    margin-bottom: 0.7rem;
+    background: var(--at-primary);
+    content: "";
+  }
+
+  .kicker + h2 {
+    margin-top: 0;
+  }
+
+  .spec {
+    margin: 1.5rem 0 0;
+    border-bottom: 1px solid var(--at-divider);
+  }
+
+  .spec > div {
+    display: grid;
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    gap: 0.25rem 1.5rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--at-divider);
+  }
+
+  .spec dt {
+    color: var(--at-text-secondary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+  .spec dd {
+    margin: 0;
+  }
+
+  @media (max-width: 40rem) {
+    .spec > div {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
     }
   }
 
