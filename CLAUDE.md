@@ -89,6 +89,11 @@ measured?"
 A rule with no check is not in this table. It goes in the next section, and
 says why it is held by hand.
 
+`pnpm evidence:shot` is not a check and holds nothing. It rebuilds two named
+commits in throwaway worktrees and retakes the before-and-after picture in
+`PROCESS.md`, printing what it measured. It is slow, it overwrites a tracked
+image, and CI never runs it.
+
 What `spec/numbers.test.ts` cannot see. It recomputes the ladder and the
 medians and nothing else, so a rule change that moves none of those passes it,
 and every other number on the site is held by hand. It runs exactly only on
@@ -160,8 +165,9 @@ committed. See the first rule.
   never noticed. This is why the rules above sit in a table beside their checks.
 - **An assertion goes green most easily when its subject is absent.** I don't
   trust a check I haven't watched fail. Here: the weights check passed on day
-  one only because the starter's placeholders happen to sum to 100, and four
-  spec checks (c0d6194, f9616a3, ad11484, d3ecead) came in with or after the
+  one only because the starter's placeholders happen to sum to 100, and seven
+  checks (c0d6194, f9616a3, ad11484, d3ecead, and the deck's ArrowRight, own
+  deck per week and week 11 win column in 7d54673) came in with or after the
   content they check and were never seen red in the history.
 - **Measure the baseline before changing anything,** and write down what was
   already true, so a later green is known to mean something changed.
@@ -214,12 +220,21 @@ it on its first run.
 
 ## Deliberately not here
 
-- No site-wide visual rules. The platform's theme stays on every page. The one
-  exception is the home page: its hero is the title split into its two
-  suspects, and its picture is the course's own 306 runs drawn one dot per run.
-  I asked for this after looking at classmates' sites, where the strong ones
-  keep the theme and put one thing of their own on the front page. It is drawn
-  in CSS with no images and no web font, and `pnpm check:payload` still holds.
+- No site-wide visual rules. The platform's theme stays on every page, and the
+  palette stays as it arrived. Two small headings, the card titles and the
+  "Related" label, take the palette's own `--at-secondary` in light mode
+  instead of its primary amber, which is 3.43:1 at that size. The exception is
+  the two suspects. The home page's hero is the title split into them, and its
+  picture is the course's own 306 runs drawn one dot per run. The three index
+  pages and the home page's schedule then carry the same split: a week whose
+  lecture puts the game in the dock is an ink row, week 12 is marked by the
+  palette's own amber, and nothing else is coloured. I asked for the hero after
+  looking at classmates' sites, where the strong ones keep the theme and put
+  one thing of their own on the front page; the lists followed so that the one
+  thing is not only on the front page. It is drawn in CSS with no images and no
+  web font, and `pnpm check:payload` still holds. No check knows which week
+  belongs to which suspect on those pages: `spec/course.test.ts` counts three
+  of each in the content, but the colour that shows it is held by hand.
 - No architecture section. The platform is fixed and `README.md` documents it.
 ## Things this platform has actually bitten this repo with
 

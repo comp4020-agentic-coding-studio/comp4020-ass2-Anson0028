@@ -20,14 +20,16 @@ it, which is the brief's test for too broad.
 
 Most courses I am taking this semester are built on two or three papers, so I
 had Claude find candidates, read them, and picked the five that fitted best to
-read closely. Claude's first list gave every week a reading, and I cut it: "one
+read closely
+([`e6ab4b4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/e6ab4b4)). Claude's first list gave every week a reading, and I cut it: "one
 a week feels like too much, make it one every two or three weeks"
 ([`26e56e9`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/26e56e9)).
 Here the week's real text is the student's own data.
 
 Then I gave Claude a persona, a student looking at my topic and my twelve week
 titles. It said some weeks did not match their papers and some titles would not
-make anyone want to read on, and I rewrote them. The weeks were first written
+make anyone want to read on, and I rewrote them
+([`3a06dd6`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/3a06dd6)). The weeks were first written
 as "Measuring Game Balance Without Players", and I threw that title away as
 "not interesting enough; nobody would see it and want to click"
 ([`f888122`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/f888122)).
@@ -40,10 +42,20 @@ Six checks on the shape of the semester came before any week existed. Five
 were red, and the sixth passed only because the starter's placeholders summed
 to 100
 ([`01baaab`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/01baaab)).
+Most of what followed went in the same way, committed red with the failure
+named: the decks that were dead ends, red on all twelve
+([`a2af9d4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/a2af9d4)),
+a second press while still offline
+([`d1ed9f8`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/d1ed9f8)),
+every slide at phone size, where seven table slides were at 8.8 px
+([`a6deb65`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/a6deb65)),
+and the code lines that check had never measured
+([`4da87b4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/4da87b4)).
+
 Voice, whether a reading is real, and whether a first-time reader can tell what
 a thing is have no check on purpose, because no test can tell whether a
 paragraph sounds like a person. `CLAUDE.md` keeps them as held by hand
-([`add7bf5`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/add7bf5)).
+([`26e56e9`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/26e56e9), [`add7bf5`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/add7bf5)).
 
 The harness went wrong first. The new `CLAUDE.md` carried nothing from earlier
 weeks, and no check noticed until I asked: "Wait, did your harness come across
@@ -68,11 +80,30 @@ the rest became page fixes
 ([`83b8fd6`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/83b8fd6)).
 I ran three rounds
 ([`4da87b4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/4da87b4)).
+One of them found week 11's table hiding its last column on a phone. The check
+went in red, the fix after
+([`33439a6`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/33439a6), [`81cd501`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/81cd501)),
+and `pnpm evidence:shot` rebuilds both commits and takes this picture again.
+
+![Week 11 at 390 px, rebuilt from both commits. Before: four columns, the header sliced at the right edge, 87 px hidden, the Win column off screen. After: five columns, headers wrapped, Win reads 38, 12, 2, 0, 0, 0.](docs/table-w11-390.png)
+
+What no check could hold stayed a reading job. Week 10's lecture said to go and
+play the game on the Tuesday before the tutorial that needs you not to have
+([`3fc970b`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/3fc970b)).
+Tutorial 7 quoted 20 damage a second as a ceiling beside a measured 561 hp gate
+that is above it
+([`a470c7a`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/a470c7a)).
+On a phone the home page gave two and a half screens of numbers before saying
+what the course is, and no hero line said whose numbers they were
+([`3c3e465`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/3c3e465)).
+None of those failed anything.
 
 ## How I knew the numbers were right
 
-The spec recomputes the printed numbers with the runner the page's button uses,
-and fails when bolt damage changes from 17 to 18
+The spec recomputes the printed numbers with the runner the page's button uses.
+It could not go in red, because the pages already agreed with it, so I watched
+it fail twice on purpose instead: bolt damage 17 to 18, and one median edited
+from 78.0 to 78.1
 ([`1fd2fe2`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/1fd2fe2)).
 Then CI went red on GitHub's Linux runner
 ([run](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/actions/runs/35433193329)):
@@ -80,13 +111,18 @@ seed 97 ended at 63.1 s, not 69.333 s. Rather than replace `Math.sin` and
 re-measure the whole site, I narrowed the claim to the same kind of machine and
 made week 2 teach the difference
 ([`5dbff8c`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/5dbff8c)).
-A check holds a number, not the sentence around it: weeks 6 and 9 read a flat
-median as a verdict until the first-boss kills were counted
+
+A check holds a number, not the sentence around it. Weeks 6 and 9 printed
+medians that were right and read them as a verdict. The flat 66.0 s was the
+first boss's deadline, and nobody had counted the kills behind it
 ([`7055dd7`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/7055dd7)).
 
 ## Thin spots
 
 The twelve weeks of lectures went in within twenty minutes
-([`e6ab4b4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/e6ab4b4)),
-and several checks came after the content they check without ever being seen
-red. Most of the prose is the agent's; the decisions are mine.
+([`c78cdd8`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/c78cdd8), [`e6ab4b4`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/e6ab4b4)),
+and three of the six checks in
+[`7d54673`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/7d54673)
+passed on their first run, so about those I can say only that they pass.
+Most of the prose is the agent's; the decisions are mine
+([`d151aee`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-Anson0028/commit/d151aee)).
