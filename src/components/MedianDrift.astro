@@ -29,7 +29,7 @@ const printed = [
     </tbody>
   </table>
   <p class="run-it">
-    <button type="button" id="run-drift">Run 501 and watch the median move</button>
+    <button type="button" id="run-drift" aria-disabled="true">Run 501 and watch the median move</button>
     <span id="drift-status" aria-live="polite"></span>
   </p>
   <figcaption>
@@ -96,6 +96,7 @@ const printed = [
       button.textContent = "Run 501 on new seeds";
       button.removeAttribute("aria-disabled");
     });
+    button.removeAttribute("aria-disabled");
     if (shared().slopRulesUnreachable) {
       status.textContent = "The rules did not load earlier on this visit, so pressing reloads the page first.";
       button.textContent = "Reload and try again";

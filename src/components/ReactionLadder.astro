@@ -30,7 +30,7 @@ const RUNS = 51;
     ))}
   </div>
   <p class="run-it">
-    <button type="button" id="run-51">Run all 306 in your browser</button>
+    <button type="button" id="run-51" aria-disabled="true">Run all 306 in your browser</button>
     <span id="run-status" aria-live="polite"></span>
   </p>
   <figcaption><slot /></figcaption>
@@ -115,6 +115,7 @@ const RUNS = 51;
       button.textContent = "Run 306 with new seeds";
       button.removeAttribute("aria-disabled");
     });
+    button.removeAttribute("aria-disabled");
     if (shared().slopRulesUnreachable) {
       status.textContent = "The rules did not load earlier on this visit, so pressing reloads the page first.";
       button.textContent = "Reload and try again";
