@@ -14,7 +14,8 @@
     "test:template": "vitest run scripts",
     "check:payload": "pnpm build && node scripts/check-payload.ts",
     "check:decks": "pnpm build && node scripts/check-decks.ts",
-    "check:browser": "pnpm build && node scripts/check-browser.ts"
+    "check:browser": "pnpm build && node scripts/check-browser.ts",
+    "evidence:shot": "node scripts/evidence-shot.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
